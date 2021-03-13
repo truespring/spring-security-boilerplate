@@ -9,9 +9,24 @@
 #  port: 8082  # Spring boot Server port
 
 spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+# local 환경
+---
+spring:
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   h2:
     console:
       enabled: true
+  config :
+    activate :
+      on-profile : local
 
 #  datasource:
 #    driver-class-name: org.h2.Driver  #h2 드라이버 설정

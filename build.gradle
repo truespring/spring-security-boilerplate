@@ -35,6 +35,8 @@ dependencies {
     implementation 'junit:junit:4.12'
     // -----------------------------------------------------------------------
 
+    implementation 'com.h2database:h2'
+
     // lombok : getter/setter 간소화
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
