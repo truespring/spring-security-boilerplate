@@ -1,14 +1,13 @@
-
-var main = {
+let main = {
     init : function () {
-        let _this = this;
+        var _this = this;
         $('#btn-save').on('click', function () {
             _this.save();
         });
     },
     save : function () {
         let data = {
-            title: $('#title').val(),
+            title : $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
         };
@@ -17,16 +16,20 @@ var main = {
             type: 'POST',
             url: '/posts',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
-
-        }).done(function() {
-            console.log('성공')
-            location.reload()
-
+        }).done(function(data) {
+            if(data === 1){
+                alert('등록되었습니다');
+                location.reload();
+            }else{
+                alert('등록이 실패하였습니다.');
+            }
         }).fail(function (error) {
-            alert(error);
+            console.log(error)
+            alert("error");
         });
     }
 };
+
 main.init();

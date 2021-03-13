@@ -70,52 +70,11 @@
         </div>
     </div>
 </div>
-
 <!--부트스트랩 js, jquery 추가-->
 <script src="/js/lib/jquery.min.js"></script>
 <script src="/js/lib/bootstrap.min.js"></script>
 
 <!--custom js 추가-->
 <script src="/js/app/main.js"></script>
-
 </body>
-<script>
-    let _this = this;
-    $('#btn-save').on('click', function () {
-        _this.save();
-    });
-    let main = {
-        init : function () {
-            let _this = this;
-            $('#btn-save').on('click', function () {
-                _this.save();
-            });
-        },
-        save : function () {
-            let data = {
-                title: $('#title').val(),
-                author: $('#author').val(),
-                content: $('#content').val()
-            };
-            $.ajax({
-
-            })
-            $.ajax({
-                type: 'POST',
-                url: '/posts',
-                dataType: 'json',
-                contentType:'application/json; charset=utf-8',
-                data: JSON.stringify(data)
-
-            }).done(function() {
-                console.log('성공')
-                location.reload()
-
-            }).fail(function (error) {
-                alert(error);
-            });
-        }
-    };
-    main.init();
-</script>
 </html>

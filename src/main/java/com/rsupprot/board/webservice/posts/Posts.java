@@ -1,12 +1,12 @@
 package com.rsupprot.board.webservice.posts;
 
 import com.rsupprot.board.webservice.BaseTimeEntity;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 //@NoArgsConstructor : 기본 생성자 자동 추가 , access = AccessLevel.PROTECTED : 기본생성자의 접근 권한을 protected로 제한
 //@Entity
@@ -20,10 +20,8 @@ public class Posts extends BaseTimeEntity {
 
     //해당 테이블의 PK 필드를 나타냅니다.
     //PK의 생성 규칙을 나타냅니다.
-    //기본값은 AUTO 로, MySQL의 auto_increment와 같이 자동증가하는 정수형 값이 됩니다.
-    //스프링 부트 2.0에선 옵션을 추가하셔야만 auto_increment가 됩니다!
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     //테이블의 컬럼을 나타내면, 굳이 선언하지 않더라도 해당 클래스의 필드는 모두 컬럼이 됩니다.
