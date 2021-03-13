@@ -35,15 +35,13 @@ dependencies {
     implementation 'junit:junit:4.12'
     // -----------------------------------------------------------------------
 
-    implementation 'com.h2database:h2'
-
     // lombok : getter/setter 간소화
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0')
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-
     runtimeOnly 'com.h2database:h2'
+//    implementation 'com.h2database:h2'
 
     // Junit 테스트
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

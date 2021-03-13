@@ -5,31 +5,27 @@
 # 최근의 많은 도구들이 yml 설정을 지원하기 때문에 이참에 시작해보시는 것을 추천드립니다.
 
 # http://localhost:8080/h2-console
-#server:
-#  port: 8082  # Spring boot Server port
-
 spring:
-  profiles:
-    active: local # 기본 환경 선택
-
+  profiles :
+    active : local
 # local 환경
 ---
 spring:
+  profiles:
+    active : local
   datasource:
-    data: classpath:data-h2.sql # 시작할때 실행시킬 script
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
+    url : jdbc:h2:file:~/tmp/RestAPIBoard/testDB;AUTO_SERVER=TRUE
+    platform : h2
+    driver-class-name : org.h2.Driver
+    username : sa
+    password :
+#    data : classpath:data-h2.sql
   h2:
     console:
       enabled: true
-  config :
-    activate :
-      on-profile : local
-
-#  datasource:
-#    driver-class-name: org.h2.Driver  #h2 드라이버 설정
-#    url: jdbc:h2:file:~/Develop/restAPI  #접속 URL
-#    username: test  # 사용자 이름 (로그인 시 사용)
-#    password: 1234  # 사용자 암호 (로그인 시 사용)
+      path : /console
+  jpa:
+    hibernate :
+      ddl-auto : create-drop
+    database-platform : org.hibernate.dialect.H2Dialect
+    show-sql : true

@@ -19,9 +19,11 @@ var main = {
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
+
         }).done(function() {
             console.log('성공')
-            location.replace('/')
+            location.reload()
+
         }).fail(function (error) {
             alert(error);
         });
