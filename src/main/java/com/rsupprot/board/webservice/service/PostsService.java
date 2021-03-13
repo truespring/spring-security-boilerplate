@@ -4,9 +4,9 @@ import com.rsupprot.board.dto.PostsMainResponseDto;
 import com.rsupprot.board.dto.PostsSaveRequestDto;
 import com.rsupprot.board.webservice.posts.PostsRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +25,7 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public List<PostsMainResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc()
+        return postsRepository.findAllDesc(PageRequest.of(1,10))
                 .map(PostsMainResponseDto::new)
                 .collect(Collectors.toList());
     }

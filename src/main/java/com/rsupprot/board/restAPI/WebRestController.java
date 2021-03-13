@@ -1,4 +1,4 @@
-package com.rsupprot.board.controller;
+package com.rsupprot.board.restAPI;
 
 import com.rsupprot.board.dto.PostsSaveRequestDto;
 import com.rsupprot.board.webservice.posts.PostsRepository;
