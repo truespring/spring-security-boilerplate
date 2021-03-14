@@ -49,12 +49,28 @@ let main = {
         });
     }
 };
-function delThisList() {
-    let thisTr = $(this).parent().parent();
+function delThisList(thisBtn) {
+    let thisTr = $(thisBtn).parent().parent();
     let thisId = $(thisTr).find('.id')[0].innerText;
     let chk = confirm('삭제하시겠습니까?')
     if(chk){
-
+        let data = {
+            id : thisId
+        }
+        $.ajax({
+            type: 'DELETE',
+            url: '/posts',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function (data) {
+            if(data === 1){
+                alert('삭제되었습니다.')
+                location.reload()
+            }else{
+                alert('실패하였습니다.')
+            }
+        })
     }
 }
 
@@ -73,9 +89,10 @@ function modify() {
         data: JSON.stringify(data)
     }).done(function (data) {
         if(data === 1){
-            alert('수정되었습니다.')
+            alert('수정되었습니다.');
+            location.reload();
         }else{
-            alert('실패하였습니다.')
+            alert('실패하였습니다.');
         }
     })
 }

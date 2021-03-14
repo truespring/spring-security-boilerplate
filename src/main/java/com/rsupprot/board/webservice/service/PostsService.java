@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -39,7 +40,12 @@ public class PostsService {
         Optional<Posts> list = postsRepository.findById(dto.getId());
         // 만약 list가 있다면
         if(list.isPresent()){
-            postsRepository.save(dto.toEntity());
+            Posts posts = list.get();
+            posts.setId(dto.getId());
+            posts.setTitle(dto.getTitle());
+            posts.setAuthor(dto.getAuthor());
+            posts.setContent(dto.getContent());
+            postsRepository.save(posts);
             return 1;
         }
         return 0;

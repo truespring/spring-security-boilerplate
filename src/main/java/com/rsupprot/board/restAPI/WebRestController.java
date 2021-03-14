@@ -24,6 +24,7 @@ public class WebRestController {
             return 0;
         }
     }
+    // 게시글 수정
     @PatchMapping("/posts")
     public int patchPosts(@RequestBody PostsPatchRequestDto dto){
         System.out.println(dto.getId());
@@ -34,6 +35,16 @@ public class WebRestController {
         if(chk == 1){
             return 1;
         }else{
+            return 0;
+        }
+    }
+    // 게시글 삭제
+    @DeleteMapping("/posts")
+    public int deletePosts(@RequestBody PostsPatchRequestDto dto){
+        try{
+            postsRepository.deleteById(dto.getId());
+            return 1;
+        }catch (Exception e){
             return 0;
         }
     }
