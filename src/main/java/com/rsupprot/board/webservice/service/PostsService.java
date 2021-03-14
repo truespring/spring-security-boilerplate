@@ -1,17 +1,16 @@
 package com.rsupprot.board.webservice.service;
 
 import com.rsupprot.board.dto.PostsMainResponseDto;
-import com.rsupprot.board.dto.PostsSaveRequestDto;
 import com.rsupprot.board.dto.PostsPatchRequestDto;
+import com.rsupprot.board.dto.PostsSaveRequestDto;
+import com.rsupprot.board.util.Paging;
 import com.rsupprot.board.webservice.posts.Posts;
 import com.rsupprot.board.webservice.posts.PostsRepository;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +26,12 @@ public class PostsService {
     public Long save(PostsSaveRequestDto dto){
         return postsRepository.save(dto.toEntity()).getId();
     }
+
+    @Transactional(readOnly = true)
+    public long totalPageCount(int size){
+        return Paging.calculatePageCount(postsRepository.count(), size);
+    }
+
 
     @Transactional(readOnly = true)
     public List<PostsMainResponseDto> findAllDesc() {

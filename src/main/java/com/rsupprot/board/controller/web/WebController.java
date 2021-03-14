@@ -1,6 +1,5 @@
 package com.rsupprot.board.controller.web;
 
-import com.rsupprot.board.webservice.posts.PostsRepository;
 import com.rsupprot.board.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

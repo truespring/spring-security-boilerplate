@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 // autowired 대신에 사용함 : 추천
 @RestController
 @AllArgsConstructor
-public class WebRestController {
+public class RestPostsController {
 
     private final PostsRepository postsRepository;
     private final PostsService postsService;
@@ -27,10 +27,6 @@ public class WebRestController {
     // 게시글 수정
     @PatchMapping("/posts")
     public int patchPosts(@RequestBody PostsPatchRequestDto dto){
-        System.out.println(dto.getId());
-        System.out.println(dto.getTitle());
-        System.out.println(dto.getAuthor());
-        System.out.println(dto.getContent());
         int chk = postsService.patch(dto);
         if(chk == 1){
             return 1;

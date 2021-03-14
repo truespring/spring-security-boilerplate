@@ -1,6 +1,28 @@
 let main = {
     init : function () {
         let _this = this;
+        // Paging 호출
+        $.ajax({
+            type: 'GET',
+            url: '/totalPage',
+            contentType: 'application/json; charset=utf-8',
+        }).done(function (data) {
+            $('#divBoard').append(`
+                <ul class="text-center" id="pageGroup" style="list-style-type: none; margin: 20px auto; font-size: 1.2em; font-weight: bold;"></ul>
+            `)
+            let lastPage = 5;
+            // 총 페이지가 출력페이지보다 적다면, 총 페이지가 출력 페이지
+            if(data < lastPage) lastPage = data;
+            
+            for (let page = 1; page <= lastPage; page++) {
+                $('#pageGroup').append(`
+                    <li style="display: inline-block; cursor:pointer;">${page}</li>
+                `)
+            }
+        }).fail(function (error) {
+            console.log(error)
+        })
+
         // 글 등록 버튼 클릭 시
         $('#btn-save').on('click', function () {
             _this.save();
