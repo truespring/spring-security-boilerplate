@@ -11,14 +11,18 @@ import java.util.Optional;
     public class PostsMainResponseDto {
     private final Long id;
     private final String title;
+    private final String content;
     private final String author;
     private final String modifiedDate;
+    private final String createdDate;
 
     public PostsMainResponseDto(Posts entity) {
         id = entity.getId();
         title = entity.getTitle();
+        content = entity.getContent();
         author = entity.getAuthor();
         modifiedDate = toStringDateTime(entity.getModifiedDate());
+        createdDate = toStringDateTime(entity.getCreatedDate());
     }
 
     private String toStringDateTime(LocalDateTime localDateTime){

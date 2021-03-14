@@ -2,13 +2,17 @@ package com.rsupprot.board.webservice.service;
 
 import com.rsupprot.board.dto.PostsMainResponseDto;
 import com.rsupprot.board.dto.PostsSaveRequestDto;
+import com.rsupprot.board.dto.PostsPatchRequestDto;
+import com.rsupprot.board.webservice.posts.Posts;
 import com.rsupprot.board.webservice.posts.PostsRepository;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -25,8 +29,19 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public List<PostsMainResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc(PageRequest.of(1,10))
+        return postsRepository.findAllDesc(PageRequest.of(0,10))
                 .map(PostsMainResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public int patch(PostsPatchRequestDto dto){
+        Optional<Posts> list = postsRepository.findById(dto.getId());
+        // 만약 list가 있다면
+        if(list.isPresent()){
+            postsRepository.save(dto.toEntity());
+            return 1;
+        }
+        return 0;
     }
 }
