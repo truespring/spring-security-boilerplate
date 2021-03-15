@@ -2,8 +2,8 @@ package com.rsupprot.board.restAPI;
 
 import com.rsupprot.board.dto.PostsPatchRequestDto;
 import com.rsupprot.board.dto.PostsSaveRequestDto;
-import com.rsupprot.board.webservice.posts.PostsRepository;
-import com.rsupprot.board.webservice.service.PostsService;
+import com.rsupprot.board.entity.posts.PostsRepository;
+import com.rsupprot.board.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

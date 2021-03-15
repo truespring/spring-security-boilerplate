@@ -1,12 +1,11 @@
 package com.rsupprot.board.dto;
 
-import com.rsupprot.board.webservice.posts.Posts;
+import com.rsupprot.board.entity.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 @Getter

@@ -1,4 +1,4 @@
-package com.rsupprot.board.webservice.posts;
+package com.rsupprot.board.entity.posts;
 
 import org.junit.After;
 import org.junit.Test;

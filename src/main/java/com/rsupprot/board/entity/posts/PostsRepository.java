@@ -1,4 +1,4 @@
-package com.rsupprot.board.webservice.posts;
+package com.rsupprot.board.entity.posts;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

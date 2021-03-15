@@ -1,6 +1,6 @@
-package com.rsupprot.board.webservice.posts;
+package com.rsupprot.board.entity.posts;
 
-import com.rsupprot.board.webservice.BaseTimeEntity;
+import com.rsupprot.board.entity.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;

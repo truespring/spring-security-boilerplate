@@ -1,3 +1,5 @@
+insert into users (user_id, user_name, user_pw, user_gender, user_phone_number, created_date, modified_date) values ('test@gmail.com', '김도빈', 'asdf', 'M', '010-2532-6523', now(), now());
+insert into posts (title, author, content, created_date, modified_date) values ('테스트', 'test@gmail.com', '테스트', now(), now());
 insert into posts (title, author, content, created_date, modified_date) values ('테스트', 'test@gmail.com', '테스트', now(), now());
 insert into posts (title, author, content, created_date, modified_date) values ('테스트', 'test@gmail.com', '테스트', now(), now());
 insert into posts (title, author, content, created_date, modified_date) values ('테스트', 'test@gmail.com', '테스트', now(), now());

@@ -1,4 +1,4 @@
-package com.rsupprot.board.webservice;
+package com.rsupprot.board.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,6 +1,6 @@
-package com.rsupprot.board.controller.web;
+package com.rsupprot.board.controller;
 
-import com.rsupprot.board.webservice.service.PostsService;
+import com.rsupprot.board.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,11 @@ public class WebController {
     // (prefix: src/main/resources/templates, suffix: .hbs)
     @GetMapping("/")
     public String main(Model model) {
-        model.addAttribute("posts", postsService.findAllDesc());
+        model.addAttribute("posts", postsService.findAllDesc(0, 10));
         return "main";
+    }
+    @GetMapping("/login")
+    public String login(Model model){
+        return "login";
     }
 }

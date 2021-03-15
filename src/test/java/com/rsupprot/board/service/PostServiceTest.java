@@ -1,8 +1,8 @@
-package com.rsupprot.board.webservice.service;
+package com.rsupprot.board.service;
 
-import com.rsupprot.board.webservice.posts.Posts;
+import com.rsupprot.board.entity.posts.Posts;
 import com.rsupprot.board.dto.PostsSaveRequestDto;
-import com.rsupprot.board.webservice.posts.PostsRepository;
+import com.rsupprot.board.entity.posts.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

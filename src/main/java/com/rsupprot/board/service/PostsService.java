@@ -1,11 +1,11 @@
-package com.rsupprot.board.webservice.service;
+package com.rsupprot.board.service;
 
 import com.rsupprot.board.dto.PostsMainResponseDto;
 import com.rsupprot.board.dto.PostsPatchRequestDto;
 import com.rsupprot.board.dto.PostsSaveRequestDto;
 import com.rsupprot.board.util.Paging;
-import com.rsupprot.board.webservice.posts.Posts;
-import com.rsupprot.board.webservice.posts.PostsRepository;
+import com.rsupprot.board.entity.posts.Posts;
+import com.rsupprot.board.entity.posts.PostsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -34,8 +34,8 @@ public class PostsService {
 
 
     @Transactional(readOnly = true)
-    public List<PostsMainResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc(PageRequest.of(0,10))
+    public List<PostsMainResponseDto> findAllDesc(int page, int printListSize) {
+        return postsRepository.findAllDesc(PageRequest.of(page, printListSize))
                 .map(PostsMainResponseDto::new)
                 .collect(Collectors.toList());
     }
