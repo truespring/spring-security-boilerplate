@@ -1,0 +1,77 @@
+.l-wrapper {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.board-title {
+    margin: 100px 0 30px;
+    text-align: center;
+}
+
+.board-buttons {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.board-table-wrapper {
+    min-width: 960px;
+}
+.board-table thead th:nth-child(1) {
+    width: 10%;
+}
+.board-table thead th:nth-child(2) {
+    width: 40%;
+}
+.board-table thead th:nth-child(3) {
+    width: 15%;
+}
+.board-table thead th:nth-child(4) {
+    width: 0;
+}
+.board-table thead th:nth-child(5) {
+    width: 10%;
+}
+.board-table thead th:nth-child(6) {
+    width: 10%;
+}
+.board-table thead th:nth-child(7) {
+    width: 15%;
+}
+.board-table tbody td {
+    cursor: pointer;
+    vertical-align: middle;
+}
+.board-table tbody tr:hover td {
+    background: #f9f9f9;
+}
+
+.page-wrapper {
+    margin-top: 40px;
+}
+#pageGroup li {
+    width: 30px;
+    height: 31px;
+}
+
+#pageGroup li.active,
+#pageGroup li:hover {
+    color: #ff0000;
+}
+
+#updatePostsModal .form-group label,
+#savePostsModal .form-group label {
+    margin-bottom: 5px;
+}
+#updateContent,
+#content {
+    height: 100px;
+    resize: none;
+}
+.close {
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 30px;
+}

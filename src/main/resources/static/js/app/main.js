@@ -8,7 +8,7 @@ let main = {
             contentType: 'application/json; charset=utf-8',
         }).done(function (data) {
             $('#divBoard').append(`
-                <div class="text-center">
+                <div class="page-wrapper text-center">
                     <span class="material-icons" style="position: relative; font-size: 2em; top: 8px; cursor: pointer;" onclick="paging(this)">chevron_left</span>
                     <ul class="text-center" id="pageGroup" style="list-style-type: none; margin: 20px auto; font-size: 1.2em; font-weight: bold; display: inline-block; padding: 0;"></ul>
                     <span class="material-icons" style="position: relative; font-size: 2em; top: 8px; cursor: pointer;" onclick="paging(this)">chevron_right</span>
@@ -181,7 +181,7 @@ function makeList(arr){
                 <td class="text-center createdDate">${arr[i].createdDate}</td>
                 <td class="text-center modifiedDate">${arr[i].modifiedDate}</td>
                 <td class="text-center">
-                    <button class="btn btn-primary btn-xs modifyBoard" data-toggle="modal" data-target="#updatePostsModal">수정</button>
+                    <button class="btn btn-secondary btn-xs modifyBoard" data-toggle="modal" data-target="#updatePostsModal">수정</button>
                     <button class="btn btn-danger btn-xs" onclick="delThisList(this)">삭제</button>
                 </td>
             </tr>
