@@ -12,6 +12,15 @@
 ![image](https://user-images.githubusercontent.com/66704969/111261885-81f47580-8666-11eb-9811-f52ab4aec321.png)
 > 확인 후 대기 -> Dependency Import 진행중
 
-![image](https://user-images.githubusercontent.com/66704969/111262137-05ae6200-8667-11eb-97d4-c1af93ad1718.png)
-> 우측의 Database 클릭 -> [+] 클릭
+![image](https://user-images.githubusercontent.com/66704969/111262302-6178eb00-8667-11eb-8d0a-a58eb4fb0d62.png)
+> 우측의 Database 클릭 -> 관리 도구 아이콘 클릭
 
+![image](https://user-images.githubusercontent.com/66704969/111262404-9422e380-8667-11eb-8f7c-98f5f41bd33c.png)
+> H2 클릭
+ 
+![image](https://user-images.githubusercontent.com/66704969/111262472-a8ff7700-8667-11eb-84e8-40e71d7d7e58.png)
+
+![image](https://user-images.githubusercontent.com/66704969/111262535-bddc0a80-8667-11eb-8b07-11e69883b697.png)
+
+![image](https://user-images.githubusercontent.com/66704969/111262579-d0eeda80-8667-11eb-9554-0a3e0f9bb841.png)
+> 다운로드 후 좌측 + 클릭 -> H2 선택
