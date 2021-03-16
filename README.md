@@ -33,6 +33,6 @@
  
 ![image](https://user-images.githubusercontent.com/66704969/111262965-773ae000-8668-11eb-98a0-d6ee219c3d61.png)
 > Run 'BoardApplication' 클릭
-> http://localhost:8080/login
-> http://localhost:8080/
-> http://localhost:8080/h2-console
+> http://localhost:8080/login  
+> http://localhost:8080/  
+> http://localhost:8080/h2-console  
