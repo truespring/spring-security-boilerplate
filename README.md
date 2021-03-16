@@ -43,4 +43,4 @@
 > Run 'BoardApplication' 클릭  
 > 로그인 화면 : http://localhost:8080/login  
 > 게시판 : http://localhost:8080/  
-> http://localhost:8080/h2-console  
+> H2-console : http://localhost:8080/h2-console  
