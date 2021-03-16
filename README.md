@@ -3,7 +3,7 @@
 
 - IntelliJ로 진행
 
-![image](https://user-images.githubusercontent.com/66704969/111261431-d3503500-8665-11eb-81e8-c1064754c479.png)
+![image](https://user-images.githubusercontent.com/66704969/111261431-d3503500-8665-11eb-81e8-c1064754c479.png){: width="100" height="100"}
 > Get From VCS 선택
 
 ![image](https://user-images.githubusercontent.com/66704969/111261682-3346db80-8666-11eb-8067-4820d9e0cc94.png)
