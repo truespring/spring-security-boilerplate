@@ -24,3 +24,15 @@
 
 ![image](https://user-images.githubusercontent.com/66704969/111262579-d0eeda80-8667-11eb-9554-0a3e0f9bb841.png)
 > 다운로드 후 좌측 + 클릭 -> H2 선택
+
+![image](https://user-images.githubusercontent.com/66704969/111262726-0e536800-8668-11eb-99e5-928417870e5d.png)
+> 중요! : remote -> in-memory로 선택
+ 
+![image](https://user-images.githubusercontent.com/66704969/111262835-3e027000-8668-11eb-9c19-17c11ad7146e.png)
+> 이미지와 같이 세팅
+ 
+![image](https://user-images.githubusercontent.com/66704969/111262965-773ae000-8668-11eb-98a0-d6ee219c3d61.png)
+> Run 'BoardApplication' 클릭
+> http://localhost:8080/login
+> http://localhost:8080/
+> http://localhost:8080/h2-console
