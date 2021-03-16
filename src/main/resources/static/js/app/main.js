@@ -48,12 +48,13 @@ let main = {
         });
         // 수정 버튼 클릭 시 모달창 출력
         showModifyModal();
+        // 게시글 상세 보기
+        showDetailModal();
     },
     // 모달창 -> 등록 시
     save : function () {
         let data = {
             title : $('#title').val(),
-            author: $('#author').val(),
             content: $('#content').val()
         };
         $.ajax({
@@ -153,7 +154,6 @@ function paging(thisPage) {
         currentPageObj.addClass('active')
         requirePage = thisPage.innerText;
     }
-    console.log(`리턴 탈출?`)
     $.ajax({
         type: 'GET',
         url: '/paging',
@@ -164,7 +164,6 @@ function paging(thisPage) {
             printListSize : printListSize
         }
     }).done(function (data) {
-        console.log(data)
         $('#tbody').html('');
         // HTML 생성 후 APPEND
         makeList(data)
@@ -188,6 +187,25 @@ function makeList(arr){
         `)
     }
     showModifyModal();
+    showDetailModal();
+}
+// 게시글 상세 보기 출력
+function showDetailModal(){
+    $('.showBoardDetail').on('click', function () {
+        let thisTr = $(this)
+        let thisId = $(thisTr).find('.id')[0].innerText;
+        let thisTitle = $(thisTr).find('.title')[0].innerText;
+        let thisContent = $(thisTr).find('.content')[0].innerText;
+        let thisAuthor = $(thisTr).find('.author')[0].innerText;
+        // let thisCreatedDate = $(thisTr).find('.createdDate')[0].innerText;
+        // let thisModifiedDate = $(thisTr).find('.modifiedDate')[0].innerText;
+        $('#showDetailModal').on('show.bs.modal',function() {
+            $('.modal-body #detailId').val(thisId);
+            $('.modal-body #detailTitle').val(thisTitle);
+            $('.modal-body #detailAuthor').val(thisAuthor);
+            $('.modal-body #detailContent').val(thisContent);
+        })
+    });
 }
 // 수정 모달창 출력
 function showModifyModal() {
@@ -199,37 +217,71 @@ function showModifyModal() {
         let thisAuthor = $(thisTr).find('.author')[0].innerText;
         // let thisCreatedDate = $(thisTr).find('.createdDate')[0].innerText;
         // let thisModifiedDate = $(thisTr).find('.modifiedDate')[0].innerText;
-        $('#updatePostsModal').on('show.bs.modal',function() {
-            $('.modal-body #updateId').val(thisId);
-            $('.modal-body #updateTitle').val(thisTitle);
-            $('.modal-body #updateAuthor').val(thisAuthor);
-            $('.modal-body #updateContent').val(thisContent);
-        })
-    });
-}
-function delThisList(thisBtn) {
-    let thisTr = $(thisBtn).parent().parent();
-    let thisId = $(thisTr).find('.id')[0].innerText;
-    let chk = confirm('삭제하시겠습니까?')
-    if(chk){
         let data = {
-            id : thisId
+            author : thisAuthor
         }
         $.ajax({
-            type: 'DELETE',
-            url: '/posts',
+            type: 'POST',
+            url: '/postsChk',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function (data) {
             if(data === 1){
-                alert('삭제되었습니다.')
-                location.reload()
+                $('#updatePostsModal').on('show.bs.modal',function() {
+                    $('.modal-body #updateId').val(thisId);
+                    $('.modal-body #updateTitle').val(thisTitle);
+                    $('.modal-body #updateAuthor').val(thisAuthor);
+                    $('.modal-body #updateContent').val(thisContent);
+                })
             }else{
-                alert('실패하였습니다.')
+                alert('권한이 없습니다.')
+                location.reload()
             }
-        })
+        });
+
+    });
+}
+function delThisList(thisBtn) {
+    let thisTr = $(thisBtn).parent().parent();
+    let thisId = $(thisTr).find('.id')[0].innerText;
+    let thisAuthor = $(thisTr).find('.author')[0].innerText;
+    let data = {
+        author : thisAuthor
     }
+    $.ajax({
+        type: 'POST',
+        url: '/postsChk',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(data)
+    }).done(function (data) {
+        if(data === 1){
+            let chk = confirm('삭제하시겠습니까?')
+            if(chk){
+                let data = {
+                    id : thisId
+                }
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/posts',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data)
+                }).done(function (data) {
+                    if(data === 1){
+                        alert('삭제되었습니다.')
+                        location.reload()
+                    }else{
+                        alert('실패하였습니다.')
+                    }
+                })
+            }
+        }else{
+            alert('권한이 없습니다.')
+        }
+    });
+
 }
 
 function modify() {

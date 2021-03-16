@@ -29,4 +29,13 @@ public class Users extends BaseTimeEntity {
 
     @Column(nullable = false)
     private String userPhoneNumber;
+
+    @Builder
+    public Users(String userId, String userName, String userPw, String userGender, String userPhoneNumber){
+        this.userId = userId;
+        this.userName = userName;
+        this.userPw = userPw;
+        this.userGender = userGender;
+        this.userPhoneNumber = userPhoneNumber;
+    }
 }

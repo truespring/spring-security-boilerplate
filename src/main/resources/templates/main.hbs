@@ -13,6 +13,11 @@
     <div class="col-md-12" id="divBoard">
         <div class="l-wrapper">
             <div class="board-buttons">
+                <button type="button" class="btn btn-primary" onclick="logout()">
+                    로그아웃
+                </button>
+            </div>
+            <div class="board-buttons">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">
                     글 등록
                 </button>
@@ -36,7 +41,7 @@
                     {{#each posts}}
                         <tr>
                             <td class="text-center id">{{id}}</td>
-                            <td class="text-center title">{{title}}</td>
+                            <td class="text-center title showBoardDetail" data-toggle="modal" data-target="#showDetailModal">{{title}}</td>
                             <td class="text-center author">{{author}}</td>
                             <td class="content" style="display: none;">{{content}}</td>
                             <td class="text-center createdDate">{{createdDate}}</td>
@@ -69,10 +74,10 @@
                             <label for="title">제목</label>
                             <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
                         </div>
-                        <div class="form-group mt-3">
-                            <label for="author">작성자</label>
-                            <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">
-                        </div>
+<!--                        <div class="form-group mt-3">-->
+<!--                            <label for="author">작성자</label>-->
+<!--                            <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">-->
+<!--                        </div>-->
                         <div class="form-group mt-3">
                             <label for="content">내용</label>
                             <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
@@ -82,6 +87,41 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                     <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 게시글 상세 보기 -->
+    <div class="modal fade" id="showDetailModal" tabindex="-1" role="dialog" aria-labelledby="showDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">게시글 상세 보기</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="text-center form-group">
+                            <input type="hidden" class="form-control" id="detailId" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="detailTitle">제목</label>
+                            <input type="text" class="form-control" id="detailTitle" readonly>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="detailAuthor">작성자</label>
+                            <input type="text" class="form-control" id="detailAuthor" readonly>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="detailContent">내용</label>
+                            <input class="form-control" id="detailContent" readonly>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
                 </div>
             </div>
         </div>
@@ -108,7 +148,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="updateAuthor">작성자</label>
-                            <input type="text" class="form-control" id="updateAuthor" placeholder="작성자를 입력하세요">
+                            <input type="text" class="form-control" id="updateAuthor" placeholder="작성자를 입력하세요" readonly>
                         </div>
                         <div class="form-group mt-3">
                             <label for="updateContent">내용</label>

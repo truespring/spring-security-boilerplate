@@ -10,7 +10,7 @@ body {
     background-color: #34495e;
 }
 
-.loginForm {
+.loginFormCustom {
     position:absolute;
     width:300px;
     height:400px;
@@ -23,7 +23,7 @@ body {
     border-radius: 15px;
 }
 
-.loginForm h2{
+.loginFormCustom h2{
     text-align: center;
     margin: 30px;
 }
@@ -60,11 +60,11 @@ body {
     background: none;
 }
 
-.btn {
+.loginBtn, .signupBtn {
     position:relative;
     left:40%;
     transform: translateX(-50%);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     width:80%;
     height:40px;
     background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
@@ -74,14 +74,11 @@ body {
     font-weight: bold;
     border:none;
     cursor:pointer;
-    transition: 0.4s;
     display:inline;
 }
-
-.btn:hover {
-    background-position: right;
-}
-
-.bottomText {
-    text-align: center;
+.close {
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 30px;
 }
