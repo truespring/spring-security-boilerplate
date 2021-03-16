@@ -8,7 +8,7 @@
 
 <img src = "https://user-images.githubusercontent.com/66704969/111261682-3346db80-8666-11eb-8067-4820d9e0cc94.png" width = "60%">
 
-> Gitgub Repository URL 복사
+> Github Repository URL 복사
 
 <img src = "https://user-images.githubusercontent.com/66704969/111261885-81f47580-8666-11eb-9811-f52ab4aec321.png" width = "60%">
 
