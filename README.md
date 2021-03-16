@@ -13,5 +13,5 @@
 > 확인 후 대기 -> Dependency Import 진행중
 <br>
 ![image](https://user-images.githubusercontent.com/66704969/111262137-05ae6200-8667-11eb-97d4-c1af93ad1718.png)
-> 우측의 Database 클릭 -> + 클릭
+> 우측의 Database 클릭 -> [+] 클릭
 <br>
