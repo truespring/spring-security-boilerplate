@@ -32,7 +32,7 @@
 > 이미지와 같이 세팅
  
 ![image](https://user-images.githubusercontent.com/66704969/111262965-773ae000-8668-11eb-98a0-d6ee219c3d61.png)
-> Run 'BoardApplication' 클릭
-> http://localhost:8080/login  
-> http://localhost:8080/  
+> Run 'BoardApplication' 클릭  
+> 로그인 화면 : http://localhost:8080/login  
+> 게시판 : http://localhost:8080/  
 > http://localhost:8080/h2-console  
