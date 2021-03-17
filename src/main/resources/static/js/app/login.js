@@ -21,9 +21,7 @@ function login() {
         }
     });
 }
-function logout() {
-    location.href = '/logout'
-}
+
 function signUp() {
     let userGender = $('#male')[0].checked === true ? 'M' : 'F';
     let data = {
