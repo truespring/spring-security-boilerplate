@@ -57,6 +57,9 @@ dependencies {
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     runtime('com.h2database:h2')
 
+    // aws 서버 compile 에러 관련
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'mysql:mysql-connector-java'
 
