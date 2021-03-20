@@ -46,10 +46,7 @@ let main = {
         $('#btn-save').on('click', function () {
             _this.save();
         });
-        // 수정 버튼 클릭 시 모달창 출력
-        showModifyModal();
-        // 게시글 상세 보기
-        showDetailModal();
+
     },
     // 모달창 -> 등록 시
     save : function () {
@@ -84,12 +81,16 @@ let printStartPage = ''; // 출력되는 페이지의 첫 번째
 let printEndPage = printPageSize; // 출력되는 페이지의 마지막
 let printListSize = 10;
 let requirePage = ''; // 요청 페이지
+
+// 수정 버튼 클릭 시 모달창 출력
+showModifyModal();
+// 게시글 상세 보기
+showDetailModal();
+
 // 페이징
 function paging(thisPage) {
     // 색깔 지우기
     if(thisPage.innerText === 'chevron_left'){
-        console.log(currentPageObj[0].innerText)
-        console.log(startPage)
         if(parseInt(currentPageObj[0].innerText) === startPage){
             alert('처음입니다.')
             return;
@@ -168,13 +169,14 @@ function paging(thisPage) {
         // HTML 생성 후 APPEND
         makeList(data)
     })
+
 }
 function makeList(arr){
     for (let i = 0; i < arr.length; i++) {
         $('#tbody').append(`
             <tr>
                 <td class="text-center id">${arr[i].id}</td>
-                <td class="text-center title">${arr[i].title}</td>
+                <td class="text-center title showBoardDetail">${arr[i].title}</td>
                 <td class="text-center author">${arr[i].author}</td>
                 <td class="content" style="display: none;">${arr[i].content}</td>
                 <td class="text-center createdDate">${arr[i].createdDate}</td>
@@ -192,13 +194,11 @@ function makeList(arr){
 // 게시글 상세 보기 출력
 function showDetailModal(){
     $('.showBoardDetail').on('click', function () {
-        let thisTr = $(this)
+        let thisTr = $(this).parent()
         let thisId = $(thisTr).find('.id')[0].innerText;
         let thisTitle = $(thisTr).find('.title')[0].innerText;
         let thisContent = $(thisTr).find('.content')[0].innerText;
         let thisAuthor = $(thisTr).find('.author')[0].innerText;
-        // let thisCreatedDate = $(thisTr).find('.createdDate')[0].innerText;
-        // let thisModifiedDate = $(thisTr).find('.modifiedDate')[0].innerText;
         $('#showDetailModal').on('show.bs.modal',function() {
             $('.modal-body #detailId').val(thisId);
             $('.modal-body #detailTitle').val(thisTitle);
@@ -211,15 +211,15 @@ function showDetailModal(){
 function showModifyModal() {
     $('.modifyBoard').on('click', function () {
         let thisTr = $(this).parent().parent();
+        console.log(thisTr)
         let thisId = $(thisTr).find('.id')[0].innerText;
         let thisTitle = $(thisTr).find('.title')[0].innerText;
         let thisContent = $(thisTr).find('.content')[0].innerText;
         let thisAuthor = $(thisTr).find('.author')[0].innerText;
-        // let thisCreatedDate = $(thisTr).find('.createdDate')[0].innerText;
-        // let thisModifiedDate = $(thisTr).find('.modifiedDate')[0].innerText;
         let data = {
             author : thisAuthor
         }
+        console.log(data)
         $.ajax({
             type: 'POST',
             url: '/postsChk',
@@ -227,13 +227,13 @@ function showModifyModal() {
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function (data) {
+            console.log(data)
             if(data === 1){
-                $('#updatePostsModal').on('show.bs.modal',function() {
-                    $('.modal-body #updateId').val(thisId);
-                    $('.modal-body #updateTitle').val(thisTitle);
-                    $('.modal-body #updateAuthor').val(thisAuthor);
-                    $('.modal-body #updateContent').val(thisContent);
-                })
+                $('#updateId').val(thisId);
+                $('#updateTitle').val(thisTitle);
+                $('#updateAuthor').val(thisAuthor);
+                $('#updateContent').val(thisContent);
+                $('#updatePostsModal').on('show.bs.modal',function() {})
             }else{
                 alert('권한이 없습니다.')
                 location.reload()

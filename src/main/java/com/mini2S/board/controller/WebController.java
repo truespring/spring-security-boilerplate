@@ -24,6 +24,7 @@ public class WebController {
             return "redirect:/login";
         }else{
             model.addAttribute("posts", postsService.findAllDesc(0, 10));
+            model.addAttribute("users", session.getAttribute("users"));
             return "main";
         }
     }
