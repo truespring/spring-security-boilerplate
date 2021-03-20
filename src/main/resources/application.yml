@@ -24,10 +24,12 @@ spring:
     password : dalock2dev
 #    data : classpath:data-h2.sql
   jpa :
-    hibernate :
-      ddl-auto : update
-    database : mysql
-    show-sql : true
+    database-platform : org.hibernate.dialect.MySQL5InnoDBDialect
+    properties.hibernate :
+      hbm2ddl.auto : none
+      format_sql : true
+    showSql : true
+    generate-ddl : false
 #  jpa:
 #    hibernate :
 #      ddl-auto : create-drop
