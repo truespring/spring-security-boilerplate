@@ -4,6 +4,21 @@ plugins {
     id 'java'
 }
 
+// 디렉토리 소스 접근 코드
+sourceSets {
+    main {
+        resources {
+            srcDirs("src/main/resources", "src/main/resources/profiles")
+        }
+    }
+}
+// 부트 실행 시 profile 값을 적용할 수 있는 설정
+bootRun {
+    String activeProfile = System.properties['spring.profiles.active']
+    println "zone: $activeProfile"
+    systemProperty "spring.profiles.active", activeProfile
+}
+
 group = 'com.rsupprot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -41,6 +56,9 @@ dependencies {
     compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0')
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     runtime('com.h2database:h2')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'mysql:mysql-connector-java'
 
     // Junit 테스트
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

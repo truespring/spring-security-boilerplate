@@ -1,0 +1,13 @@
+spring :
+  profiles :
+    active : dev
+  datasource:
+    url : jdbc:mysql://ec2-3-36-178-40.ap-northeast-2.compute.amazonaws.com:33095/mini2S?characterEncoding=utf8
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    username : david
+    password : dalock2dev
+    data : classpath:data-h2.sql
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
