@@ -22,7 +22,7 @@ spring:
     driver-class-name : com.mysql.cj.jdbc.Driver
     username : david
     password : dalock2dev
-    data : classpath:data-h2.sql
+#    data : classpath:data-h2.sql
   jpa :
     hibernate :
       ddl-auto : update
