@@ -3,7 +3,6 @@ function login() {
         userId : $('#userId')[0].value,
         userPw : $('#userPw')[0].value
     }
-    console.log(data)
     $.ajax({
         type: 'POST',
         url: '/signin',
