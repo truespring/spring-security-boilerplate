@@ -3,9 +3,7 @@ package com.mini2S.board.restAPI;
 import com.mini2S.board.dto.UsersSigninDto;
 import com.mini2S.board.dto.UsersSignupDto;
 import com.mini2S.board.service.UsersService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +20,9 @@ public class RestUsersController {
     private final UsersService usersService;
 
     // 로그인
-    @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
     @PostMapping("/signin")
-    public long signin(@ApiParam(value = "회원ID : 이메일", required = true) @RequestParam String userId,
-                       @ApiParam(value = "회원PW : 비밀번호", required = true) @RequestParam String userPw,
-                       HttpServletRequest request){
-        UsersSigninDto dto = new UsersSigninDto();
-        dto.setUserId(userId);
-        dto.setUserPw(userPw);
+    @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
+    public long signin(@RequestBody UsersSigninDto dto, HttpServletRequest request){
         long result = usersService.signin(dto);
         if(result == 1){
             HttpSession hs = request.getSession();
