@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -18,7 +18,7 @@ public class Roles {
     @Column(name = "ROLE_SEQ")
     private Long roleSeq;
 
-    @Column(columnDefinition = "varchar(5) not null comment '권한 정보'")
+    @Column(columnDefinition = "varchar(20) not null comment '권한 정보'")
     private String roleName;
 
     //Users 테이블과 Join

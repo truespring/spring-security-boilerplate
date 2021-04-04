@@ -42,7 +42,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
-                "/swagger-ui.html", "/webjars/**", "/swagger/**");
+                "/swagger-ui.html", "/webjars/**", "/swagger/**", "/swagger-ui.html#!/**");
 
     }
 
@@ -56,11 +56,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery("select userEmail, userPw "
                                     + "from users "
-                                    + "where username =?")
+                                    + "where userEmail =?")
                 .authoritiesByUsernameQuery("select userEmail, userName "
-                                    + "from user_role ur inner join user u on ur.user_id = u.id "
-                                    + "inner join role r on ur.role_id = r.id "
-                                    + "where email = ?");
+                                    + "from user_role ur "
+                                    + "inner join user u on ur.user_seq = u.user_seq "
+                                    + "inner join role r on ur.role_seq = r.role_seq "
+                                    + "where userEmail = ?");
     }
     @Bean
     public PasswordEncoder passwordEncoder(){

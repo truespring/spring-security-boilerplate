@@ -26,7 +26,7 @@ spring:
     database-platform : org.hibernate.dialect.MySQL5InnoDBDialect
     properties.hibernate :
       # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
-      hbm2ddl.auto : create-drop
+      hbm2ddl.auto : update
       # 보여지는 SQL을 예쁘게 보여줌
       format_sql : true
     showSql : true

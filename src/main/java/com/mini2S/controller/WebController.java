@@ -20,13 +20,13 @@ public class WebController {
     @GetMapping("/")
     public String main(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        if(session.getAttribute("users") == null){
-            return "redirect:/login";
-        }else{
-            model.addAttribute("posts", postsService.findAllDesc(0, 10));
-            model.addAttribute("users", session.getAttribute("users"));
-            return "main";
-        }
+//        if(session.getAttribute("users") == null){
+//            return "redirect:/login";
+//        }else{
+        model.addAttribute("posts", postsService.findAllDesc(0, 10));
+        model.addAttribute("users", session.getAttribute("users"));
+        return "main";
+//        }
     }
     @GetMapping("/login")
     public String login(Model model){
