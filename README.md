@@ -1,4 +1,4 @@
-# RestAPIBoard
+# mini2S
 ## 환경 설정
 
 - IntelliJ로 진행
