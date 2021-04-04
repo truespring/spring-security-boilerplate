@@ -31,6 +31,8 @@ spring:
       format_sql : true
     showSql : true
     generate-ddl : true
+    # WARN 23008 에러 제거
+    open-in-view: false
 
 # Inmemory 방법
 #  jpa:

@@ -1,7 +1,6 @@
 package com.mini2S.service;
 
 import com.mini2S.dto.UsersSigninDto;
-import com.mini2S.dto.UsersSignupDto;
 import com.mini2S.entity.roles.Roles;
 import com.mini2S.entity.users.Users;
 import com.mini2S.reposotory.users.UsersRepository;
@@ -34,17 +33,17 @@ public class UsersService {
             return 0;
         }
     }
-    @Transactional
-    public long signup(UsersSignupDto dto){
-        String encodePassword = passwordEncoder.encode(dto.getUserPw());
-        dto.setUserPw(encodePassword);
-        try{
-            usersRepository.save(dto.toEntity());
-            return 1;
-        }catch (Exception e){
-            return 0;
-        }
-    }
+//    @Transactional
+//    public long signup(UsersSignupDto dto){
+//        String encodePassword = passwordEncoder.encode(dto.getUserPw());
+//        dto.setUserPw(encodePassword);
+//        try{
+//            usersRepository.save(dto.toEntity());
+//            return 1;
+//        }catch (Exception e){
+//            return 0;
+//        }
+//    }
     @Transactional
     public Users save(Users users){
         String encodePassword = passwordEncoder.encode(users.getUserPw());
