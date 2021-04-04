@@ -9,17 +9,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class UsersSignupDto {
-    private String userId;
+    private String userEmail;
     private String userName;
     private String userPw;
+    private String userAccountType;
     private String userGender;
     private String userPhoneNumber;
 
     public Users toEntity(){
         return Users.builder()
-                .userId(userId)
+                .userEmail(userEmail)
                 .userName(userName)
                 .userPw(userPw)
+                .userAccountType(userAccountType)
                 .userGender(userGender)
                 .userPhoneNumber(userPhoneNumber)
                 .build();

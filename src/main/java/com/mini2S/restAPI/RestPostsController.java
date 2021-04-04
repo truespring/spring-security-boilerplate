@@ -24,7 +24,7 @@ public class RestPostsController {
     public int savePosts(@RequestBody PostsSaveRequestDto dto, HttpServletRequest request){
         HttpSession hs = request.getSession();
         UsersSigninDto session = (UsersSigninDto) hs.getAttribute("users");
-        dto.setAuthor(session.getUserId());
+        dto.setAuthor(session.getUserEmail());
         try{
             postsRepository.save(dto.toEntity());
             return 1;
@@ -57,7 +57,7 @@ public class RestPostsController {
     public int chkModifyAuth(@RequestBody PostsSaveRequestDto dto, HttpServletRequest request){
         HttpSession hs = request.getSession();
         UsersSigninDto session = (UsersSigninDto) hs.getAttribute("users");
-        if(dto.getAuthor().equals(session.getUserId())){
+        if(dto.getAuthor().equals(session.getUserEmail())){
             return 1;
         }else{
             return 0;

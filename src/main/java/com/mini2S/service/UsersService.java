@@ -15,9 +15,9 @@ public class UsersService {
 
     @Transactional
     public long signin(UsersSigninDto dto){
-        Users users = usersRepository.findByUserId(dto.getUserId());
+        Users users = usersRepository.findByUserId(dto.getUserEmail());
         // 유저 있음
-        if(users != null && users.getUserId().equals(dto.getUserId())){
+        if(users != null && users.getUserEmail().equals(dto.getUserEmail())){
             if(users.getUserPw().equals(dto.getUserPw())){
                 //로그인 성공
                 return 1;
