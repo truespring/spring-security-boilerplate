@@ -22,14 +22,17 @@ spring:
     driver-class-name : com.mysql.cj.jdbc.Driver
     username : david
     password : dalock2dev
-#    data : classpath:data-h2.sql
   jpa :
     database-platform : org.hibernate.dialect.MySQL5InnoDBDialect
     properties.hibernate :
-      hbm2ddl.auto : none
+      # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
+      hbm2ddl.auto : create-drop
+      # 보여지는 SQL을 예쁘게 보여줌
       format_sql : true
     showSql : true
-    generate-ddl : false
+    generate-ddl : true
+
+# Inmemory 방법
 #  jpa:
 #    hibernate :
 #      ddl-auto : create-drop
