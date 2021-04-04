@@ -24,10 +24,11 @@ function login() {
 function signUp() {
     let userGender = $('#male')[0].checked === true ? 'M' : 'F';
     let data = {
-        userId : $('#signUpUserId')[0].value,
+        userEmail : $('#signUpUserId')[0].value,
         userName : $('#signUpUserName')[0].value,
         userPw : $('#signUpUserPw')[0].value,
         userGender : userGender,
+        userAccountType : 'local',
         userPhoneNumber : $('#signUpUserPhoneNumber')[0].value,
     }
     $.ajax({
@@ -35,7 +36,7 @@ function signUp() {
         url: '/signup',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        data: JSON.stringify(data)
+        data: data
     }).done(function (data) {
         if(data === 1){
             alert('회원가입 성공')

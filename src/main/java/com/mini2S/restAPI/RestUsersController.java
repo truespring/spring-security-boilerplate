@@ -46,7 +46,9 @@ public class RestUsersController {
         dto.setUserPw(userPw);
         dto.setUserGender(userGender);
         dto.setUserPhoneNumber(userPhoneNumber);
-        return usersService.signup(dto);
+        usersService.signup(dto);
+        return 1;
+
     }
 
 
