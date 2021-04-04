@@ -49,6 +49,7 @@ dependencies {
     // -----------------------------------------------------------------------
     // Junit
     implementation 'junit:junit:4.12'
+    implementation 'org.testng:testng:7.1.0'
     // -----------------------------------------------------------------------
 
     // lombok : getter/setter 간소화
