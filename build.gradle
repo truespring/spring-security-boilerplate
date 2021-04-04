@@ -19,7 +19,7 @@ bootRun {
     systemProperty "spring.profiles.active", activeProfile
 }
 
-group = 'com.rsupprot'
+group = 'com.mini2s'
 version = '0.0.2'
 sourceCompatibility = '11'
 
