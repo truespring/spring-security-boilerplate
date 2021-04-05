@@ -35,7 +35,7 @@ public class RestUsersController {
 
     // 회원가입
     @PostMapping("/signup")
-    public long signup(@ApiParam(value = "ID(이메일)", required = true) @RequestParam String userEmail,
+    public Users signup(@ApiParam(value = "ID(이메일)", required = true) @RequestParam String userEmail,
                        @ApiParam(value = "비밀번호", required = true) @RequestParam String userPw,
                        @ApiParam(value = "회원명", required = true) @RequestParam String userName,
                        @ApiParam(value = "가입경로", required = true) @RequestParam String userAccountType,
@@ -49,10 +49,6 @@ public class RestUsersController {
         users.setUserPw(userPw);
         users.setUserGender(userGender);
         users.setUserPhoneNumber(userPhoneNumber);
-        usersService.save(users);
-        return 1;
-
+        return usersService.save(users);
     }
-
-
 }
