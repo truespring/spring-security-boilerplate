@@ -37,9 +37,9 @@ function signUp() {
         url: '/signup',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        data: data
+        data: JSON.stringify(data)
     }).done(function (data) {
-        if(data === 1){
+        if(data.success === true){
             alert('회원가입 성공')
             location.href = '/login'
         }else{

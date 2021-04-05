@@ -1,15 +1,16 @@
 package com.mini2S.restAPI;
 
 import com.mini2S.dto.UsersSigninDto;
+import com.mini2S.dto.UsersSignupDto;
 import com.mini2S.entity.users.Users;
+import com.mini2S.model.response.CommonResult;
+import com.mini2S.service.ResponseService;
 import com.mini2S.service.UsersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,8 @@ import javax.servlet.http.HttpSession;
 @AllArgsConstructor
 public class RestUsersController {
     private final UsersService usersService;
-
+    // 결과 반환 Service
+    private final ResponseService responseService;
     // 로그인
     @PostMapping("/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
@@ -35,23 +37,17 @@ public class RestUsersController {
 
     // 회원가입
     @PostMapping("/signup")
-    public long signup(@ApiParam(value = "ID(이메일)", required = true) @RequestParam String userEmail,
-                       @ApiParam(value = "비밀번호", required = true) @RequestParam String userPw,
-                       @ApiParam(value = "회원명", required = true) @RequestParam String userName,
-                       @ApiParam(value = "가입경로", required = true) @RequestParam String userAccountType,
-                       @ApiParam(value = "성별", required = true) @RequestParam String userGender,
-                       @ApiParam(value = "휴대폰번호", required = true) @RequestParam String userPhoneNumber){
-        System.out.println("도착");
-        Users users = new Users();
-        users.setUserEmail(userEmail);
-        users.setUserName(userName);
-        users.setUserAccountType(userAccountType);
-        users.setUserPw(userPw);
-        users.setUserGender(userGender);
-        users.setUserPhoneNumber(userPhoneNumber);
-        usersService.save(users);
-        return 1;
-
+    @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
+    public CommonResult signup(@RequestBody UsersSignupDto dto){
+        usersService.save(Users.builder()
+                        .userEmail(dto.getUserEmail())
+                        .userName(dto.getUserName())
+                        .userAccountType(dto.getUserAccountType())
+                        .userPw(dto.getUserPw())
+                        .userGender(dto.getUserGender())
+                        .userPhoneNumber(dto.getUserPhoneNumber())
+                        .build());
+        return responseService.getSuccessResult();
     }
 
 

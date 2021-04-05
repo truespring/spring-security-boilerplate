@@ -1,4 +1,4 @@
-package com.mini2S.model;
+package com.mini2S.model.response;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

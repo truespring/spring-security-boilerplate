@@ -47,10 +47,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/css/**", "/js/**", "/login").permitAll()
                     .anyRequest().authenticated()
             .and()
-                .exceptionHandling().accessDeniedHandler(new CustomAccessDeniedHandler())
-            .and()
-                .exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-            .and()
             .formLogin()
                 // 로그인 페이지도 권한 허용
                 .loginPage("/login")

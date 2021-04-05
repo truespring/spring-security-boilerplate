@@ -1,7 +1,7 @@
 package com.mini2S.restAPI.exception;
 
 import com.mini2S.advice.CAuthenticationEntryPointException;
-import com.mini2S.model.CommonResult;
+import com.mini2S.model.response.CommonResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.GetMapping;
