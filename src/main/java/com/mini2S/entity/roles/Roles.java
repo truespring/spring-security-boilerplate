@@ -22,8 +22,8 @@ public class Roles {
     private String roleName;
 
     //Users 테이블과 Join
-    @ManyToMany(mappedBy = "roles")
-    private List<Users> users = new ArrayList<>();
+//    @ManyToMany(mappedBy = "roles")
+//    private List<Users> users = new ArrayList<>();
 
     @Builder
     public Roles(Long roleSeq, String roleName) {
