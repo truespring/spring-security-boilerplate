@@ -31,7 +31,6 @@ function signUp() {
         userAccountType : 'local',
         userPhoneNumber : $('#signUpUserPhoneNumber')[0].value,
     }
-    console.log(data)
     $.ajax({
         type: 'POST',
         url: '/signup',
