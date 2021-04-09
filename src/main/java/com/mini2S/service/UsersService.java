@@ -50,7 +50,6 @@ public class UsersService {
         users.setUserPw(encodePassword);
         Roles roles = new Roles();
         roles.setRoleSeq(1L);
-        users.getRoles().add(roles);
         return usersRepository.save(users);
     }
 }

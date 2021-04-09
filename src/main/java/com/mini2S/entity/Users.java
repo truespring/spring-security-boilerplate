@@ -36,12 +36,7 @@ public class Users extends BaseTimeEntity {
     @Column(columnDefinition = "varchar(100) not null comment '회원 성별(M / W)'")
     private String userGender;
 
-    @ManyToMany
-    @JoinTable(name = "USER_ROLE", // 조인테이블명
-            joinColumns = @JoinColumn(name = "USER_SEQ"), // 외래키
-            inverseJoinColumns = @JoinColumn(name = "ROLE_SEQ")
-    ) //반대 엔티티의 외래키
-    private List<Roles> roles = new ArrayList<>();
+
 
 
     @Builder
