@@ -1,6 +1,6 @@
 package com.mini2S.dto;
 
-import com.mini2S.entity.users.Users;
+import com.mini2S.entity.Users;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.mini2S.dto;
 
-import com.mini2S.entity.posts.Posts;
+import com.mini2S.entity.Posts;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

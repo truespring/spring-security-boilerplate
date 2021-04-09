@@ -1,7 +1,5 @@
-package com.mini2S.entity.users;
+package com.mini2S.entity;
 
-import com.mini2S.entity.BaseTimeEntity;
-import com.mini2S.entity.roles.Roles;
 import lombok.*;
 
 import javax.persistence.*;

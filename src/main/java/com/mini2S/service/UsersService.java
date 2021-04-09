@@ -1,9 +1,9 @@
 package com.mini2S.service;
 
 import com.mini2S.dto.UsersSigninDto;
-import com.mini2S.entity.roles.Roles;
-import com.mini2S.entity.users.Users;
-import com.mini2S.reposotory.users.UsersRepository;
+import com.mini2S.entity.Roles;
+import com.mini2S.entity.Users;
+import com.mini2S.reposotory.UsersRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

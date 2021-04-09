@@ -1,11 +1,8 @@
-package com.mini2S.entity.roles;
+package com.mini2S.entity;
 
-import com.mini2S.entity.users.Users;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter

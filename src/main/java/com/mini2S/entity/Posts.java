@@ -1,4 +1,4 @@
-package com.mini2S.entity.posts;
+package com.mini2S.entity;
 
 import com.mini2S.entity.BaseTimeEntity;
 import lombok.*;

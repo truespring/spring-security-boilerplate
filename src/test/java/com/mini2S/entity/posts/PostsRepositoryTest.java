@@ -1,6 +1,7 @@
 package com.mini2S.entity.posts;
 
-import com.mini2S.reposotory.posts.PostsRepository;
+import com.mini2S.entity.Posts;
+import com.mini2S.reposotory.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

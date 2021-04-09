@@ -1,6 +1,6 @@
-package com.mini2S.reposotory.posts;
+package com.mini2S.reposotory;
 
-import com.mini2S.entity.posts.Posts;
+import com.mini2S.entity.Posts;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

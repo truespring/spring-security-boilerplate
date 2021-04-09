@@ -3,7 +3,7 @@ package com.mini2S.restAPI;
 import com.mini2S.dto.PostsPatchRequestDto;
 import com.mini2S.dto.PostsSaveRequestDto;
 import com.mini2S.dto.UsersSigninDto;
-import com.mini2S.reposotory.posts.PostsRepository;
+import com.mini2S.reposotory.PostsRepository;
 import com.mini2S.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

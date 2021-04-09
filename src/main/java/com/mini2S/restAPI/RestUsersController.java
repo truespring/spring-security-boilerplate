@@ -2,7 +2,7 @@ package com.mini2S.restAPI;
 
 import com.mini2S.dto.UsersSigninDto;
 import com.mini2S.dto.UsersSignupDto;
-import com.mini2S.entity.users.Users;
+import com.mini2S.entity.Users;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;
 import com.mini2S.service.UsersService;
