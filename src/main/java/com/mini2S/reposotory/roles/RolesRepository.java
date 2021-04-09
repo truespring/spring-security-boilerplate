@@ -4,4 +4,8 @@ import com.mini2S.entity.roles.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RolesRepository extends JpaRepository<Roles, Long> {
+    public Roles findByRoleName(String roleName);
+
+    public Roles findByRoleSeq(Long roleSeq);
+
 }

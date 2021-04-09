@@ -16,4 +16,8 @@ public class RolesService {
     public Roles save(Roles roles) {
         return rolesRepository.save(roles);
     }
+
+    public Roles findRoleNameByRoleSeq(Long roleSeq) { return rolesRepository.findByRoleSeq(roleSeq); }
+
+    public Roles findRoleSeqByRoleName(String roleName) { return rolesRepository.findByRoleName(roleName); }
 }
