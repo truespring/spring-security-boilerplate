@@ -22,8 +22,8 @@ public class Roles {
 
     @OneToMany
     @JoinTable(name = "USER_ROLE", // 조인테이블명
-            joinColumns = @JoinColumn(name = "ROLE_SEQ"), // 외래키
-            inverseJoinColumns = @JoinColumn(name = "USER_SEQ")
+            inverseJoinColumns = @JoinColumn(name = "USER_SEQ"),
+            joinColumns = @JoinColumn(name = "ROLE_SEQ") // 외래키
     ) //반대 엔티티의 외래키
     private List<Users> user = new ArrayList<Users>();
 
