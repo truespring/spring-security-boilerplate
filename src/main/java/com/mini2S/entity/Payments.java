@@ -1,5 +1,10 @@
 package com.mini2S.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 // 결제 내역
 public class Payments {
     /*
@@ -26,4 +31,8 @@ public class Payments {
 20			업데이트일시	UPDATE_DTTM	TIMESTAMP
 21			상점ID	MID	VARCHAR	100
     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PAYMENT_ID")
+    private Long paymentId;
 }
