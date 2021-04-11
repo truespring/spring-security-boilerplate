@@ -15,11 +15,15 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 public class UsersService {
+    private final long roleSeq = 1L;
+    private final String roleName = "USER_ROLE";
+
     private final UsersRepository usersRepository;
 
     private final PasswordEncoder passwordEncoder;
 
     private final RolesRepository rolesRepository;
+
 
     @Transactional
     public long signin(UsersSigninDto dto){
@@ -54,10 +58,13 @@ public class UsersService {
         String encodePassword = passwordEncoder.encode(users.getUserPw());
         users.setUserPw(encodePassword);
         Roles roles = null;
-        roles = rolesRepository.findByRoleSeq(1L);
+        roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
         if(roles == null) {
-            roles.setRoleSeq(1L);
-            roles.setRoleName("USER_ROLE");
+            Roles addRole = null;
+            addRole.setRoleSeq(roleSeq);
+            addRole.setRoleName(roleName);
+            rolesRepository.save(addRole); // 최초 권한 없으면 새로 만들어줌
+            roles = rolesRepository.findByRoleSeq(roleSeq);
         }
         usersRepository.save(users);
         Users selUser = usersRepository.findByUserEmail(users.getUserEmail());
