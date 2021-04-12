@@ -39,7 +39,7 @@ public class RestUsersController {
     @PostMapping("/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
     public CommonResult signup(@RequestBody UsersSignupDto dto){
-        usersService.save(Users.builder()
+        usersService.signUpUser(Users.builder()
                         .userEmail(dto.getUserEmail())
                         .userName(dto.getUserName())
                         .userAccountType(dto.getUserAccountType())

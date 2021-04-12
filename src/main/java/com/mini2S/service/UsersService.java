@@ -54,14 +54,14 @@ public class UsersService {
 //        }
 //    }
     @Transactional
-    public Users save(Users users){
+    public void signUpUser(Users users){
         String encodePassword = passwordEncoder.encode(users.getUserPw());
         users.setUserPw(encodePassword);
         Roles roles = null;
         roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
-        if(roles == null) {
+        if(roles == null || !roles.getRoleName().equals(roleName)) {
             Roles addRole = null;
-            addRole.setRoleSeq(roleSeq);
+//            addRole.setRoleSeq(roleSeq);
             addRole.setRoleName(roleName);
             rolesRepository.save(addRole); // 최초 권한 없으면 새로 만들어줌
             roles = rolesRepository.findByRoleSeq(roleSeq);
@@ -69,6 +69,6 @@ public class UsersService {
         usersRepository.save(users);
         Users selUser = usersRepository.findByUserEmail(users.getUserEmail());
         rolesRepository.insertUserRole(selUser.getUserSeq(), roles.getRoleSeq());
-        return selUser;
+//        return selUser;
     }
 }
