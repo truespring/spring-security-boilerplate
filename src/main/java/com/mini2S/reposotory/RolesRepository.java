@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @EnableJpaRepositories
 public interface RolesRepository extends JpaRepository<Roles, Long> {
     public Roles findByRoleName(String roleName);
@@ -30,5 +32,9 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
                         @Param("UserSeq") Long UserSeq,
                         @Param("RoleSeq") Long RoleSeq
     );
+
+    @Query(value = " SELECT r.roleName " +
+                    " FROM Roles r " )
+    public List<String> findAllRoleName();
 
 }
