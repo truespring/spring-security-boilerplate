@@ -1,0 +1,30 @@
+package com.mini2S.entity;
+
+public class PaymentsInfo {
+/*
+SEQ	PK	FK	컬럼설명	컬럼명	데이터타입	길이	NULL	기본값	참조
+1	O		결제정보ID	PAYMENT_INFO_ID	VARCHAR	100	X
+2		O	이용자ID	USER_ID	VARCHAR	100	X		T_USER.USER_ID
+3			결제타입	PAYMENT_TYPE	VARCHAR	100
+4		O	가상계좌ID	VIRTUAL_ACNT_ID	VARCHAR	100			T_VIRTUAL_ACNT.VIRTUAL_ACNT_ID
+5			상점ID	MID	VARCHAR	100
+6			빌키	BILL_KEY	VARCHAR	100
+7			카드번호	CARD_NUM	VARCHAR	16
+8			카드유효기간	CARD_EXPIRE	INT	4
+9			카드비밀번호(앞2자리)	CARD_PWD	VARCHAR	2
+10			고유값	ID_NUM	VARCHAR	10
+11			상태	STATUS	CHAR	1
+12			시작일시	START_DTTM	TIMESTAMP
+13			종료일시	END_DTTM	TIMESTAMP
+14			카드사코드	CARD_CODE	VARCHAR	100
+15			카드사명	CARD_NAME	VARCHAR	100
+16			결과로그	RESULT_LOG	MEDIUMTEXT
+
+bank : 가상계좌
+card : 카드결제
+
+개인카드 : 생년월일6자리
+법인카드 : 사업자번호
+
+*/
+}
