@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Api(tags = {"2. Roles"})
 @RestController
 @AllArgsConstructor
@@ -23,8 +25,8 @@ public class RestRoleController {
     public Roles addRoles(String roleName) {
         Roles roles = null;
         roles = getRoleName(roleName); // 입력하는 권한이 존재하는지 조회
-
-        if(roles == null) { // 없으면 새로 등록
+        List<String> roleNames = rolesService.findAllRoleName();
+        if(roles == null || !roleNames.contains(roleName)) { // 없으면 새로 등록
             roles.setRoleName(roleName);
             return rolesService.save(roles);
         }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class RolesService {
@@ -20,4 +22,6 @@ public class RolesService {
     public Roles findRoleNameByRoleSeq(Long roleSeq) { return rolesRepository.findByRoleSeq(roleSeq); }
 
     public Roles findRoleSeqByRoleName(String roleName) { return rolesRepository.findByRoleName(roleName); }
+
+    public List<String> findAllRoleName() {return rolesRepository.findAllRoleName(); }
 }
