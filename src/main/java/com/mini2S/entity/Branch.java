@@ -1,6 +1,22 @@
 package com.mini2S.entity;
 
-public class Branch {
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Getter
+@Setter
+@Entity
+public class Branch extends BaseTimeEntity{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BRANCH_ID")
+    private Long branchId;
     /*
 SEQ	PK	FK	컬럼설명	컬럼명	    데이터타입	길이	NULL	기본값	참조	설명
 1	O		지점ID	BRANCH_ID	VARCHAR	    100	X
