@@ -17,6 +17,9 @@ public class Branch extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BRANCH_ID")
     private Long branchId;
+
+    @Column(columnDefinition = "varchar(50) not null unique comment '지점명")
+    private String branchName;
     /*
 SEQ	PK	FK	컬럼설명	컬럼명	    데이터타입	길이	NULL	기본값	참조	설명
 1	O		지점ID	BRANCH_ID	VARCHAR	    100	X
