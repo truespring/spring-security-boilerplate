@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
 @Setter
 @Entity
@@ -19,13 +19,6 @@ public class Roles {
 
     @Column(columnDefinition = "varchar(20) not null comment '권한 정보'")
     private String roleName;
-
-    @OneToMany
-    @JoinTable(name = "USER_ROLE", // 조인테이블명
-            inverseJoinColumns = @JoinColumn(name = "USER_SEQ"),
-            joinColumns = @JoinColumn(name = "ROLE_SEQ") // 외래키
-    ) //반대 엔티티의 외래키
-    private List<Users> user = new ArrayList<Users>();
 
     @Builder
     public Roles(Long roleSeq, String roleName) {

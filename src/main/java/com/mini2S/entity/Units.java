@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -15,10 +16,10 @@ public class Units {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ROOM_ID")
-    private Long roomId;
+    @Column(name = "ROOM_SEQ")
+    private Long roomSeq;
 
-//    @Column(columnDefinition = "varchar(50) not null comment '지점ID'")
+//    @Column(columnDefinition = "varchar(100) not null comment '지점ID'")
 //    private String branchId;
 
     @Column(columnDefinition = "varchar(100) not null comment '상품ID'")
@@ -31,52 +32,52 @@ public class Units {
     private String roomName;
 
     @Column(columnDefinition = "MEDIUMINT(10) not null comment '폭'")
-    private String sizeWidth;
+    private Long sizeWidth;
 
     @Column(columnDefinition = "MEDIUMINT(10) not null comment '높이'")
-    private String sizeHeight;
+    private Long sizeHeight;
 
     @Column(columnDefinition = "MEDIUMINT(10) not null comment '깊이'")
-    private String sizeDepth;
+    private Long sizeDepth;
 
     @Column(columnDefinition = "varchar(10) not null comment '상태'")
     private String status;
 
     @Column(columnDefinition = "MEDIUMINT(9) not null comment '가격'")
-    private String price;
+    private Long price;
 
-    @Column(columnDefinition = "varchar(400) not null comment '비고'")
+    @Column(columnDefinition = "varchar(400) comment '비고'")
     private String note;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '부피'")
-    private String sizeVolume;
+    private BigDecimal sizeVolume;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '넓이'")
-    private String sizeArea;
+    private BigDecimal sizeArea;
 
     @Column(columnDefinition = "MEDIUMINT(9) not null comment '기둥 폭'")
-    private String columnWidth;
+    private Long columnWidth;
 
     @Column(columnDefinition = "MEDIUMINT(9) not null comment '기둥 높이'")
-    private String columnHeight;
+    private Long columnHeight;
 
     @Column(columnDefinition = "MEDIUMINT(9) not null comment '기둥 깊이'")
-    private String columnDepth;
+    private Long columnDepth;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '기둥 부피'")
-    private String columnVolume;
+    private BigDecimal columnVolume;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '기둥 넓이'")
-    private String columnArea;
+    private BigDecimal columnArea;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '실제 부피'")
-    private String actualVolume;
+    private BigDecimal actualVolume;
 
     @Column(columnDefinition = "DECIMAL(10, 5) not null comment '실제 넓이'")
-    private String actualArea;
+    private BigDecimal actualArea;
 
-    @Column(columnDefinition = "DECIMAL(4, 2) not null comment '평'")
-    private String py;
+    @Column(columnDefinition = "DECIMAL(4, 2) comment '평'")
+    private BigDecimal py;
 
     /*
 SEQ	PK	FK	컬럼설명	   컬럼명	    데이터타입	길이	NULL

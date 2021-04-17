@@ -37,8 +37,6 @@ public class Users extends BaseTimeEntity {
     private String userGender;
 
 
-
-
     @Builder
     public Users(String userEmail, String userName, String userPw, String userAccountType, String userGender, String userPhoneNumber){
         this.userEmail = userEmail;

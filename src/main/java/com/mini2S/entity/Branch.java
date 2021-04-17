@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -18,37 +19,37 @@ public class Branch extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BRANCH_ID")
-    private Long branchId;
+    @Column(name = "BRANCH_SEQ")
+    private Long branchSeq;
 
     @Column(columnDefinition = "varchar(50) not null unique comment '지점명'")
     private String branchName;
 
-    @Column(columnDefinition = "varchar(16) not null comment '우편번호'")
+    @Column(columnDefinition = "varchar(16) comment '우편번호'")
     private String zipCode;
 
-    @Column(columnDefinition = "varchar(255) not null comment '주소'")
+    @Column(columnDefinition = "varchar(255) comment '주소'")
     private String address;
 
-    @Column(columnDefinition = "varchar(255) not null comment '상세주소'")
+    @Column(columnDefinition = "varchar(255) comment '상세주소'")
     private String addressDetail;
 
-    @Column(columnDefinition = "varchar(100) not null comment '시도'")
+    @Column(columnDefinition = "varchar(100) comment '시도'")
     private String sido;
 
-    @Column(columnDefinition = "varchar(100) not null comment '시군구'")
+    @Column(columnDefinition = "varchar(100) comment '시군구'")
     private String sigungu;
 
-    @Column(columnDefinition = "varchar(100) not null comment '법정동/법정리'")
+    @Column(columnDefinition = "varchar(100) comment '법정동/법정리'")
     private String bName;
 
-    @Column(columnDefinition = "decimal(20) not null comment '좌표x'")
+    @Column(columnDefinition = "decimal(20) comment '좌표x'")
     private BigDecimal coordX;
 
-    @Column(columnDefinition = "decimal(20) not null comment '좌표y'")
+    @Column(columnDefinition = "decimal(20) comment '좌표y'")
     private BigDecimal coordY;
 
-    @Column(columnDefinition = "varchar(100) not null comment '사용여부'")
+    @Column(columnDefinition = "varchar(100) comment '사용여부'")
     private String useYn;
 
     @CreatedDate
