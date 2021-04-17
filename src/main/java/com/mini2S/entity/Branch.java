@@ -4,8 +4,11 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -18,8 +21,38 @@ public class Branch extends BaseTimeEntity{
     @Column(name = "BRANCH_ID")
     private Long branchId;
 
-    @Column(columnDefinition = "varchar(50) not null unique comment '지점명")
+    @Column(columnDefinition = "varchar(50) not null unique comment '지점명'")
     private String branchName;
+
+    @Column(columnDefinition = "varchar(16) not null comment '우편번호'")
+    private String zipCode;
+
+    @Column(columnDefinition = "varchar(255) not null comment '주소'")
+    private String address;
+
+    @Column(columnDefinition = "varchar(255) not null comment '상세주소'")
+    private String addressDetail;
+
+    @Column(columnDefinition = "varchar(100) not null comment '시도'")
+    private String sido;
+
+    @Column(columnDefinition = "varchar(100) not null comment '시군구'")
+    private String sigungu;
+
+    @Column(columnDefinition = "varchar(100) not null comment '법정동/법정리'")
+    private String bName;
+
+    @Column(columnDefinition = "decimal(20) not null comment '좌표x'")
+    private BigDecimal coordX;
+
+    @Column(columnDefinition = "decimal(20) not null comment '좌표y'")
+    private BigDecimal coordY;
+
+    @Column(columnDefinition = "varchar(100) not null comment '사용여부'")
+    private String useYn;
+
+    @CreatedDate
+    private LocalDateTime openDt;
     /*
 SEQ	PK	FK	컬럼설명	컬럼명	    데이터타입	길이	NULL	기본값	참조	설명
 1	O		지점ID	BRANCH_ID	VARCHAR	    100	X
