@@ -1,4 +1,4 @@
-package com.mini2S.restAPI;
+package com.mini2S.restapi;
 
 import com.mini2S.entity.Roles;
 import com.mini2S.service.RolesService;

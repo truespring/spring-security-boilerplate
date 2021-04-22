@@ -1,4 +1,4 @@
-package com.mini2S.restAPI.exception;
+package com.mini2S.restapi.exception;
 
 import com.mini2S.advice.CAuthenticationEntryPointException;
 import com.mini2S.model.response.CommonResult;

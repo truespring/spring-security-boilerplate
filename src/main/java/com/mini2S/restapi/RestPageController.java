@@ -1,4 +1,4 @@
-package com.mini2S.restAPI;
+package com.mini2S.restapi;
 
 import com.mini2S.dto.PostsMainResponseDto;
 import com.mini2S.dto.PostsPagingDto;
