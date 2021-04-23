@@ -70,4 +70,6 @@ public class Payments {
 
     @Column(columnDefinition = "varchar(100) comment '상점'")
     private String mId;
+
+    // TODO 날짜관련 컬럼 추가해야함
 }

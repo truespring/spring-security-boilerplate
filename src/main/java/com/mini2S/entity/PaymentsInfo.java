@@ -1,5 +1,16 @@
 package com.mini2S.entity;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Getter
+@Setter
+@Entity
 public class PaymentsInfo {
 /*
 SEQ	PK	FK	컬럼설명	컬럼명	데이터타입	길이	NULL	기본값	참조
@@ -27,4 +38,47 @@ card : 카드결제
 법인카드 : 사업자번호
 
 */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PAYMENT_INFO_SEQ")
+    private Long paymentInfoSeq;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_SEQ")
+    private Users users;
+
+    @Column(columnDefinition = "varchar(100) comment '결제타입'")
+    private String paymentType;
+
+    @Column(columnDefinition = "varchar(100) comment '상점'")
+    private String mId;
+
+    @Column(columnDefinition = "varchar(100) comment '빌키'")
+    private String billKey;
+
+    @Column(columnDefinition = "varchar(16) comment '카드번호'")
+    private String cardNum;
+
+    @Column(columnDefinition = "bigint(4) comment '카드유효기간'")
+    private Long cardExpire;
+
+    @Column(columnDefinition = "varchar(2) comment '카드비밀번호(앞2자리)'")
+    private String cardPwd;
+
+    @Column(columnDefinition = "varchar(10) comment '고유값'")
+    private String idNum;
+
+    @Column(columnDefinition = "char(1) comment '상태'")
+    private Character status;
+
+    @Column(columnDefinition = "varchar(100) comment '카드사코드'")
+    private String cardCode;
+
+    @Column(columnDefinition = "varchar(100) comment '카드사명'")
+    private String cardName;
+
+    @Column(columnDefinition = "varchar(400) comment '결과로그'")
+    private String resultLog;
+
+    // TODO 날짜관련 컬럼 추가해야함
 }
