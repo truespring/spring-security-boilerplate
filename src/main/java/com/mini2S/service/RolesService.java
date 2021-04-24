@@ -16,12 +16,12 @@ public class RolesService {
 
     @Transactional
     public Roles createNewRole(String roleName) {
-        Roles role = rolesRepository.findByRoleName(roleName);
-        List<String> roleNameList = rolesRepository.findAllRoleName();
+        Roles role = rolesRepository.findByRoleName(roleName); // 해당 권한 이름이 있는지 조회
+        List<String> roleNameList = rolesRepository.findAllRoleName(); // 권한 이름 전부 조회
         if(role == null || !roleNameList.contains(roleName)) {
             Roles newRole = new Roles();
             newRole.setRoleName(roleName);
-            return rolesRepository.save(newRole);
+            return rolesRepository.save(newRole); // 새로운 권한 생성
         }
         return role;
     }
