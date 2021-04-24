@@ -15,13 +15,14 @@ public class RolesService {
     private final RolesRepository rolesRepository;
 
     @Transactional
-    public Roles save(Roles roles) {
-        return rolesRepository.save(roles);
+    public Roles createNewRole(String roleName) {
+        Roles role = rolesRepository.findByRoleName(roleName);
+        List<String> roleNameList = rolesRepository.findAllRoleName();
+        if(role == null || !roleNameList.contains(roleName)) {
+            Roles newRole = new Roles();
+            newRole.setRoleName(roleName);
+            return rolesRepository.save(newRole);
+        }
+        return role;
     }
-
-    public Roles findRoleNameByRoleSeq(Long roleSeq) { return rolesRepository.findByRoleSeq(roleSeq); }
-
-    public Roles findRoleSeqByRoleName(String roleName) { return rolesRepository.findByRoleName(roleName); }
-
-    public List<String> findAllRoleName() {return rolesRepository.findAllRoleName(); }
 }
