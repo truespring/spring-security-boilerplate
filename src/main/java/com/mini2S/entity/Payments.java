@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -71,5 +72,11 @@ public class Payments {
     @Column(columnDefinition = "varchar(100) comment '상점'")
     private String mId;
 
-    // TODO 날짜관련 컬럼 추가해야함
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제일시'")
+    private LocalDateTime paymentDttm;
+
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제완료일시'")
+    private LocalDateTime paymentCompleteDttm;
+
+    // TODO 시작일 종료일은 무엇이지?
 }
