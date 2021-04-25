@@ -1,11 +1,17 @@
 package com.mini2S.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-// 결제 내역
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Getter
+@Setter
+@Entity
 public class Payments {
     /*
     PK	FK	컬럼설명	컬럼명	데이터타입	길이	NULL
@@ -30,6 +36,47 @@ public class Payments {
     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PAYMENT_ID")
-    private Long paymentId;
+    @Column(name = "PAYMENT_SEQ")
+    private Long paymentSeq;
+
+    @Column(columnDefinition = "varchar(100) comment '주문번호'")
+    private String moId;
+
+    @Column(columnDefinition = "bigint comment '결제정보'")
+    private Long paymentInfoSeq;
+
+    @Column(columnDefinition = "varchar(100) comment '결제타입'")
+    private String paymentType;
+
+    @Column(columnDefinition = "bigint comment '계약'")
+    private Long contractSeq;
+
+    @Column(columnDefinition = "varchar(20) comment '결제상태'")
+    private String status;
+
+    @Column(columnDefinition = "bigint comment '금액'")
+    private Long amt;
+
+    @Column(columnDefinition = "varchar(100) comment 'TID'")
+    private String tid;
+
+    @Column(columnDefinition = "varchar(100) comment '결제수단'")
+    private String paymentMethod;
+
+    @Column(columnDefinition = "varchar(100) comment '결과코드'")
+    private String resultCode;
+
+    @Column(columnDefinition = "varchar(100) comment '결과메세지'")
+    private String resultMsg;
+
+    @Column(columnDefinition = "varchar(100) comment '상점'")
+    private String mId;
+
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제일시'")
+    private LocalDateTime paymentDttm;
+
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제완료일시'")
+    private LocalDateTime paymentCompleteDttm;
+
+    // TODO 시작일 종료일은 무엇이지?
 }

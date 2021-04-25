@@ -57,18 +57,15 @@ public class UsersService {
     public void signUpUser(Users users){
         String encodePassword = passwordEncoder.encode(users.getUserPw());
         users.setUserPw(encodePassword);
-        Roles roles = null;
-        roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
+        Roles roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
         if(roles == null || !roles.getRoleName().equals(roleName)) {
-            Roles addRole = null;
-//            addRole.setRoleSeq(roleSeq);
-            addRole.setRoleName(roleName);
-            rolesRepository.save(addRole); // 최초 권한 없으면 새로 만들어줌
+            Roles role = null;
+            role.setRoleName(roleName);
+            rolesRepository.save(role); // 최초 권한 없으면 새로 만들어줌
             roles = rolesRepository.findByRoleSeq(roleSeq);
         }
-        usersRepository.save(users);
-        Users selUser = usersRepository.findByUserEmail(users.getUserEmail());
-        rolesRepository.insertUserRole(selUser.getUserSeq(), roles.getRoleSeq());
-//        return selUser;
+        usersRepository.save(users); // 회원가입
+        Users user = usersRepository.findByUserEmail(users.getUserEmail());
+        rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
     }
 }

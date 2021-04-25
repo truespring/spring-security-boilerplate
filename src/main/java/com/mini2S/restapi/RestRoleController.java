@@ -20,27 +20,10 @@ public class RestRoleController {
     private UsersService usersService;
 
     // 권한 정보
-    @PostMapping("/addRoles")
+    @PostMapping("/roles/add")
     @ApiOperation(value = "권한 추가")
     public Roles addRoles(String roleName) {
-        Roles roles = null;
-        roles = getRoleName(roleName); // 입력하는 권한이 존재하는지 조회
-        List<String> roleNames = rolesService.findAllRoleName();
-        if(roles == null || !roleNames.contains(roleName)) { // 없으면 새로 등록
-            roles.setRoleName(roleName);
-            return rolesService.save(roles);
-        }
-        return roles; // 있으면 있는걸로 반환
-    }
-
-    // rolename 조회
-    public Roles getRoleSeq(Long roleSeq) {
-        return rolesService.findRoleNameByRoleSeq(roleSeq);
-    }
-
-    // roleseq 조회
-    public Roles getRoleName(String roleName) {
-        return rolesService.findRoleSeqByRoleName(roleName);
+       return rolesService.createNewRole(roleName);
     }
 
 }

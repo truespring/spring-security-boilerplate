@@ -15,13 +15,14 @@ public class RolesService {
     private final RolesRepository rolesRepository;
 
     @Transactional
-    public Roles save(Roles roles) {
-        return rolesRepository.save(roles);
+    public Roles createNewRole(String roleName) {
+        Roles role = rolesRepository.findByRoleName(roleName); // 해당 권한 이름이 있는지 조회
+        List<String> roleNameList = rolesRepository.findAllRoleName(); // 권한 이름 전부 조회
+        if(role == null || !roleNameList.contains(roleName)) {
+            Roles newRole = new Roles();
+            newRole.setRoleName(roleName);
+            return rolesRepository.save(newRole); // 새로운 권한 생성
+        }
+        return role;
     }
-
-    public Roles findRoleNameByRoleSeq(Long roleSeq) { return rolesRepository.findByRoleSeq(roleSeq); }
-
-    public Roles findRoleSeqByRoleName(String roleName) { return rolesRepository.findByRoleName(roleName); }
-
-    public List<String> findAllRoleName() {return rolesRepository.findAllRoleName(); }
 }

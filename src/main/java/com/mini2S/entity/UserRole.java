@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -17,10 +15,11 @@ import java.io.Serializable;
 public class UserRole implements Serializable {
 
     @Id
-    @Column(name = "USER_SEQ")
-    private long userSeq;
+    @OneToOne
+    @JoinColumn(name = "USER_SEQ")
+    private Users users;
 
-    @Id
-    @Column(name = "ROLE_SEQ")
-    private long roleSeq;
+    @ManyToOne
+    @JoinColumn(name = "ROLE_SEQ")
+    private Roles roles;
 }
