@@ -1,6 +1,6 @@
 package com.mini2S.service;
 
-import com.mini2S.dto.UsersSigninDto;
+import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.entity.Roles;
 import com.mini2S.entity.Users;
 import com.mini2S.reposotory.RolesRepository;
@@ -9,8 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service

@@ -1,7 +1,7 @@
-package com.mini2S.restapi;
+package com.mini2S.controller;
 
-import com.mini2S.dto.UsersSigninDto;
-import com.mini2S.dto.UsersSignupDto;
+import com.mini2S.model.dto.UsersSigninDto;
+import com.mini2S.model.dto.UsersSignupDto;
 import com.mini2S.entity.Users;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;

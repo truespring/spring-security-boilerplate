@@ -17,7 +17,7 @@ public class SwaggerConfiguration {
     public Docket swaggerApi(){
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(swaggerInfo()).select()
                 // 하단 경로의 API를 문서화
-                .apis(RequestHandlerSelectors.basePackage("com.mini2S.restapi"))
+                .apis(RequestHandlerSelectors.basePackage("com.mini2S.controller"))
                 .paths(PathSelectors.any())
                 //   하단의 경로만 문서화할 수 있음
                 //  .paths(PathSelectors.ant("/v1/**"))

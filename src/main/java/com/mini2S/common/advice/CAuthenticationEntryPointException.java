@@ -1,4 +1,4 @@
-package com.mini2S.advice;
+package com.mini2S.common.advice;
 
 public class CAuthenticationEntryPointException extends RuntimeException {
     public CAuthenticationEntryPointException(String msg, Throwable t) {

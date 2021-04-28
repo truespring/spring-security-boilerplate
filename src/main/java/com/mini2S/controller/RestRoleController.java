@@ -1,4 +1,4 @@
-package com.mini2S.restapi;
+package com.mini2S.controller;
 
 import com.mini2S.entity.Roles;
 import com.mini2S.service.RolesService;
@@ -8,8 +8,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @Api(tags = {"2. Roles"})
 @RestController

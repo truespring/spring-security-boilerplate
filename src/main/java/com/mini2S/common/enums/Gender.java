@@ -1,4 +1,4 @@
-package com.mini2S.enums;
+package com.mini2S.common.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

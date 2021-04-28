@@ -1,7 +1,7 @@
-package com.mini2S.restapi;
+package com.mini2S.controller;
 
-import com.mini2S.dto.PostsMainResponseDto;
-import com.mini2S.dto.PostsPagingDto;
+import com.mini2S.model.dto.PostsMainResponseDto;
+import com.mini2S.model.dto.PostsPagingDto;
 import com.mini2S.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

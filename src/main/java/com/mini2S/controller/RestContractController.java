@@ -1,4 +1,4 @@
-package com.mini2S.restapi;
+package com.mini2S.controller;
 
 public class RestContractController {
 }

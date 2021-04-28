@@ -1,4 +1,4 @@
-package com.mini2S.dto;
+package com.mini2S.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

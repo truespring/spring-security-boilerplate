@@ -1,6 +1,6 @@
-package com.mini2S.restapi.exception;
+package com.mini2S.common.exception;
 
-import com.mini2S.advice.CAuthenticationEntryPointException;
+import com.mini2S.common.advice.CAuthenticationEntryPointException;
 import com.mini2S.model.response.CommonResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;

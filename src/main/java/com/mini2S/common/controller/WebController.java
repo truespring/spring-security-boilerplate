@@ -1,4 +1,4 @@
-package com.mini2S.controller;
+package com.mini2S.common.controller;
 
 import com.mini2S.service.PostsService;
 import lombok.AllArgsConstructor;

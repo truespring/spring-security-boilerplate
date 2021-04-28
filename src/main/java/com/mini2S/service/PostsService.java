@@ -1,11 +1,11 @@
 package com.mini2S.service;
 
-import com.mini2S.dto.PostsMainResponseDto;
-import com.mini2S.dto.PostsPatchRequestDto;
-import com.mini2S.dto.PostsSaveRequestDto;
+import com.mini2S.model.dto.PostsMainResponseDto;
+import com.mini2S.model.dto.PostsPatchRequestDto;
+import com.mini2S.model.dto.PostsSaveRequestDto;
 import com.mini2S.entity.Posts;
 import com.mini2S.reposotory.PostsRepository;
-import com.mini2S.util.Paging;
+import com.mini2S.common.util.Paging;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

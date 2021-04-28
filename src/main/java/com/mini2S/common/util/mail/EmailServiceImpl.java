@@ -1,4 +1,4 @@
-package com.mini2S.util.mail;
+package com.mini2S.common.util.mail;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;

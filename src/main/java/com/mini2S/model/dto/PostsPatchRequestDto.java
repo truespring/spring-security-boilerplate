@@ -1,4 +1,4 @@
-package com.mini2S.dto;
+package com.mini2S.model.dto;
 
 import com.mini2S.entity.Posts;
 import lombok.Builder;
