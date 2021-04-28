@@ -2,7 +2,6 @@ package com.mini2S.controller;
 
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.model.dto.UsersSignupDto;
-import com.mini2S.entity.Users;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;
 import com.mini2S.service.UsersService;
@@ -39,14 +38,7 @@ public class RestUsersController {
     @PostMapping("/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
     public CommonResult signup(@RequestBody UsersSignupDto dto){
-        usersService.signUpUser(Users.builder()
-                        .userEmail(dto.getUserEmail())
-                        .userName(dto.getUserName())
-                        .userAccountType(dto.getUserAccountType())
-                        .userPw(dto.getUserPw())
-                        .userGender(dto.getUserGender())
-                        .userPhoneNumber(dto.getUserPhoneNumber())
-                        .build());
+        usersService.signUpUser(dto);
         return responseService.getSuccessResult();
     }
 

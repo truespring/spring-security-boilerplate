@@ -3,12 +3,11 @@ package com.mini2S.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor
 @Getter
-@Setter
+@Builder
 @Entity
 //@Data getter, setter, RequiredArgsConstructor, ToString, EqualsAndHashCode 동시에
 public class Users extends BaseTimeEntity {
@@ -36,14 +35,4 @@ public class Users extends BaseTimeEntity {
     @Column(columnDefinition = "varchar(100) not null comment '회원 성별(M / W)'")
     private String userGender;
 
-
-    @Builder
-    public Users(String userEmail, String userName, String userPw, String userAccountType, String userGender, String userPhoneNumber){
-        this.userEmail = userEmail;
-        this.userName = userName;
-        this.userPw = userPw;
-        this.userAccountType = userAccountType;
-        this.userGender = userGender;
-        this.userPhoneNumber = userPhoneNumber;
-    }
 }

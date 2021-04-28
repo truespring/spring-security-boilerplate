@@ -3,6 +3,7 @@ package com.mini2S.service;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.entity.Roles;
 import com.mini2S.entity.Users;
+import com.mini2S.model.dto.UsersSignupDto;
 import com.mini2S.reposotory.RolesRepository;
 import com.mini2S.reposotory.UsersRepository;
 import lombok.AllArgsConstructor;
@@ -52,9 +53,8 @@ public class UsersService {
 //        }
 //    }
     @Transactional
-    public void signUpUser(Users users){
-        String encodePassword = passwordEncoder.encode(users.getUserPw());
-        users.setUserPw(encodePassword);
+    public void signUpUser(UsersSignupDto dto){
+        String encodePassword = passwordEncoder.encode(dto.getUserPw());
         Roles roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
         if(roles == null || !roles.getRoleName().equals(roleName)) {
             Roles role = null;
@@ -62,8 +62,15 @@ public class UsersService {
             rolesRepository.save(role); // 최초 권한 없으면 새로 만들어줌
             roles = rolesRepository.findByRoleSeq(roleSeq);
         }
-        usersRepository.save(users); // 회원가입
-        Users user = usersRepository.findByUserEmail(users.getUserEmail());
+        usersRepository.save(Users.builder()
+                            .userEmail(dto.getUserEmail())
+                            .userName(dto.getUserName())
+                            .userAccountType(dto.getUserAccountType())
+                            .userPw(encodePassword)
+                            .userGender(dto.getUserGender())
+                            .userPhoneNumber(dto.getUserPhoneNumber())
+                            .build()); // 회원가입
+        Users user = usersRepository.findByUserEmail(dto.getUserEmail());
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
     }
 }
