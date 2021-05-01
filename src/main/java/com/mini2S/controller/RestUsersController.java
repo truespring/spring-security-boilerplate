@@ -52,6 +52,7 @@ public class RestUsersController {
     @ApiOperation(value = "토큰 확인")
     public String chk(String token) {
         String resultToken = jwtTokenProvider.getUserPk(token);
+        // 토큰 테스트
         System.out.print("resultToken : "+resultToken);
         return jwtTokenProvider.getUserPk(token);
     }
