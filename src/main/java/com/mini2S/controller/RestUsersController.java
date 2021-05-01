@@ -25,8 +25,8 @@ public class RestUsersController {
     // 로그인
     @PostMapping("/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
-    public long signin(@RequestBody UsersSigninDto dto, HttpServletRequest request){
-        long result = usersService.signin(dto);
+    public Long signIn(@RequestBody UsersSigninDto dto, HttpServletRequest request){
+        Long result = usersService.signin(dto);
         if(result == 1){
             HttpSession hs = request.getSession();
             hs.setAttribute("users", dto);
@@ -37,7 +37,7 @@ public class RestUsersController {
     // 회원가입
     @PostMapping("/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
-    public CommonResult signup(@RequestBody UsersSignupDto dto){
+    public CommonResult signUp(@RequestBody UsersSignupDto dto){
         usersService.signUpUser(dto);
         return responseService.getSuccessResult();
     }

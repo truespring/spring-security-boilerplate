@@ -25,20 +25,20 @@ public class UsersService {
 
 
     @Transactional
-    public long signin(UsersSigninDto dto){
-        Users users = usersRepository.findByUserEmail(dto.getUserEmail());
+    public Long signin(UsersSigninDto dto){
+        Users users = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         // 유저 있음
         if(users != null && users.getUserEmail().equals(dto.getUserEmail())){
             if(users.getUserPw().equals(dto.getUserPw())){
                 //로그인 성공
-                return 1;
+                return 1L;
             }else{
                 //패스워드 틀림
-                return 2;
+                return 2L;
             }
         // 유저 없음
         }else{
-            return 0;
+            return 0L;
         }
     }
 //    @Transactional
@@ -70,7 +70,7 @@ public class UsersService {
                             .userGender(dto.getUserGender())
                             .userPhoneNumber(dto.getUserPhoneNumber())
                             .build()); // 회원가입
-        Users user = usersRepository.findByUserEmail(dto.getUserEmail());
+        Users user = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
     }
 }
