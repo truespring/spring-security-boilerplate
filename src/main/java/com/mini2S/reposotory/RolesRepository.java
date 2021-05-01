@@ -33,6 +33,14 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
                         @Param("RoleSeq") Long RoleSeq
     );
 
+    @Query(value = " SELECT a.role_name " +
+                   " FROM roles a " +
+                   " INNER JOIN user_role b " +
+                   " ON a.role_seq = b.role_seq " +
+                   " WHERE b.user_seq = :userSeq "
+                    , nativeQuery = true)
+    public String findRoleNameByUserSeq(@Param("userSeq")Long userSeq);
+
     @Query(value = " SELECT r.roleName " +
                     " FROM Roles r " )
     public List<String> findAllRoleName();

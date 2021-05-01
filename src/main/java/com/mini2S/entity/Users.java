@@ -38,7 +38,6 @@ public class Users extends BaseTimeEntity implements UserDetails {
     @Column(columnDefinition = "varchar(100) not null comment '회원 성별(M / W)'")
     private String userGender;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

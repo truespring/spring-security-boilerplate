@@ -1,5 +1,7 @@
 package com.mini2S.service;
 
+import com.mini2S.configuration.security.JwtTokenProvider;
+import com.mini2S.entity.UserRole;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.entity.Roles;
 import com.mini2S.entity.Users;
@@ -16,29 +18,28 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsersService {
     private final long roleSeq = 1L;
     private final String roleName = "USER_ROLE";
-
     private final UsersRepository usersRepository;
-
     private final PasswordEncoder passwordEncoder;
-
     private final RolesRepository rolesRepository;
-
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
-    public Long signin(UsersSigninDto dto){
+    public String signin(UsersSigninDto dto){
         Users users = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         // 유저 있음
         if(users != null && users.getUserEmail().equals(dto.getUserEmail())){
-            if(users.getUserPw().equals(dto.getUserPw())){
+            if(passwordEncoder.matches(dto.getUserPw(), users.getUserPw())){
                 //로그인 성공
-                return 1L;
+                String roleName = rolesRepository.findRoleNameByUserSeq(users.getUserSeq());
+                return jwtTokenProvider.createToken(users.getUserEmail(), roleName);
+//                return "성공"
             }else{
                 //패스워드 틀림
-                return 2L;
+                return null;
             }
         // 유저 없음
         }else{
-            return 0L;
+            return null;
         }
     }
 //    @Transactional
@@ -54,6 +55,11 @@ public class UsersService {
 //    }
     @Transactional
     public void signUpUser(UsersSignupDto dto){
+        Users chkUser = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
+        if (chkUser != null || chkUser.getUserEmail() != null) {
+            // 회원가입 아이디 중복 부분
+        }
+
         String encodePassword = passwordEncoder.encode(dto.getUserPw());
         Roles roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
         if(roles == null || !roles.getRoleName().equals(roleName)) {

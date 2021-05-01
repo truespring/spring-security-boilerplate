@@ -9,10 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UsersSigninDto {
 
-    private Long userSeq;
     private String userEmail;
-    private String userName;
     private String userPw;
-    private String userGender;
-    private String userPhoneNumber;
 }
