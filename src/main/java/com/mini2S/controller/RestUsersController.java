@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Api(tags = {"1. Users"})
 @RestController
@@ -31,12 +30,7 @@ public class RestUsersController {
     @PostMapping("/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
     public String signin(@RequestBody UsersSigninDto dto, HttpServletRequest request){
-        String result = usersService.signin(dto);
-        if(result != null){
-            HttpSession hs = request.getSession();
-            hs.setAttribute("users", dto);
-        }
-        return result;
+        return usersService.signin(dto);
     }
 
     // 회원가입
@@ -56,5 +50,8 @@ public class RestUsersController {
         System.out.print("resultToken : "+resultToken);
         return jwtTokenProvider.getUserPk(token);
     }
+
+//    @PostMapping("/reissue")
+//    public ResponseEntity<TokenDto>
 
 }

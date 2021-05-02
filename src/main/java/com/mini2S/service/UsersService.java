@@ -1,7 +1,6 @@
 package com.mini2S.service;
 
 import com.mini2S.configuration.security.JwtTokenProvider;
-import com.mini2S.entity.UserRole;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.entity.Roles;
 import com.mini2S.entity.Users;
@@ -31,7 +30,7 @@ public class UsersService {
             if(passwordEncoder.matches(dto.getUserPw(), users.getUserPw())){
                 //로그인 성공
                 String roleName = rolesRepository.findRoleNameByUserSeq(users.getUserSeq());
-                return jwtTokenProvider.createToken(users.getUserEmail(), roleName);
+                return jwtTokenProvider.createAccessToken(users.getUserEmail(), roleName);
 //                return "성공"
             }else{
                 //패스워드 틀림
