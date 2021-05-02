@@ -41,7 +41,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
                 .authorizeRequests()
                     // 아래의 경로는 권한 허용
-                    .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test").permitAll()
+                    .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue").permitAll()
                     .antMatchers("/css/**", "/js/**", "/login").permitAll()
                     .anyRequest().authenticated()
             .and()

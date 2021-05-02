@@ -2,6 +2,7 @@ package com.mini2S.controller;
 
 import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.configuration.security.TokenDto;
+import com.mini2S.model.dto.TokenRequestDto;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.model.dto.UsersSignupDto;
 import com.mini2S.model.response.CommonResult;
@@ -10,6 +11,7 @@ import com.mini2S.service.UsersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,7 +52,10 @@ public class RestUsersController {
         return jwtTokenProvider.getUserPk(token);
     }
 
-//    @PostMapping("/reissue")
-//    public ResponseEntity<TokenDto>
+    @PostMapping("/reissue")
+    @ApiOperation(value = "토큰 갱신")
+    public ResponseEntity<TokenDto> reissue(@RequestBody TokenRequestDto dto){
+        return ResponseEntity.ok(usersService.reissue(dto));
+    }
 
 }

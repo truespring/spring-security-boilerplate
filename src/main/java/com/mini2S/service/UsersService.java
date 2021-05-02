@@ -3,7 +3,8 @@ package com.mini2S.service;
 import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.configuration.security.TokenRepository;
-import com.mini2S.entity.RefreshToken;
+import com.mini2S.configuration.security.RefreshToken;
+import com.mini2S.model.dto.TokenRequestDto;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.entity.Roles;
 import com.mini2S.entity.Users;
@@ -11,6 +12,7 @@ import com.mini2S.model.dto.UsersSignupDto;
 import com.mini2S.reposotory.RolesRepository;
 import com.mini2S.reposotory.UsersRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,5 +80,40 @@ public class UsersService {
                             .build()); // 회원가입
         Users user = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
+    }
+
+    @Transactional
+    public TokenDto reissue(TokenRequestDto dto){
+        // 1. refreshToken 인증
+        if(!jwtTokenProvider.validateToken(dto.getRefreshToken())){
+            throw new RuntimeException("Refresh Token 이 유효하지 않습니다.");
+        }
+
+        // 2. accessToken에서 userEmail 가져오기
+        Authentication authentication = jwtTokenProvider.getAuthentication(dto.getAccessToken());
+
+        // 3. 저장소에서 userEmail 기반으로 refreshToken 가져오기
+        RefreshToken refreshToken = tokenRepository.findRefreshTokenByUserEmail(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("로그아웃된 사용자입니다."));
+
+        // 4. refreshToken 일치 검사
+        if(!refreshToken.getRefreshToken().equals(dto.getRefreshToken())){
+            throw new RuntimeException("토큰의 유저 정보가 일치하지 않습니다.");
+        }
+        Users users = usersRepository.findByUserEmailOrderByUserSeq(authentication.getName());
+
+        // 5. 새로운 토큰 생성
+        TokenDto tokenDto = TokenDto.builder()
+                            .accessToken(jwtTokenProvider.createAccessToken(
+                                    authentication.getName(),
+                                    rolesRepository.findRoleNameByUserSeq(users.getUserSeq())))
+                            .refreshToken(jwtTokenProvider.createRefreshtoken(UUID.randomUUID().toString())).build();
+
+        // 6. 저장소 정보 업데이트
+        tokenRepository.save(RefreshToken.builder()
+                            .userEmail(users.getUserEmail())
+                            .refreshToken(tokenDto.getRefreshToken())
+                            .build());
+        return tokenDto;
     }
 }

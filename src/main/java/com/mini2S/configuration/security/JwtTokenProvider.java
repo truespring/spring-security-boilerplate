@@ -24,7 +24,7 @@ public class JwtTokenProvider {
 
     private final UserDetailsService userDetailsService;
 
-    // JWT 토큰 생성
+    // JWT accessToken 생성
     public String createAccessToken(String userPk, String role){
         // 토큰 유효시간 30분
         long tokenValidTime = 30 * 60 * 1000L;
@@ -42,7 +42,7 @@ public class JwtTokenProvider {
                 .signWith(key) // 사용할 암호화알고리즘 + signature에 저장도리 secret값 세팅
                 .compact();
     }
-
+    // JWT refreshToken 생성
     public String createRefreshtoken(String value){
         // 1년
         long tokenValidTime = 365 * 24 * 60 * 60 * 1000L;

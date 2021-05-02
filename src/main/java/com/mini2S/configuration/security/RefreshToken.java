@@ -1,4 +1,4 @@
-package com.mini2S.entity;
+package com.mini2S.configuration.security;
 
 import lombok.*;
 
@@ -12,12 +12,13 @@ import java.io.Serializable;
 @Entity
 public class RefreshToken implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TOKEN_SEQ")
-    private Long tokenSeq;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "TOKEN_SEQ")
+//    private Long tokenSeq;
 
-    @Column(name = "USER_EMAIL")
+    @Id
+    @Column(name = "USER_EMAIL",
+            columnDefinition = "varchar(50) not null comment '리프레시 토큰'")
     private String userEmail;
     
     @Column(name = "REFRESH_TOKEN",
