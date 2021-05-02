@@ -1,6 +1,7 @@
 package com.mini2S.controller;
 
 import com.mini2S.configuration.security.JwtTokenProvider;
+import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.model.dto.UsersSigninDto;
 import com.mini2S.model.dto.UsersSignupDto;
 import com.mini2S.model.response.CommonResult;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Api(tags = {"1. Users"})
 @RestController
@@ -29,7 +28,7 @@ public class RestUsersController {
     // 로그인
     @PostMapping("/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
-    public String signin(@RequestBody UsersSigninDto dto, HttpServletRequest request){
+    public TokenDto signin(@RequestBody UsersSigninDto dto){
         return usersService.signin(dto);
     }
 

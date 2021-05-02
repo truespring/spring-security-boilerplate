@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class RestRoleController {
-    private RolesService rolesService;
+    private final RolesService rolesService;
 
-    private UsersService usersService;
+    private final UsersService usersService;
 
     // 권한 정보
     @PostMapping("/roles/add")

@@ -42,16 +42,29 @@ public class JwtTokenProvider {
                 .signWith(key) // 사용할 암호화알고리즘 + signature에 저장도리 secret값 세팅
                 .compact();
     }
+
+    public String createRefreshtoken(String value){
+        // 1년
+        long tokenValidTime = 365 * 24 * 60 * 60 * 1000L;
+        Claims claims = Jwts.claims();
+        claims.put("value", value);
+
+        Date now = new Date();
+
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .signWith(key)
+                .compact();
+    }
+
     // JWT 토큰에서 인증 정보 조회
     public Authentication getAuthentication(String token){
         UserDetails userDetails = userDetailsService.loadUserByUsername(this.getUserPk(token));
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
-    public String createRefreshtoken(){
-        // 1년
-        long tokenValidTime = 365 * 24 * 60 * 60 * 1000L;
-        return "";
-    }
+
 
     // JWT 토큰에서 회원 정보 추출
     public String getUserPk(String token){
