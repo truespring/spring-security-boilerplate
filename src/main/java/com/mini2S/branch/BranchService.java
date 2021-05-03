@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class BranchService {
+public class BranchService{
     private final BranchRepository branchRepository;
     private final UsersRepository usersRepository;
+
 
 //    @Transactional
 //    public List<Branch> findBranchList(Long userSeq) {
