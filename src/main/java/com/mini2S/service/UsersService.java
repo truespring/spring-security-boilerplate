@@ -31,7 +31,7 @@ public class UsersService {
     private final TokenRepository tokenRepository;
 
     @Transactional
-    public TokenDto signin(UsersSigninDto dto){
+    public TokenDto signIn(UsersSigninDto dto){
         Users users = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         // 유저 있음
         if(users != null && users.getUserEmail().equals(dto.getUserEmail())){
@@ -82,7 +82,7 @@ public class UsersService {
     }
 
     @Transactional
-    public TokenDto reissue(TokenRequestDto dto){
+    public TokenDto reIssue(TokenRequestDto dto){
         // 1. refreshToken 인증
         if(!jwtTokenProvider.validateToken(dto.getRefreshToken())){
             throw new RuntimeException("Refresh Token 이 유효하지 않습니다.");

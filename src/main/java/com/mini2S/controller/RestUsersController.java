@@ -31,7 +31,7 @@ public class RestUsersController {
     @PostMapping("/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
     public TokenDto signin(@RequestBody UsersSigninDto dto){
-        return usersService.signin(dto);
+        return usersService.signIn(dto);
     }
 
     // 회원가입
@@ -55,7 +55,7 @@ public class RestUsersController {
     @PostMapping("/reissue")
     @ApiOperation(value = "토큰 갱신")
     public ResponseEntity<TokenDto> reissue(@RequestBody TokenRequestDto dto){
-        return ResponseEntity.ok(usersService.reissue(dto));
+        return ResponseEntity.ok(usersService.reIssue(dto));
     }
 
 }
