@@ -36,10 +36,10 @@ SEQ	PK	FK	컬럼설명	컬럼명	    데이터타입	길이	NULL	기본값	참�
     private String addressDetail;
 
     @Column(columnDefinition = "decimal(20) comment '좌표x'")
-    private BigDecimal coordX;
+    private Double coordX;
 
     @Column(columnDefinition = "decimal(20) comment '좌표y'")
-    private BigDecimal coordY;
+    private Double coordY;
 
     @Column(columnDefinition = "varchar(100) comment '사용여부'")
     private String useYn;
