@@ -22,8 +22,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Service
 public class UsersService {
-    private final long roleSeq = 1L;
-    private final String roleName = "USER_ROLE";
+    private final Long ROLESEQ = 1L;
+    private final String ROLENAME = "USER_ROLE";
     private final UsersRepository usersRepository;
     private final PasswordEncoder passwordEncoder;
     private final RolesRepository rolesRepository;
@@ -63,19 +63,18 @@ public class UsersService {
     public void signUpUser(UsersSignupDto dto){
         usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         String encodePassword = passwordEncoder.encode(dto.getUserPw());
-        Roles roles = rolesRepository.findByRoleSeq(roleSeq); // 회원가입시 최초 권한 조회
-        if(roles == null || !roles.getRoleName().equals(roleName)) {
+        Roles roles = rolesRepository.findByRoleSeq(ROLESEQ); // 회원가입시 최초 권한 조회
+        if(roles == null || !roles.getRoleName().equals(ROLENAME)) {
             Roles role = null;
-            role.setRoleName(roleName);
+            role.setRoleName(ROLENAME);
             rolesRepository.save(role); // 최초 권한 없으면 새로 만들어줌
-            roles = rolesRepository.findByRoleSeq(roleSeq);
+            roles = rolesRepository.findByRoleSeq(ROLESEQ);
         }
         usersRepository.save(Users.builder()
                             .userEmail(dto.getUserEmail())
                             .userName(dto.getUserName())
                             .userAccountType(dto.getUserAccountType())
                             .userPw(encodePassword)
-                            .userGender("M")
                             .userPhoneNumber(dto.getUserPhoneNumber())
                             .build()); // 회원가입
         Users user = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
