@@ -1,7 +1,7 @@
 package com.mini2S.service;
 
-import com.mini2S.entity.Roles;
-import com.mini2S.reposotory.RolesRepository;
+import com.mini2S.model.entity.Roles;
+import com.mini2S.configuration.reposotory.RolesRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.mini2S.controller;
 
-import com.mini2S.entity.Roles;
+import com.mini2S.model.entity.Roles;
 import com.mini2S.service.RolesService;
 import com.mini2S.service.UsersService;
 import io.swagger.annotations.Api;

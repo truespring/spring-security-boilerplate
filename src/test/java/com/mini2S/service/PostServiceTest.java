@@ -1,8 +1,8 @@
 package com.mini2S.service;
 
 import com.mini2S.model.dto.PostsSaveRequestDto;
-import com.mini2S.entity.Posts;
-import com.mini2S.reposotory.PostsRepository;
+import com.mini2S.model.entity.Posts;
+import com.mini2S.configuration.reposotory.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
