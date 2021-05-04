@@ -1,15 +1,13 @@
 package com.mini2S.branch.model.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor
 @Getter
-@Setter
+@Builder
 @Entity
 public class BranchImage {
     /*
@@ -28,9 +26,9 @@ SEQ	PK	FK	컬럼설명	    컬럼명	        데이터타입	    길이	    NULL
     @JoinColumn(name = "BRANCH_SEQ")
     private Branch branch;
 
-    @Column(columnDefinition = "varchar(100) comment '지점사진'")
+    @Column(columnDefinition = "varchar(255) comment '지점 사진'")
     private String branchImage;
 
-    @Column(columnDefinition = "bigint comment '지점순서'")
-    private Long branchSort;
+    @Column(columnDefinition = "bigint comment '지점 사진 순서'")
+    private Long branchImageSort;
 }

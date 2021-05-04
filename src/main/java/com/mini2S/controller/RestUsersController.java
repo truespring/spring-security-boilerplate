@@ -12,12 +12,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = {"1. Users"})
+@RequestMapping("/v1")
 @RestController
 @AllArgsConstructor
 public class RestUsersController {
@@ -28,14 +26,14 @@ public class RestUsersController {
     private final JwtTokenProvider jwtTokenProvider;
 
     // 로그인
-    @PostMapping("/signin")
+    @PostMapping("/user/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
     public TokenDto signin(@RequestBody UsersSigninDto dto){
         return usersService.signIn(dto);
     }
 
     // 회원가입
-    @PostMapping("/signup")
+    @PostMapping("/user/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
     public CommonResult signup(@RequestBody UsersSignupDto dto){
         usersService.signUpUser(dto);
@@ -43,7 +41,7 @@ public class RestUsersController {
     }
 
     // 토큰 확인
-    @GetMapping("/test")
+    @GetMapping("/user/test")
     @ApiOperation(value = "토큰 확인")
     public String chk(String token) {
         String resultToken = jwtTokenProvider.getUserPk(token);
@@ -52,7 +50,7 @@ public class RestUsersController {
         return jwtTokenProvider.getUserPk(token);
     }
 
-    @PostMapping("/reissue")
+    @PostMapping("/user/reissue")
     @ApiOperation(value = "토큰 갱신")
     public ResponseEntity<TokenDto> reissue(@RequestBody TokenRequestDto dto){
         return ResponseEntity.ok(usersService.reIssue(dto));

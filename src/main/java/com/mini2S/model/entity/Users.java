@@ -5,7 +5,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Collection;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -45,11 +44,11 @@ public class Users extends BaseTimeEntity implements UserDetails {
     @Column(columnDefinition = "varchar(400) not null comment '상세 주소'")
     private String userDetailAddress;
 
-    @Column(columnDefinition = "decimal(20) comment '좌표x'")
-    private BigDecimal coordX;
+    @Column(columnDefinition = "varchar(100) comment '좌표x'")
+    private String coordX;
 
-    @Column(columnDefinition = "decimal(20) comment '좌표y'")
-    private BigDecimal coordY;
+    @Column(columnDefinition = "varchar(100) comment '좌표y'")
+    private String coordY;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
