@@ -50,7 +50,13 @@ spring:
     generate-ddl : true
     # WARN 23008 에러 제거
     open-in-view: false
-
+  # handlebars 기본 설정
+#  handlebars:
+#    view-names: handlebars/*
+#    prefix: classpath:/templates/
+#    suffix: .hbs
+#    cache: false
+#    check-template-location: true
 # Inmemory 방법
 #  jpa:
 #    hibernate :

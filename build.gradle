@@ -4,21 +4,6 @@ plugins {
     id 'java'
 }
 
-// 디렉토리 소스 접근 코드
-sourceSets {
-    main {
-        resources {
-            srcDirs("src/main/resources", "src/main/resources/profiles")
-        }
-    }
-}
-// 부트 실행 시 profile 값을 적용할 수 있는 설정
-bootRun {
-    String activeProfile = System.properties['spring.profiles.active']
-    println "zone: $activeProfile"
-    systemProperty "spring.profiles.active", activeProfile
-}
-
 group = 'com.mini2s'
 version = '0.0.2'
 sourceCompatibility = '11'
@@ -87,6 +72,10 @@ dependencies {
 
     // 테스트 코드
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+//    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+
 }
 
 test {
