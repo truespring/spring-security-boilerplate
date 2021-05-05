@@ -10,4 +10,5 @@ import lombok.Getter;
 public class BranchDto {
     private Branch branch;
     private Double orderNum;
+    private String imagePath;
 }

@@ -18,9 +18,17 @@ import java.util.List;
 public class RestBranchController {
     private final BranchService branchService;
 
-    @PostMapping("/branch/list")
-    @ApiOperation(value = "지점 목록")
-    public List<BranchDto> branchList(Long userSeq) {
+    @PostMapping("/branch/list/signin")
+    @ApiOperation(value = "지점 목록(로그인)")
+    public List<BranchDto> branchList(String token) {
+        List<BranchDto> returnList = branchService.selectUserBranchList(token);
+        return null;
+    }
+
+    @PostMapping("/branch/list/nonsignin")
+    @ApiOperation(value = "지점 목록(비로그인)")
+    public List<BranchDto> branchList() {
+        List<BranchDto> returnList = branchService.selectBranchInfoList();
         return null;
     }
 }

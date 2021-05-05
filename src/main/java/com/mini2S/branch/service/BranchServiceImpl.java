@@ -4,6 +4,7 @@ import com.mini2S.branch.model.dto.BranchDto;
 import com.mini2S.branch.model.vo.BranchVO;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
+import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.model.vo.UsersVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,22 @@ public class BranchServiceImpl implements BranchService {
 
     private final BranchRepository branchRepository;
     private final UsersRepository usersRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Override
     @Transactional
-    public List<BranchDto> selectBranchList(Long userSeq) {
-        UsersVO userCoord = usersRepository.findUserCoordinateByUserSeq(userSeq);
+    public List<BranchDto> selectUserBranchList(String token) {
+        String resultToken = jwtTokenProvider.getUserPk(token);
+        UsersVO userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
         List<BranchVO> branchCoord = branchRepository.findBranchCoordinate();
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public List<BranchDto> selectBranchInfoList() {
+        List<BranchVO> branchCoord = branchRepository.findBranchCoordinate();
+        String imagePath; // 이미지 경로
         return null;
     }
     //    @Transactional
