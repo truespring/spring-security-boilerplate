@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Direction5 {
     // Naver Cloud Platform의 Direction5 사용, 네비게이션 기준 거리 산정
-    public static JsonElement calculateDistance(String userStartX, String branchStartY, String userGoalX, String branchGoalY){
+    public static JsonElement selectNavigationInfo(String userStartX, String branchStartY, String userGoalX, String branchGoalY){
         String start_point;
         String goal_point;
         StringBuffer result;
