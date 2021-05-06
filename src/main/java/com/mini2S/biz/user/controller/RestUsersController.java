@@ -7,7 +7,7 @@ import com.mini2S.biz.user.model.dto.UsersSigninDto;
 import com.mini2S.biz.user.model.dto.UsersSignupDto;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;
-import com.mini2S.biz.user.service.UsersService;
+import com.mini2S.biz.user.service.UsersServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 public class RestUsersController {
-    private final UsersService usersService;
+    private final UsersServiceImpl usersServiceImpl;
     // 결과 반환 Service
     private final ResponseService responseService;
 
@@ -29,14 +29,14 @@ public class RestUsersController {
     @PostMapping("/user/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
     public TokenDto signin(@RequestBody UsersSigninDto dto){
-        return usersService.signIn(dto);
+        return usersServiceImpl.signIn(dto);
     }
 
     // 회원가입
     @PostMapping("/user/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
     public CommonResult signup(@RequestBody UsersSignupDto dto){
-        usersService.signUpUser(dto);
+        usersServiceImpl.signUpUser(dto);
         return responseService.getSuccessResult();
     }
 
@@ -53,7 +53,7 @@ public class RestUsersController {
     @PostMapping("/user/reissue")
     @ApiOperation(value = "토큰 갱신")
     public ResponseEntity<TokenDto> reissue(@RequestBody TokenRequestDto dto){
-        return ResponseEntity.ok(usersService.reIssue(dto));
+        return ResponseEntity.ok(usersServiceImpl.reIssue(dto));
     }
 
 }
