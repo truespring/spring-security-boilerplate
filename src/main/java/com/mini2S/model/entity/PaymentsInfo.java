@@ -1,5 +1,6 @@
 package com.mini2S.model.entity;
 
+import com.mini2S.biz.user.model.entity.Users;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

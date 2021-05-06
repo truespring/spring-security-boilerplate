@@ -1,7 +1,7 @@
-package com.mini2S.controller;
+package com.mini2S.biz.role.controller;
 
-import com.mini2S.model.entity.Roles;
-import com.mini2S.service.RolesService;
+import com.mini2S.biz.role.model.entity.Roles;
+import com.mini2S.biz.role.service.RolesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

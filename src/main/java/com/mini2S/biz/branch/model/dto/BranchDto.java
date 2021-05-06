@@ -1,6 +1,6 @@
-package com.mini2S.branch.model.dto;
+package com.mini2S.biz.branch.model.dto;
 
-import com.mini2S.branch.model.entity.Branch;
+import com.mini2S.biz.branch.model.entity.Branch;
 import lombok.Builder;
 import lombok.Getter;
 

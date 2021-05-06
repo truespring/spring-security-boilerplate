@@ -1,5 +1,6 @@
-package com.mini2S.model.entity;
+package com.mini2S.biz.user.model.entity;
 
+import com.mini2S.model.entity.BaseTimeEntity;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

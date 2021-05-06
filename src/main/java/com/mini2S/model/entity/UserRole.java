@@ -1,5 +1,7 @@
 package com.mini2S.model.entity;
 
+import com.mini2S.biz.role.model.entity.Roles;
+import com.mini2S.biz.user.model.entity.Users;
 import lombok.*;
 
 import javax.persistence.*;

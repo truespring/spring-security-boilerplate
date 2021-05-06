@@ -1,7 +1,7 @@
 package com.mini2S.configuration.reposotory;
 
-import com.mini2S.branch.model.entity.Branch;
-import com.mini2S.branch.model.vo.BranchVO;
+import com.mini2S.biz.branch.model.entity.Branch;
+import com.mini2S.biz.branch.model.vo.BranchVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

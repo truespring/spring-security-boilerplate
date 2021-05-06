@@ -1,11 +1,11 @@
-package com.mini2S.branch.service;
+package com.mini2S.biz.branch.service;
 
-import com.mini2S.branch.model.dto.BranchDto;
-import com.mini2S.branch.model.vo.BranchVO;
+import com.mini2S.biz.branch.model.dto.BranchDto;
+import com.mini2S.biz.branch.model.vo.BranchVO;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
 import com.mini2S.configuration.security.JwtTokenProvider;
-import com.mini2S.model.vo.UsersVO;
+import com.mini2S.biz.user.model.vo.UsersVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

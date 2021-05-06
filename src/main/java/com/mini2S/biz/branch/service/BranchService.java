@@ -1,6 +1,6 @@
-package com.mini2S.branch.service;
+package com.mini2S.biz.branch.service;
 
-import com.mini2S.branch.model.dto.BranchDto;
+import com.mini2S.biz.branch.model.dto.BranchDto;
 
 import java.util.List;
 

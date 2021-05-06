@@ -1,4 +1,4 @@
-package com.mini2S.branch.model.entity;
+package com.mini2S.biz.branch.model.entity;
 
 import lombok.*;
 

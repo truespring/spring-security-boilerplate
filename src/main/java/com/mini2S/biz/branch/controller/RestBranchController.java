@@ -1,7 +1,7 @@
-package com.mini2S.branch.controller;
+package com.mini2S.biz.branch.controller;
 
-import com.mini2S.branch.model.dto.BranchDto;
-import com.mini2S.branch.service.BranchService;
+import com.mini2S.biz.branch.model.dto.BranchDto;
+import com.mini2S.biz.branch.service.BranchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

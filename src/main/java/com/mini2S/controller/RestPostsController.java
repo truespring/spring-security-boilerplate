@@ -2,7 +2,7 @@ package com.mini2S.controller;
 
 import com.mini2S.model.dto.PostsPatchRequestDto;
 import com.mini2S.model.dto.PostsSaveRequestDto;
-import com.mini2S.model.dto.UsersSigninDto;
+import com.mini2S.biz.user.model.dto.UsersSigninDto;
 import com.mini2S.configuration.reposotory.PostsRepository;
 import com.mini2S.service.PostsService;
 import lombok.AllArgsConstructor;

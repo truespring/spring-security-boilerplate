@@ -1,4 +1,4 @@
-package com.mini2S.branch.model.vo;
+package com.mini2S.biz.branch.model.vo;
 
 import lombok.Builder;
 import lombok.Getter;

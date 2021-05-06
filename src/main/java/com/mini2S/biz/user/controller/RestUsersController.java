@@ -1,13 +1,13 @@
-package com.mini2S.controller;
+package com.mini2S.biz.user.controller;
 
 import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.model.dto.TokenRequestDto;
-import com.mini2S.model.dto.UsersSigninDto;
-import com.mini2S.model.dto.UsersSignupDto;
+import com.mini2S.biz.user.model.dto.UsersSigninDto;
+import com.mini2S.biz.user.model.dto.UsersSignupDto;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;
-import com.mini2S.service.UsersService;
+import com.mini2S.biz.user.service.UsersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
