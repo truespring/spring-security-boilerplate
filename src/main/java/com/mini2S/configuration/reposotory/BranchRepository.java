@@ -17,6 +17,7 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
             " FROM branch a " +
             " INNER JOIN branch_image b " +
             " ON a.branch_seq = b.branch_seq " +
-            " WHERE a.branch.useYn = 'Y'" )
+            " WHERE a.branch.useYn = 'Y'"
+            , nativeQuery = true)
     List<BranchVO> findBranchInfoByUseYn();
 }
