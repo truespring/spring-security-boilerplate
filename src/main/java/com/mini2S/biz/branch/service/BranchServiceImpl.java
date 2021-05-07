@@ -25,15 +25,14 @@ public class BranchServiceImpl implements BranchService {
     public List<BranchDto> selectUserBranchList(String token) {
         String resultToken = jwtTokenProvider.getUserPk(token);
         UsersVO userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
-        List<BranchVO> branchCoord = branchRepository.findBranchCoordinate();
+        List<BranchVO> branchCoord = branchRepository.findBranchInfoByUseYn();
         return null;
     }
 
     @Override
     @Transactional
     public List<BranchDto> selectBranchInfoList() {
-        List<BranchVO> branchCoord = branchRepository.findBranchCoordinate();
-        String imagePath; // 이미지 경로
+        List<BranchVO> branchCoord = branchRepository.findBranchInfoByUseYn();
         return null;
     }
     //    @Transactional

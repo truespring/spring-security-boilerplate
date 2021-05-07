@@ -13,4 +13,6 @@ public class BranchVO {
     private String coordX;
     private String coordY;
     private String useYn;
+    private Long branchImageSort;
+    private String branchImage;
 }

@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Getter
 @Builder
 @Entity
+@Table(name = "branch_image")
 public class BranchImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

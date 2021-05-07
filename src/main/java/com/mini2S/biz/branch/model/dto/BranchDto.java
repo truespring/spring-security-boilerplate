@@ -8,7 +8,12 @@ import lombok.Getter;
 @Builder
 //@NoArgsConstructor
 public class BranchDto {
-    private Branch branch;
-    private Double orderNum;
-    private String imagePath;
+    private String branchName;
+    private String address;
+    private String addressDetail;
+    private String coordX;
+    private String coordY;
+    private String useYn;
+    private Long branchImageSort;
+    private String branchImage;
 }

@@ -17,8 +17,8 @@ public class Direction5 {
         String goal_point;
         StringBuffer result;
         try {
-            start_point = URLEncoder.encode((userStartX + "," + branchStartY), StandardCharsets.UTF_8);
-            goal_point = URLEncoder.encode((userGoalX + "," + branchGoalY), StandardCharsets.UTF_8);
+            start_point = URLEncoder.encode((userStartX + "," + branchStartY), StandardCharsets.UTF_8.toString());
+            goal_point = URLEncoder.encode((userGoalX + "," + branchGoalY), StandardCharsets.UTF_8.toString());
             // trafast : 실시간 빠른길
             String api = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start=" + start_point + "&goal=" + goal_point + "&option=traoptimal";
             result = new StringBuffer();
