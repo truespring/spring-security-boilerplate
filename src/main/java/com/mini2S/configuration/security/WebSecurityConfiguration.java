@@ -21,7 +21,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final JwtTokenProvider jwtTokenProvider;
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
@@ -32,31 +32,32 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http
-            .httpBasic().disable()
-            .csrf().disable() // rest api이므로 csrf 보안이 필요없으므로 disable처리.
-            // 토큰 기반이므로 세션 사용 안함
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
+                .httpBasic().disable()
+                .csrf().disable() // rest api이므로 csrf 보안이 필요없으므로 disable처리.
+                // 토큰 기반이므로 세션 사용 안함
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .authorizeRequests()
-                    // 아래의 경로는 권한 허용
-                    .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue").permitAll()
-                    .antMatchers("/css/**", "/js/**", "/image/**", "/login").permitAll()
-                    .anyRequest().authenticated()
-            .and()
-            .formLogin()
+                // 아래의 경로는 권한 허용
+                .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue", "/*/branch", "/*/branch/**", "/branch/**").permitAll()
+                .antMatchers("/css/**", "/js/**", "/image/**", "/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
                 // 로그인 페이지도 권한 허용
                 .loginPage("/login")
                 .permitAll()
-            .and()
-            .logout()
+                .and()
+                .logout()
                 .permitAll()
-            .and()
+                .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider)
-                                , UsernamePasswordAuthenticationFilter.class)
-            ;
+                        , UsernamePasswordAuthenticationFilter.class)
+        ;
     }
+
     // Swagger 예외 처리
     @Override
     public void configure(WebSecurity web) {

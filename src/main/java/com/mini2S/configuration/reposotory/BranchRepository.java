@@ -13,11 +13,11 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
                     " WHERE a.useYn = 'Y'" )
     List<BranchVO> findBranchCoordinate();
 
-    @Query(value = " SELECT a.coord_x, a.coord_y, a.branch_name, a.address, a.address_detail, b.branch_image, b.branch_image_sort " +
+    @Query(value = " SELECT a.coordX, a.coordY, a.branch_name, a.address, a.address_detail, b.branch_image, b.branch_sort " +
             " FROM branch a " +
             " INNER JOIN branch_image b " +
             " ON a.branch_seq = b.branch_seq " +
-            " WHERE a.branch.useYn = 'Y'"
+            " WHERE a.use_yn = 'Y'"
             , nativeQuery = true)
-    List<BranchVO> findBranchInfoByUseYn();
+    List<Object[]> findBranchInfoByUseYn();
 }

@@ -20,7 +20,7 @@ public class BranchImage {
     @JoinColumn(name = "BRANCH_SEQ")
     private Branch branch;
 
-    @Column(columnDefinition = "varchar(255) comment '지점 사진'")
+    @Column(columnDefinition = "varchar(400) comment '지점 사진'")
     private String branchImage;
 
     @Column(columnDefinition = "bigint comment '지점 사진 순서'")

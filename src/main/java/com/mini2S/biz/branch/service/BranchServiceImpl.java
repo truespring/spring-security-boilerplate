@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,15 +26,27 @@ public class BranchServiceImpl implements BranchService {
     public List<BranchDto> selectUserBranchList(String token) {
         String resultToken = jwtTokenProvider.getUserPk(token);
         UsersVO userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
-        List<BranchVO> branchCoord = branchRepository.findBranchInfoByUseYn();
+        List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
         return null;
     }
 
     @Override
     @Transactional
     public List<BranchDto> selectBranchInfoList() {
-        List<BranchVO> branchCoord = branchRepository.findBranchInfoByUseYn();
-        return null;
+        List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
+        List<BranchDto> returnList = new ArrayList<>();
+        branchCoord.stream().forEach(item -> {
+            returnList.add(BranchDto.builder().coordX(item[0].toString())
+                            .coordY(item[1].toString())
+                            .branchName(item[2].toString())
+                            .address(item[3].toString())
+                            .addressDetail(item[4].toString())
+                            .branchImage(item[5].toString())
+                            .branchImageSort(Long.parseLong(item[6].toString()))
+                            .build());
+        });
+        returnList.stream().forEach(item -> System.out.println(item.getCoordX()));
+        return returnList;
     }
     //    @Transactional
 //    public List<Branch> findBranchList(Long userSeq) {

@@ -15,4 +15,5 @@ public class BranchVO {
     private String useYn;
     private Long branchImageSort;
     private String branchImage;
+    private Long branchSort;
 }
