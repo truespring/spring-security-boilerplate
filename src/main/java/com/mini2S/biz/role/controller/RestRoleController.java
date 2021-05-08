@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestRoleController {
     private final RolesServiceImpl rolesServiceImpl;
 
+    // 관리자 페이지 구축 시 권한 생성할 때 필요
     // 권한 정보
     @PostMapping("/roles/add")
     @ApiOperation(value = "권한 추가")

@@ -1,6 +1,6 @@
-package com.mini2S.model.entity;
+package com.mini2S.biz.unit.model.entity;
 
-public class UnitsPrice {
+public class UnitPrice {
     /*
     branch - <- units ---- unitsPrice
                 PriceType ----^

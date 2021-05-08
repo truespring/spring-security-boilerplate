@@ -1,4 +1,4 @@
-package com.mini2S.model.entity;
+package com.mini2S.biz.contract;
 
 public class Contracts {
     /*
