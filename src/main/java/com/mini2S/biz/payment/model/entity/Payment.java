@@ -77,6 +77,4 @@ public class Payment {
 
     @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제완료일시'")
     private LocalDateTime paymentCompleteDttm;
-
-    // TODO 시작일 종료일은 무엇이지?
 }
