@@ -13,8 +13,9 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     Optional<Users> findByUserEmail(String email);
 
-    @Query(value = " SELECT a.coordX, a.coordY " +
+    @Query(value = " SELECT a.coordx, a.coordy " +
                     " FROM Users a " +
-                    " WHERE a.userEmail = :userEmail ")
-    UsersVO findUserCoordinateByUserEmail(@Param("userSeq") String userEmail);
+                    " WHERE a.user_email = :userEmail "
+                    , nativeQuery = true)
+    UsersVO findUserCoordinateByUserEmail(@Param("userEmail") String userEmail);
 }
