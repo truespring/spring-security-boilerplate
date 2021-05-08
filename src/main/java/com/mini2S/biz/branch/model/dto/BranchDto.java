@@ -4,6 +4,8 @@ import com.mini2S.biz.branch.model.entity.Branch;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @Builder
 //@NoArgsConstructor
@@ -13,7 +15,5 @@ public class BranchDto {
     private String addressDetail;
     private String coordX;
     private String coordY;
-    private String useYn;
-    private Long branchImageSort;
-    private String branchImage;
+    private List<String> branchImage;
 }

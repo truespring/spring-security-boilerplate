@@ -35,17 +35,17 @@ public class BranchServiceImpl implements BranchService {
     public List<BranchDto> selectBranchInfoList() {
         List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
         List<BranchDto> returnList = new ArrayList<>();
-        branchCoord.stream().forEach(item -> {
-            returnList.add(BranchDto.builder().coordX(item[0].toString())
+        branchCoord.forEach(item -> {
+            List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            returnList.add(BranchDto.builder()
+                            .coordX(item[0].toString())
                             .coordY(item[1].toString())
                             .branchName(item[2].toString())
                             .address(item[3].toString())
                             .addressDetail(item[4].toString())
-                            .branchImage(item[5].toString())
-                            .branchImageSort(Long.parseLong(item[6].toString()))
+                            .branchImage(branchList)
                             .build());
         });
-        returnList.stream().forEach(item -> System.out.println(item.getCoordX()));
         return returnList;
     }
     //    @Transactional
