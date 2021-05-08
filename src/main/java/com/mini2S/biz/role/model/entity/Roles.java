@@ -5,8 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor
 @Getter
-@Setter
+@Builder
 @Entity
 public class Roles {
 
@@ -17,10 +18,4 @@ public class Roles {
 
     @Column(columnDefinition = "varchar(20) not null comment '권한 정보'")
     private String roleName;
-
-    @Builder
-    public Roles(Long roleSeq, String roleName) {
-        this.roleSeq = roleSeq;
-        this.roleName = roleName;
-    }
 }

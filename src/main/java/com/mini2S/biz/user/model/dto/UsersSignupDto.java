@@ -13,4 +13,6 @@ public class UsersSignupDto {
     private String userPw;
     private String userAccountType;
     private String userPhoneNumber;
+    private String address;
+    private String addressDetail;
 }

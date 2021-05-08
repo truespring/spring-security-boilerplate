@@ -1,5 +1,6 @@
 package com.mini2S.biz.user.service;
 
+import com.mini2S.common.enums.RoleEnum;
 import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.configuration.security.TokenRepository;
@@ -23,7 +24,6 @@ import java.util.UUID;
 @Service
 public class UsersServiceImpl implements UsersService {
     private final Long ROLESEQ = 1L;
-    private final String ROLENAME = "USER_ROLE";
     private final UsersRepository usersRepository;
     private final PasswordEncoder passwordEncoder;
     private final RolesRepository rolesRepository;
@@ -66,10 +66,10 @@ public class UsersServiceImpl implements UsersService {
         usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         String encodePassword = passwordEncoder.encode(dto.getUserPw());
         Roles roles = rolesRepository.findByRoleSeq(ROLESEQ); // 회원가입시 최초 권한 조회
-        if (roles == null || !roles.getRoleName().equals(ROLENAME)) {
-            Roles role = null;
-            role.setRoleName(ROLENAME);
-            rolesRepository.save(role); // 최초 권한 없으면 새로 만들어줌
+        if (roles == null || !roles.getRoleName().equals(RoleEnum.ROLENAME.getRoleName())) {
+            rolesRepository.save(Roles.builder()
+                    .roleName(RoleEnum.ROLENAME.getRoleName())
+                    .build()); // 최초 권한 없으면 새로 만들어줌
             roles = rolesRepository.findByRoleSeq(ROLESEQ);
         }
         usersRepository.save(Users.builder()
@@ -78,6 +78,8 @@ public class UsersServiceImpl implements UsersService {
                 .userAccountType(dto.getUserAccountType())
                 .userPw(encodePassword)
                 .userPhoneNumber(dto.getUserPhoneNumber())
+                .userAddress(dto.getAddress())
+                .userDetailAddress(dto.getAddressDetail())
                 .build()); // 회원가입
         Users user = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
