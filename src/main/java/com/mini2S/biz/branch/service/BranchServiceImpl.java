@@ -21,6 +21,11 @@ public class BranchServiceImpl implements BranchService {
     private final UsersRepository usersRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
+    /**
+     * 로그인
+     * @param token
+     * @return List<BranchDto>
+     */
     @Override
     @Transactional
     public List<BranchDto> selectUserBranchList(String token) {
@@ -30,6 +35,10 @@ public class BranchServiceImpl implements BranchService {
         return null;
     }
 
+    /**
+     * 비로그인
+     * @return List<BranchDto>
+     */
     @Override
     @Transactional
     public List<BranchDto> selectBranchInfoList() {

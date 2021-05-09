@@ -14,6 +14,11 @@ import java.util.List;
 public class RolesServiceImpl implements RolesService {
     private final RolesRepository rolesRepository;
 
+    /**
+     * 권한 추가
+     * @param roleName
+     * @return Roles
+     */
     @Override
     @Transactional
     public Roles createNewRole(String roleName) {

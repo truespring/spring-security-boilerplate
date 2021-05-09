@@ -30,6 +30,11 @@ public class UsersServiceImpl implements UsersService {
     private final JwtTokenProvider jwtTokenProvider;
     private final TokenRepository tokenRepository;
 
+    /**
+     * 로그인시 jwt 토큰 발급
+     * @param dto
+     * @return TokenDto
+     */
     @Override
     @Transactional
     public TokenDto signIn(UsersSigninDto dto) {
@@ -60,6 +65,10 @@ public class UsersServiceImpl implements UsersService {
         }
     }
 
+    /**
+     * 회원가입
+     * @param dto
+     */
     @Override
     @Transactional
     public void signUpUser(UsersSignupDto dto) {
@@ -85,6 +94,11 @@ public class UsersServiceImpl implements UsersService {
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
     }
 
+    /**
+     * 토큰 재발급
+     * @param dto
+     * @return TokenDto
+     */
     @Override
     @Transactional
     public TokenDto reIssue(TokenRequestDto dto) {
