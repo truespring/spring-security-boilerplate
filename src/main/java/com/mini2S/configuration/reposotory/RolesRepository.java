@@ -12,10 +12,26 @@ import java.util.List;
 
 @EnableJpaRepositories
 public interface RolesRepository extends JpaRepository<Roles, Long> {
+
+    /**
+     * roleName 으로 권한 조회
+     * @param roleName
+     * @return
+     */
     public Roles findByRoleName(String roleName);
 
+    /**
+     * roleSeq 로 권한 조회
+     * @param roleSeq
+     * @return
+     */
     public Roles findByRoleSeq(Long roleSeq);
 
+    /**
+     * 새로운 권한 추가
+     * @param UserSeq
+     * @param RoleSeq
+     */
     @Transactional
     @Modifying
     @Query(value = " INSERT INTO user_role " +
@@ -33,6 +49,11 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
                         @Param("RoleSeq") Long RoleSeq
     );
 
+    /**
+     * 해당 사용자의 권한 조회
+     * @param userSeq
+     * @return
+     */
     @Query(value = " SELECT a.role_name " +
                    " FROM roles a " +
                    " INNER JOIN user_role b " +
@@ -41,6 +62,10 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
                     , nativeQuery = true)
     public String findRoleNameByUserSeq(@Param("userSeq")Long userSeq);
 
+    /**
+     * 모든 권한 조회
+     * @return
+     */
     @Query(value = " SELECT r.roleName " +
                     " FROM Roles r " )
     public List<String> findAllRoleName();

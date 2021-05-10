@@ -9,10 +9,21 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<Users, Long> {
-    Users findByUserEmailOrderByUserSeq(String userEmail);
 
     Optional<Users> findByUserEmail(String email);
 
+    /**
+     * 사용자 email 로 사용자 조회
+     * @param userEmail
+     * @return
+     */
+    Users findByUserEmailOrderByUserSeq(String userEmail);
+
+    /**
+     * 사용자 위치 조회
+     * @param userEmail
+     * @return
+     */
     @Query(value = " SELECT a.coordx, a.coordy " +
                     " FROM Users a " +
                     " WHERE a.user_email = :userEmail "
