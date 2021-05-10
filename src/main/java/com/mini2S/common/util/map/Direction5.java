@@ -47,4 +47,9 @@ public class Direction5 {
             return null;
         }
     }
+
+    public static String selectDistanceAFromB(JsonElement jsonElement){
+
+        return null;
+    }
 }

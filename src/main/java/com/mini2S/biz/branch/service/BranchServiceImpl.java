@@ -1,11 +1,10 @@
 package com.mini2S.biz.branch.service;
 
 import com.mini2S.biz.branch.model.dto.BranchDto;
-import com.mini2S.biz.branch.model.vo.BranchVO;
+import com.mini2S.biz.user.model.vo.UsersVO;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
 import com.mini2S.configuration.security.JwtTokenProvider;
-import com.mini2S.biz.user.model.vo.UsersVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +31,19 @@ public class BranchServiceImpl implements BranchService {
         String resultToken = jwtTokenProvider.getUserPk(token);
         UsersVO userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
         List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
-        return null;
+        List<BranchDto> returnList = new ArrayList<>();
+        branchCoord.forEach(item ->{
+            List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            returnList.add(BranchDto.builder()
+                            .coordX(item[0].toString())
+                            .coordY(item[1].toString())
+                            .branchName(item[2].toString())
+                            .address(item[3].toString())
+                            .addressDetail(item[4].toString())
+                            .branchImage(branchList)
+                            .build());
+        });
+        return returnList;
     }
 
     /**

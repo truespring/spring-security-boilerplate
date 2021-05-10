@@ -1,7 +1,6 @@
 package com.mini2S.biz.branch.controller;
 
 import com.mini2S.biz.branch.model.dto.BranchDto;
-import com.mini2S.biz.branch.service.BranchService;
 import com.mini2S.biz.branch.service.BranchServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,14 +21,12 @@ public class RestBranchController {
     @PostMapping("/branch/list/signin")
     @ApiOperation(value = "지점 목록(로그인)")
     public List<BranchDto> branchList(String token) {
-        List<BranchDto> returnList = branchService.selectUserBranchList(token);
-        return returnList;
+        return branchService.selectUserBranchList(token);
     }
 
     @PostMapping("/branch/list/nonsignin")
     @ApiOperation(value = "지점 목록(비로그인)")
     public List<BranchDto> branchList() {
-        List<BranchDto> returnList = branchService.selectBranchInfoList();
-        return returnList;
+        return branchService.selectBranchInfoList();
     }
 }
