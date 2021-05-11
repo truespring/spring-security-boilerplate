@@ -48,6 +48,7 @@ public class QrCode {
                                                             ImageEnum.QRCODE_COLOR.getValue(),
                                                             ImageEnum.QRCODE_BG_COLOR.getValue());
 
+            // 이미지 객체 생성
             BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix, matrixToImageConfig);
 
             String qrPath = path + "\\" + uniqueDirectory + "\\" + name;
