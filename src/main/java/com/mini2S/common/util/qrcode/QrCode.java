@@ -6,21 +6,31 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.mini2S.common.enums.ImageEnum;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Optional;
 
 public class QrCode {
-    public static Optional<String> createQRCodeImage(String directory, String fileName, String url) {
-        String name = fileName + ".png";
+    public static void createQRCodeImage(String featureDirectory, String uniqueDirectory, String fileName, String url) throws IOException {
+        String suffix = "png";
+        String name = fileName + "." + suffix;
+        final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
+        Resource resource = defaultResourceLoader.getResource("classpath:static/image/"+featureDirectory);
+        String path = resource.getFile().getAbsolutePath();
+
+        System.out.println("path");
+        System.out.println(path);
         try {
-            File file = null;
-            // qr코드 이미지를 저장할 디렉토리 지정
-            file = new File("D:\\dWorkSpace\\qr_code\\qr_image");
+            File file;
+            // QR 코드 이미지 저장 디렉토리 지정
+            file = new File(path + "\\" +uniqueDirectory);
             if (!file.exists()) {
+                System.out.println("디렉토리가 존재하지 않음");
                 file.mkdirs();
             }
 
@@ -39,13 +49,15 @@ public class QrCode {
                                                             ImageEnum.QRCODE_BG_COLOR.getValue());
 
             BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix, matrixToImageConfig);
-            
+
+            String qrPath = path + "\\" + uniqueDirectory + "\\" + name;
+            System.out.println("QR 경로");
+            System.out.println(qrPath);
             // 파일 생성
-            ImageIO.write(bufferedImage, "png", new File("D:\\dWorkSpace\\qr_code\\qr_image\\" + name));
+            ImageIO.write(bufferedImage, suffix, new File(qrPath));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Optional.empty();
     }
 }
