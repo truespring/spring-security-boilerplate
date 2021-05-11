@@ -23,7 +23,8 @@ public class WebController {
         String path = resource.getFile().getAbsolutePath();
         System.out.println(path);
 
-        QrCode.createQRCodeImage("contract", "1", "qr코드", "https://naver.com");
+        String path1 = QrCode.createQRCodeImage("contract", "1", "qr코드1", "https://naver.com");
+        System.out.println(path1);
         return "/login";
     }
 }

@@ -16,11 +16,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class QrCode {
-    public static void createQRCodeImage(String featureDirectory, String uniqueDirectory, String fileName, String url) throws IOException {
+    public static String createQRCodeImage(String featureDirectory, String uniqueDirectory, String fileName, String url) throws IOException {
         String suffix = "png";
         String name = fileName + "." + suffix;
         final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
-        Resource resource = defaultResourceLoader.getResource("classpath:static/image/"+featureDirectory);
+//        Resource resource = defaultResourceLoader.getResource("classpath:static/image/"+featureDirectory);
+        Resource resource = defaultResourceLoader.getResource("file:src/main/resources/static/image/"+featureDirectory);
         String path = resource.getFile().getAbsolutePath();
 
         System.out.println("path");
@@ -57,8 +58,10 @@ public class QrCode {
             // 파일 생성
             ImageIO.write(bufferedImage, suffix, new File(qrPath));
 
+            return qrPath;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
 }
