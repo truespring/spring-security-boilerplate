@@ -2,7 +2,7 @@ package com.mini2S.biz.contract.model.entity;
 
 import com.mini2S.biz.branch.model.entity.Branch;
 import com.mini2S.biz.unit.model.entity.Unit;
-import com.mini2S.biz.user.model.entity.Users;
+import com.mini2S.common.user.model.entity.Users;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

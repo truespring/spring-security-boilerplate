@@ -18,12 +18,21 @@ import java.util.List;
 public class RestBranchController {
     private final BranchServiceImpl branchService;
 
+    /**
+     *
+     * @param token 사용자 토큰
+     * @return 사용자 기반으로 한 지점 목록 거리순으로 정렬하여 반환
+     */
     @PostMapping("/branch/list/signin")
     @ApiOperation(value = "지점 목록(로그인)")
     public List<BranchDto> branchList(String token) {
         return branchService.selectUserBranchList(token);
     }
 
+    /**
+     *
+     * @return 기본 값을 기반으로 지점 목록 거리순으로 정렬하여 반환
+     */
     @PostMapping("/branch/list/nonsignin")
     @ApiOperation(value = "지점 목록(비로그인)")
     public List<BranchDto> branchList() {

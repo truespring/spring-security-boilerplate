@@ -1,4 +1,4 @@
-package com.mini2S.biz.role.model.entity;
+package com.mini2S.common.role.model.entity;
 
 import lombok.*;
 

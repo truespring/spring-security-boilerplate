@@ -1,7 +1,7 @@
-package com.mini2S.biz.role.controller;
+package com.mini2S.common.role.controller;
 
-import com.mini2S.biz.role.model.entity.Roles;
-import com.mini2S.biz.role.service.RolesServiceImpl;
+import com.mini2S.common.role.model.entity.Roles;
+import com.mini2S.common.role.service.RolesServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestRoleController {
     private final RolesServiceImpl rolesServiceImpl;
 
-    // 관리자 페이지 구축 시 권한 생성할 때 필요
-    // 권한 정보
+    /**
+     * 새로운 권한을 추가한다
+     * @param roleName 새로운 권한 이름
+     * @return 새로운 권한 추가
+     */
     @PostMapping("/roles/add")
     @ApiOperation(value = "권한 추가")
     public Roles addRoles(String roleName) {

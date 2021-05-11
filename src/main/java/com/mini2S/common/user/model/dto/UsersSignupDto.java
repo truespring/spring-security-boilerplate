@@ -1,4 +1,4 @@
-package com.mini2S.biz.user.model.dto;
+package com.mini2S.common.user.model.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

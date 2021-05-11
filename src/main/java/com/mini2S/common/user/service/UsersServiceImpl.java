@@ -1,4 +1,4 @@
-package com.mini2S.biz.user.service;
+package com.mini2S.common.user.service;
 
 import com.mini2S.common.enums.RoleEnum;
 import com.mini2S.configuration.security.JwtTokenProvider;
@@ -6,10 +6,10 @@ import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.configuration.security.TokenRepository;
 import com.mini2S.configuration.security.RefreshToken;
 import com.mini2S.model.dto.TokenRequestDto;
-import com.mini2S.biz.user.model.dto.UsersSigninDto;
-import com.mini2S.biz.role.model.entity.Roles;
-import com.mini2S.biz.user.model.entity.Users;
-import com.mini2S.biz.user.model.dto.UsersSignupDto;
+import com.mini2S.common.user.model.dto.UsersSigninDto;
+import com.mini2S.common.role.model.entity.Roles;
+import com.mini2S.common.user.model.entity.Users;
+import com.mini2S.common.user.model.dto.UsersSignupDto;
 import com.mini2S.configuration.reposotory.RolesRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
 import lombok.AllArgsConstructor;

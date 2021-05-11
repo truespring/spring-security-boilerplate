@@ -1,6 +1,6 @@
 package com.mini2S.configuration.reposotory;
 
-import com.mini2S.biz.role.model.entity.Roles;
+import com.mini2S.common.role.model.entity.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,4 +1,4 @@
-package com.mini2S.biz.user.model.entity;
+package com.mini2S.common.user.model.entity;
 
 import com.mini2S.model.entity.BaseTimeEntity;
 import lombok.*;

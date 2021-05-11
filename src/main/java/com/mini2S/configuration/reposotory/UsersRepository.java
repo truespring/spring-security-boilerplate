@@ -1,6 +1,6 @@
 package com.mini2S.configuration.reposotory;
 
-import com.mini2S.biz.user.model.entity.Users;
+import com.mini2S.common.user.model.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,6 +1,6 @@
 package com.mini2S.biz.payment.model.entity;
 
-import com.mini2S.biz.user.model.entity.Users;
+import com.mini2S.common.user.model.entity.Users;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
