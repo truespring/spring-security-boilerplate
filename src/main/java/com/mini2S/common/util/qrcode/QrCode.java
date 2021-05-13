@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class QrCode {
-    public static String createQRCodeImage(String featureDirectory, String uniqueDirectory, String fileName, String url) throws IOException {
+    public static String createQRCodeImage(String featureName, String uniqueName, String fileName, String url) throws IOException {
         String suffix = "png";
         String name = fileName + "." + suffix;
         final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
 //        Resource resource = defaultResourceLoader.getResource("classpath:static/image/"+featureDirectory);
-        Resource resource = defaultResourceLoader.getResource("file:src/main/resources/static/image/"+featureDirectory);
+        Resource resource = defaultResourceLoader.getResource("file:src/main/resources/static/image/"+featureName);
         String path = resource.getFile().getAbsolutePath();
 
         System.out.println("path");
@@ -29,7 +29,7 @@ public class QrCode {
         try {
             File file;
             // QR 코드 이미지 저장 디렉토리 지정
-            file = new File(path + "\\" +uniqueDirectory);
+            file = new File(path + "\\" +uniqueName);
             if (!file.exists()) {
                 System.out.println("디렉토리가 존재하지 않음");
                 file.mkdirs();
@@ -52,7 +52,7 @@ public class QrCode {
             // 이미지 객체 생성
             BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix, matrixToImageConfig);
 
-            String qrPath = path + "\\" + uniqueDirectory + "\\" + name;
+            String qrPath = path + "\\" + uniqueName + "\\" + name;
             System.out.println("QR 경로");
             System.out.println(qrPath);
             // 파일 생성
