@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class BranchServiceImpl implements BranchService {
 
     /**
      * 로그인 시 지점 목록 출력
+     *
      * @param token 로그인 사용자 토큰
      * @return List<BranchDto>
      */
@@ -35,28 +37,29 @@ public class BranchServiceImpl implements BranchService {
 
         List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
         List<BranchDto> returnList = new ArrayList<>();
-        branchCoord.forEach(item ->{
+        branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
             returnList.add(BranchDto.builder()
-                            .coordX(item[0].toString())
-                            .coordY(item[1].toString())
-                            .diffDistance(Direction5.selectDistanceAFromB(
-                                Direction5.selectNavigationInfo(String.valueOf(userCoord.get("coordx"))
-                                                                , String.valueOf(userCoord.get("coordy"))
-                                                                , item[0].toString()
-                                                                , item[1].toString()))
-                            )
-                            .branchName(item[2].toString())
-                            .address(item[3].toString())
-                            .addressDetail(item[4].toString())
-                            .branchImage(branchList)
-                            .build());
+                    .coordX(item[0].toString())
+                    .coordY(item[1].toString())
+                    .diffDistance(Direction5.selectDistanceAFromB(
+                            Direction5.selectNavigationInfo(String.valueOf(userCoord.get("coordx"))
+                                    , String.valueOf(userCoord.get("coordy"))
+                                    , item[0].toString()
+                                    , item[1].toString()))
+                    )
+                    .branchName(item[2].toString())
+                    .address(item[3].toString())
+                    .addressDetail(item[4].toString())
+                    .branchImage(branchList)
+                    .build());
         });
         return returnList;
     }
 
     /**
      * 비로그인 시 지점 목록 출력
+     *
      * @return List<BranchDto>
      */
     @Override
@@ -67,20 +70,22 @@ public class BranchServiceImpl implements BranchService {
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
             returnList.add(BranchDto.builder()
-                            .coordX(item[0].toString())
-                            .coordY(item[1].toString())
-                            .diffDistance(Direction5.selectDistanceAFromB(
-                                    Direction5.selectNavigationInfo(BranchEnum.DEFAULT_X.getValue()
-                                            , BranchEnum.DEFAULT_Y.getValue()
-                                            , item[0].toString()
-                                            , item[1].toString()))
-                            )
-                            .branchName(item[2].toString())
-                            .address(item[3].toString())
-                            .addressDetail(item[4].toString())
-                            .branchImage(branchList)
-                            .build());
+                    .coordX(item[0].toString())
+                    .coordY(item[1].toString())
+                    .diffDistance(Direction5.selectDistanceAFromB(
+                            Direction5.selectNavigationInfo(BranchEnum.DEFAULT_X.getValue()
+                                    , BranchEnum.DEFAULT_Y.getValue()
+                                    , item[0].toString()
+                                    , item[1].toString()))
+                    )
+                    .branchName(item[2].toString())
+                    .address(item[3].toString())
+                    .addressDetail(item[4].toString())
+                    .branchImage(branchList)
+                    .build());
         });
+        returnList.sort(Comparator.comparing(o -> (o.getDiffDistance().get("distance"))));
+        returnList.stream().map(item -> item.getDiffDistance().get("distance")).forEach(System.out::println);
         return returnList;
     }
 }
