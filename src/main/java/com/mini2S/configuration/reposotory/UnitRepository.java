@@ -1,6 +1,5 @@
 package com.mini2S.configuration.reposotory;
 
-import com.mini2S.biz.unit.model.dto.UnitListDto;
 import com.mini2S.biz.unit.model.entity.Unit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +13,5 @@ public interface UnitRepository extends JpaRepository<Unit, Long> {
             " FROM unit a " +
             " WHERE a.branch_seq = :branchSeq "
             , nativeQuery = true)
-    List<UnitListDto> findByBranchSeq(@Param("branchSeq") String branchSeq);
+    List<Unit> findByBranchSeq(@Param("branchSeq") Long branchSeq);
 }

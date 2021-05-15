@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@ToString
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
 @Getter
@@ -16,11 +17,11 @@ public class Unit {
     @Column(name = "UNIT_SEQ")
     private Long unitSeq;
 
-    @Column(columnDefinition = "varchar(100) not null comment '지점ID'")
+    @Column(columnDefinition = "bigint not null comment '지점ID'")
     private Long branchSeq;
 
-    @Column(columnDefinition = "varchar(100) not null comment '상품ID, 슬림, 큐브인지 등등'")
-    private String unitProductSeq;
+    @Column(columnDefinition = "bigint not null comment '상품ID, 슬림, 큐브인지 등등'")
+    private Long unitProductSeq;
 
     @Column(columnDefinition = "varchar(100) not null comment '룸명'")
     private String unitName;
@@ -37,7 +38,7 @@ public class Unit {
     @Column(columnDefinition = "varchar(5) not null comment '사용 가능 여부, 공실 상태'")
     private String unitStatus;
 
-    @Column(columnDefinition = "MEDIUMINT(9) not null comment '가격'")
+    @Column(columnDefinition = "bigint not null comment '가격'")
     private Long unitPrice;
 
     // 브라우저 유닛 출력용
