@@ -1,6 +1,6 @@
 package com.mini2S.biz.unit.controller;
 
-import com.mini2S.biz.unit.model.entity.Unit;
+import com.mini2S.biz.unit.model.dto.UnitListDto;
 import com.mini2S.configuration.reposotory.UnitRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -32,7 +32,7 @@ public class RestUnitController {
     })
     @GetMapping("/unit/list")
     @ApiOperation(value = "지점에 해당하는 유닛 리스트 전달")
-    public List<Unit> unitList(String branchSeq){
+    public List<UnitListDto> unitList(String branchSeq){
         return unitRepository.findByBranchSeq(branchSeq);
     }
 }
