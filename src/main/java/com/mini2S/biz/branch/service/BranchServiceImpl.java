@@ -2,6 +2,7 @@ package com.mini2S.biz.branch.service;
 
 import com.mini2S.biz.branch.model.dto.BranchDto;
 import com.mini2S.common.enums.BranchEnum;
+import com.mini2S.common.util.DataHandleUtil;
 import com.mini2S.common.util.map.Direction5;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
@@ -54,6 +55,7 @@ public class BranchServiceImpl implements BranchService {
                     .branchImage(branchList)
                     .build());
         });
+        returnList.sort(Comparator.comparingDouble(o -> DataHandleUtil.objectToDouble(o.getDiffDistance().get("distance"))));
         return returnList;
     }
 
@@ -84,8 +86,7 @@ public class BranchServiceImpl implements BranchService {
                     .branchImage(branchList)
                     .build());
         });
-        returnList.sort(Comparator.comparing(o -> (o.getDiffDistance().get("distance"))));
-        returnList.stream().map(item -> item.getDiffDistance().get("distance")).forEach(System.out::println);
+        returnList.sort(Comparator.comparingDouble(o -> DataHandleUtil.objectToDouble(o.getDiffDistance().get("distance"))));
         return returnList;
     }
 }
