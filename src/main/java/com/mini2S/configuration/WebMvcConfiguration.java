@@ -15,5 +15,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 //            .addResourceLocations("file:///D:/2_Develop/2021 Project/board/build/resources/main/static/image/");
                 // 상대 경로
             .addResourceLocations("file:src/main/resources/static/image/");
+        registry
+                .addResourceHandler("/image/contract/**")
+                .addResourceLocations("file:src/main/resources/static/image/contract/");
     }
 }
