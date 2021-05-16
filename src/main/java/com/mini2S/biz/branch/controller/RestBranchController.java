@@ -2,6 +2,7 @@ package com.mini2S.biz.branch.controller;
 
 import com.mini2S.biz.branch.model.dto.BranchDto;
 import com.mini2S.biz.branch.service.BranchServiceImpl;
+import com.mini2S.common.exception.CommonException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class RestBranchController {
      */
     @PostMapping("/branch/list/signin")
     @ApiOperation(value = "지점 목록(로그인)")
-    public List<BranchDto> branchList(String token) {
+    public List<BranchDto> branchList(String token) throws CommonException {
         return branchService.selectUserBranchList(token);
     }
 
@@ -36,5 +37,11 @@ public class RestBranchController {
     @ApiOperation(value = "지점 목록(비로그인)")
     public List<BranchDto> branchList() {
         return branchService.selectBranchInfoList();
+    }
+
+    @PostMapping("/branch/list/nonsignintest")
+    @ApiOperation(value = "지점 목록(비로그인)")
+    public List<BranchDto> branchListTest() {
+        return branchService.selectBranchInfoListTest();
     }
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Direction5 {
     // Naver Cloud Platform의 Direction5 사용, 네비게이션 기준 거리 산정
-    public static JsonElement selectNavigationInfo(String userStartX, String userStartY, String branchGoalX, String branchGoalY){
+    public static JsonElement selectNavigationInfo(String userStartX, String userStartY, String branchGoalX, String branchGoalY) {
         String start_point;
         String goal_point;
         StringBuffer result;
@@ -45,18 +45,18 @@ public class Direction5 {
         }
     }
 
-    public static Map<String, String> selectDistanceAFromB(JsonElement jsonElement){
-        System.out.println(jsonElement);
+    public static Map<String, String> selectDistanceAFromB(JsonElement jsonElement) {
+//        System.out.println(jsonElement);
         JsonElement element = JsonParser.parseString(String.valueOf(jsonElement));
-        System.out.println(element);
+//        System.out.println(element);
         Map<String, String> result = new HashMap<>();
         result.put("code", String.valueOf(element.getAsJsonObject().get("code")));
         result.put("message", String.valueOf(element.getAsJsonObject().get("message")));
-        if(!result.get("code").equals("2")){
+        if (!result.get("code").equals("2")) {
             JsonArray traoptimal = (element.getAsJsonObject().get("route").getAsJsonObject()).getAsJsonArray("traoptimal");
-            result.put("distance",((traoptimal.get(0).getAsJsonObject())
-                                    .get("summary").getAsJsonObject())
-                                    .get("distance").toString());
+            result.put("distance", ((traoptimal.get(0).getAsJsonObject())
+                    .get("summary").getAsJsonObject())
+                    .get("distance").toString());
         }
         return result;
     }
