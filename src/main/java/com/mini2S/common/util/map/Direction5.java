@@ -23,7 +23,7 @@ public class Direction5 {
             start_point = URLEncoder.encode((userStartY + "," + userStartX), StandardCharsets.UTF_8.toString());
             goal_point = URLEncoder.encode((branchGoalY + "," + branchGoalX), StandardCharsets.UTF_8.toString());
             // trafast : 실시간 빠른길
-            String api = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start=" + start_point + "&goal=" + goal_point + "&option=traoptimal";
+            String api = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start=" + start_point + "&goal=" + goal_point + "&option=traoptimal" + "fields=code,message,route(traoptimal/distance)";
             result = new StringBuffer();
             URL url = new URL(api);
             HttpsURLConnection http = (HttpsURLConnection) url.openConnection();
@@ -46,9 +46,9 @@ public class Direction5 {
     }
 
     public static Map<String, String> selectDistanceAFromB(JsonElement jsonElement) {
-//        System.out.println(jsonElement);
+        System.out.println(jsonElement);
         JsonElement element = JsonParser.parseString(String.valueOf(jsonElement));
-//        System.out.println(element);
+        System.out.println(element);
         Map<String, String> result = new HashMap<>();
         result.put("code", String.valueOf(element.getAsJsonObject().get("code")));
         result.put("message", String.valueOf(element.getAsJsonObject().get("message")));
