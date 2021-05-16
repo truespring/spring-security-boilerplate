@@ -38,10 +38,4 @@ public class RestBranchController {
     public List<BranchDto> branchList() {
         return branchService.selectBranchInfoList();
     }
-
-    @PostMapping("/branch/list/nonsignintest")
-    @ApiOperation(value = "지점 목록(비로그인)")
-    public List<BranchDto> branchListTest() {
-        return branchService.selectBranchInfoListTest();
-    }
 }
