@@ -23,7 +23,4 @@ public class UnitProduct {
     @Column(columnDefinition = "varchar(30) not null comment '유닛 상품 타입(큐브, 스몰, 미디움, 라지)'")
     private String unitProductPrice;
 
-    /*
-
-    */
 }

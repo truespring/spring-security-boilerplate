@@ -20,6 +20,9 @@ public class Unit {
     @Column(columnDefinition = "bigint not null comment '지점ID'")
     private Long branchSeq;
 
+    @Column(columnDefinition = "varchar(5) not null comment '사용 가능 여부, 공실 상태'")
+    private String unitStatus;
+
     @Column(columnDefinition = "bigint not null comment '상품ID, 슬림, 큐브인지 등등'")
     private Long unitProductSeq;
 
@@ -34,13 +37,7 @@ public class Unit {
 
     @Column(columnDefinition = "varchar(10) not null comment '유닛 실제 깊이'")
     private String unitRealDepth;
-
-    @Column(columnDefinition = "varchar(5) not null comment '사용 가능 여부, 공실 상태'")
-    private String unitStatus;
-
-    @Column(columnDefinition = "bigint not null comment '가격'")
-    private Long unitPrice;
-
+    
     // 브라우저 유닛 출력용
     @Column(columnDefinition = "varchar(100) not null comment '브라우저 축척 X좌표'")
     private String browserCoordX;
