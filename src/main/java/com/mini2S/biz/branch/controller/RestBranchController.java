@@ -20,7 +20,6 @@ public class RestBranchController {
     private final BranchServiceImpl branchService;
 
     /**
-     *
      * @param token 사용자 토큰
      * @return 사용자 기반으로 한 지점 목록 거리순으로 정렬하여 반환
      */

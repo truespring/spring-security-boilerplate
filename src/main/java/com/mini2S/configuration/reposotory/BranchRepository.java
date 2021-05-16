@@ -1,7 +1,6 @@
 package com.mini2S.configuration.reposotory;
 
 import com.mini2S.biz.branch.model.entity.Branch;
-import com.mini2S.biz.branch.model.vo.BranchVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,7 +21,7 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
 
     /**
      * 지점 이미지 출력
-     * @param branchSeq
+     * @param branchSeq : branch PK
      * @return
      */
     @Query(value = " SELECT a.branch_image " +
