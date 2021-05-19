@@ -3,6 +3,7 @@ package com.mini2S.common.util.map;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.mini2S.common.NaverApiInfo;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -14,11 +15,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Direction5 {
+
     // Naver Cloud Platform의 Direction5 사용, 네비게이션 기준 거리 산정
     public static JsonElement selectNavigationInfo(String userStartX, String userStartY, String branchGoalX, String branchGoalY) {
+        NaverApiInfo naverApiInfo = new NaverApiInfo();
         String start_point;
         String goal_point;
         StringBuffer result;
+
         try {
             start_point = URLEncoder.encode((userStartY + "," + userStartX), StandardCharsets.UTF_8.toString());
             goal_point = URLEncoder.encode((branchGoalY + "," + branchGoalX), StandardCharsets.UTF_8.toString());
@@ -28,8 +32,8 @@ public class Direction5 {
             URL url = new URL(api);
             HttpsURLConnection http = (HttpsURLConnection) url.openConnection();
             http.setRequestProperty("Content-Type", "application/json");
-            http.setRequestProperty("X-NCP-APIGW-API-KEY-ID", "vx9h5vmrlv");
-            http.setRequestProperty("X-NCP-APIGW-API-KEY", "i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM");
+            http.setRequestProperty("X-NCP-APIGW-API-KEY-ID", naverApiInfo.getKeyId());
+            http.setRequestProperty("X-NCP-APIGW-API-KEY", naverApiInfo.getKey());
             http.setRequestMethod("GET");
             http.connect();
             InputStreamReader in = new InputStreamReader(http.getInputStream(), StandardCharsets.UTF_8);
@@ -46,9 +50,7 @@ public class Direction5 {
     }
 
     public static Map<String, String> selectDistanceAFromB(JsonElement jsonElement) {
-//        System.out.println(jsonElement);
         JsonElement element = JsonParser.parseString(String.valueOf(jsonElement));
-//        System.out.println(element);
         Map<String, String> result = new HashMap<>();
         result.put("code", String.valueOf(element.getAsJsonObject().get("code")));
         result.put("message", String.valueOf(element.getAsJsonObject().get("message")));

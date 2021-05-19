@@ -63,3 +63,7 @@ spring:
 #      ddl-auto : create-drop
 #    database-platform : org.hibernate.dialect.H2Dialect
 #    show-sql : true
+
+naver:
+  keyId: vx9h5vmrlv
+  key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM

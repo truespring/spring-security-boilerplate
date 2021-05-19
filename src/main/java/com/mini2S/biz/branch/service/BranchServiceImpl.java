@@ -6,7 +6,6 @@ import com.mini2S.common.util.DataHandleUtil;
 import com.mini2S.common.util.map.Direction5;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
-import com.mini2S.configuration.security.JwtTokenProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,8 +44,8 @@ public class BranchServiceImpl implements BranchService {
                     .coordX(item[0].toString())
                     .coordY(item[1].toString())
                     .diffDistance(Direction5.selectDistanceAFromB(
-                            Direction5.selectNavigationInfo(String.valueOf(userCoord.get("coordx"))
-                                    , String.valueOf(userCoord.get("coordy"))
+                            Direction5.selectNavigationInfo(String.valueOf(userCoord.get(BranchEnum.COORD_Y.getValue()))
+                                    , String.valueOf(userCoord.get(BranchEnum.COORD_Y.getValue()))
                                     , item[0].toString()
                                     , item[1].toString()))
                     )

@@ -5,7 +5,7 @@ public class DataHandleUtil {
     /**
      * Object 타입을 Double 로 형변환
      * @param object
-     * @return
+     * @return Double
      */
     public static Double objectToDouble(Object object) {
         Double doubleObject = null;
