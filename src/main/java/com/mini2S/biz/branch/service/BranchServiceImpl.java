@@ -22,24 +22,25 @@ public class BranchServiceImpl implements BranchService {
 
     private final BranchRepository branchRepository;
     private final UsersRepository usersRepository;
-    private final JwtTokenProvider jwtTokenProvider;
 
     /**
      * 로그인 시 지점 목록 출력
      *
-     * @param token 로그인 사용자 토큰
+     * @param userEmail 로그인 사용자 이메일
      * @return List<BranchDto>
      */
     @Override
     @Transactional
-    public List<BranchDto> selectUserBranchList(String token) {
-        String resultToken = jwtTokenProvider.getUserPk(token);
-        Map<String, Object> userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
+    public List<BranchDto> selectUserBranchList(String userEmail) {
+        Map<String, Object> userCoord = usersRepository.findUserCoordinateByUserEmail(userEmail);
 
         List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            for(int i = 0; i < branchList.size(); i++) {
+                branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
+            }
             returnList.add(BranchDto.builder()
                     .coordX(item[0].toString())
                     .coordY(item[1].toString())
@@ -71,6 +72,9 @@ public class BranchServiceImpl implements BranchService {
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            for(int i = 0; i < branchList.size(); i++) {
+                branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
+            }
             returnList.add(BranchDto.builder()
                     .coordX(item[0].toString())
                     .coordY(item[1].toString())
@@ -87,32 +91,6 @@ public class BranchServiceImpl implements BranchService {
                     .build());
         });
         returnList.sort(Comparator.comparingDouble(o -> DataHandleUtil.objectToDouble(o.getDiffDistance().get("distance"))));
-        return returnList;
-    }
-
-    @Override
-    @Transactional
-    public List<BranchDto> selectBranchInfoListTest() {
-        List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
-        List<BranchDto> returnList = new ArrayList<>();
-        branchCoord.forEach(item -> {
-            List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
-            returnList.add(BranchDto.builder()
-                    .coordX(item[0].toString())
-                    .coordY(item[1].toString())
-//                    .diffDistance(Direction5.selectDistanceAFromB(
-//                            Direction5.selectNavigationInfo(BranchEnum.DEFAULT_X.getValue()
-//                                    , BranchEnum.DEFAULT_Y.getValue()
-//                                    , item[0].toString()
-//                                    , item[1].toString()))
-//                    )
-                    .branchName(item[2].toString())
-                    .address(item[3].toString())
-                    .addressDetail(item[4].toString())
-                    .branchImage(branchList)
-                    .build());
-        });
-//        returnList.sort(Comparator.comparingDouble(o -> DataHandleUtil.objectToDouble(o.getDiffDistance().get("distance"))));
         return returnList;
     }
 }

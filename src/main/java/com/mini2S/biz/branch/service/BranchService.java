@@ -8,6 +8,4 @@ public interface BranchService {
     List<BranchDto> selectUserBranchList(String token);
 
     List<BranchDto> selectBranchInfoList();
-
-    List<BranchDto> selectBranchInfoListTest();
 }
