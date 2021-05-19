@@ -22,7 +22,6 @@ public class BranchServiceImpl implements BranchService {
 
     private final BranchRepository branchRepository;
     private final UsersRepository usersRepository;
-    private final JwtTokenProvider jwtTokenProvider;
 
     /**
      * 로그인 시 지점 목록 출력
