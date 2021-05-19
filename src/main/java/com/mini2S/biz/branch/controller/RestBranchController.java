@@ -45,7 +45,7 @@ public class RestBranchController {
             System.out.println("이메일 : " + userEmail);
             return branchService.selectUserBranchList(userEmail);
         } catch (Exception e) {
-            throw new CommonException("에러 발생", e);
+            throw new CommonException("signInBranchList", e);
         }
     }
 

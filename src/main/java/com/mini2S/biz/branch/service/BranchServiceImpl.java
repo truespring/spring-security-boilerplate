@@ -39,6 +39,9 @@ public class BranchServiceImpl implements BranchService {
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            for(int i = 0; i < branchList.size(); i++) {
+                branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
+            }
             returnList.add(BranchDto.builder()
                     .coordX(item[0].toString())
                     .coordY(item[1].toString())
@@ -70,6 +73,9 @@ public class BranchServiceImpl implements BranchService {
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
+            for(int i = 0; i < branchList.size(); i++) {
+                branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
+            }
             returnList.add(BranchDto.builder()
                     .coordX(item[0].toString())
                     .coordY(item[1].toString())
