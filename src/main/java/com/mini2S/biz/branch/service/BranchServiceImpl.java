@@ -27,14 +27,13 @@ public class BranchServiceImpl implements BranchService {
     /**
      * 로그인 시 지점 목록 출력
      *
-     * @param token 로그인 사용자 토큰
+     * @param userEmail 로그인 사용자 이메일
      * @return List<BranchDto>
      */
     @Override
     @Transactional
-    public List<BranchDto> selectUserBranchList(String token) {
-        String resultToken = jwtTokenProvider.getUserPk(token);
-        Map<String, Object> userCoord = usersRepository.findUserCoordinateByUserEmail(resultToken);
+    public List<BranchDto> selectUserBranchList(String userEmail) {
+        Map<String, Object> userCoord = usersRepository.findUserCoordinateByUserEmail(userEmail);
 
         List<Object[]> branchCoord = branchRepository.findBranchInfoByUseYn();
         List<BranchDto> returnList = new ArrayList<>();
