@@ -1,11 +1,13 @@
 package com.mini2S.common.user.controller;
 
+import com.mini2S.common.user.model.entity.Users;
 import com.mini2S.configuration.security.JwtTokenProvider;
 import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.model.dto.TokenRequestDto;
 import com.mini2S.common.user.model.dto.UsersSigninDto;
 import com.mini2S.common.user.model.dto.UsersSignupDto;
 import com.mini2S.model.response.CommonResult;
+import com.mini2S.model.response.SingleResult;
 import com.mini2S.service.ResponseService;
 import com.mini2S.common.user.service.UsersServiceImpl;
 import io.swagger.annotations.Api;
@@ -43,9 +45,8 @@ public class RestUsersController {
      */
     @PostMapping("/user/signup")
     @ApiOperation(value = "회원가입", notes = "가입 경로 포함시켜야됨")
-    public CommonResult signup(@RequestBody UsersSignupDto dto){
-        usersServiceImpl.signUpUser(dto);
-        return responseService.getSuccessResult();
+    public SingleResult<Users> signup(@RequestBody UsersSignupDto dto){
+        return responseService.getSingleResult(usersServiceImpl.signUpUser(dto));
     }
 
     /**

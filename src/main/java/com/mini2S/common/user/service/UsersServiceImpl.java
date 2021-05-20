@@ -68,10 +68,11 @@ public class UsersServiceImpl implements UsersService {
     /**
      * 회원가입
      * @param dto
+     * @return Users
      */
     @Override
     @Transactional
-    public void signUpUser(UsersSignupDto dto) {
+    public Users signUpUser(UsersSignupDto dto) {
         usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         String encodePassword = passwordEncoder.encode(dto.getUserPw());
         Roles roles = rolesRepository.findByRoleSeq(ROLESEQ); // 회원가입시 최초 권한 조회
@@ -81,7 +82,7 @@ public class UsersServiceImpl implements UsersService {
                     .build()); // 최초 권한 없으면 새로 만들어줌
             roles = rolesRepository.findByRoleSeq(ROLESEQ);
         }
-        usersRepository.save(Users.builder()
+        Users returnUser = usersRepository.save(Users.builder()
                 .userEmail(dto.getUserEmail())
                 .userName(dto.getUserName())
                 .userAccountType(dto.getUserAccountType())
@@ -92,6 +93,8 @@ public class UsersServiceImpl implements UsersService {
                 .build()); // 회원가입
         Users user = usersRepository.findByUserEmailOrderByUserSeq(dto.getUserEmail());
         rolesRepository.insertUserRole(user.getUserSeq(), roles.getRoleSeq()); // 가입한 사용자에게 권한 부여
+        return returnUser;
+
     }
 
     /**
