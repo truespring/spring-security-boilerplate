@@ -16,7 +16,7 @@ public class ContractServiceImpl implements ContractService{
     private final ResponseService responseService;
 
     @Override
-    public CommonResult insertContract(InsertContractDto dto) {
+    public CommonResult insertContract(InsertContractDto dto, String featureDirectory) {
         contractRepository.save(dto.toEntity());
         return responseService.getSuccessResult();
     }
