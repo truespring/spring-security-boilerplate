@@ -32,7 +32,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 로그인시 jwt 토큰 발급
-     * @param dto
+     * @param dto 로그인을 위한 dto
      * @return TokenDto
      */
     @Override
@@ -67,7 +67,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 회원가입
-     * @param dto
+     * @param dto 회원가입을 위한 dto
      * @return Users
      */
     @Override
@@ -99,7 +99,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 토큰 재발급
-     * @param dto
+     * @param dto access 토큰
      * @return TokenDto
      */
     @Override

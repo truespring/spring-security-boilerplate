@@ -6,7 +6,6 @@ import com.mini2S.configuration.security.TokenDto;
 import com.mini2S.model.dto.TokenRequestDto;
 import com.mini2S.common.user.model.dto.UsersSigninDto;
 import com.mini2S.common.user.model.dto.UsersSignupDto;
-import com.mini2S.model.response.CommonResult;
 import com.mini2S.model.response.SingleResult;
 import com.mini2S.service.ResponseService;
 import com.mini2S.common.user.service.UsersServiceImpl;
@@ -29,7 +28,7 @@ public class RestUsersController {
 
     /**
      * 로그인
-     * @param dto
+     * @param dto 로그인을 위한 dto
      * @return 로그인 정보
      */
     @PostMapping("/user/signin")
@@ -40,7 +39,7 @@ public class RestUsersController {
 
     /**
      * 회원가입
-     * @param dto
+     * @param dto 회원가입을 위한 dto
      * @return 회원가입 정보
      */
     @PostMapping("/user/signup")
@@ -51,7 +50,7 @@ public class RestUsersController {
 
     /**
      * 토큰 확인
-     * @param token
+     * @param token 로그인 시 발급되는 access 토큰
      * @return 사용자 토큰 발급(access, refresh 토큰)
      */
     @GetMapping("/user/test")
@@ -65,7 +64,7 @@ public class RestUsersController {
 
     /**
      * 토큰 갱신
-     * @param dto
+     * @param dto access 토큰
      * @return refresh 토큰 발급
      */
     @PostMapping("/user/reissue")
