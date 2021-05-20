@@ -39,23 +39,19 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // 토큰 기반이므로 세션 사용 안함
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests()
-                // 아래의 경로는 권한 허용
-                .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue", "/*/branch", "/*/branch/**", "/branch/**", "/*/user/**").permitAll()
-                .antMatchers("/css/**", "/js/**", "/image/**", "/image/contract/**", "/image/contract/**/**", "/login").permitAll()
-                .anyRequest().authenticated()
+                    .authorizeRequests()
+                    // 아래의 경로는 권한 허용
+                    .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue", "/*/branch", "/*/branch/**", "/branch/**", "/*/user/**").permitAll()
+                    .antMatchers("/css/**", "/js/**", "/image/**", "/image/contract/**", "/image/contract/**/**", "/login").permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                // 로그인 페이지도 권한 허용
-                .loginPage("/login")
-                .permitAll()
+                    .formLogin()
+                    // 로그인 페이지도 권한 허용
+                    .loginPage("/login").permitAll()
                 .and()
-                .logout()
-                .permitAll()
+                    .logout().permitAll()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider)
-                        , UsernamePasswordAuthenticationFilter.class)
-        ;
+                    .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
     }
 
     // Swagger 예외 처리
@@ -63,7 +59,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
                 "/swagger-ui.html", "/webjars/**", "/swagger/**", "/swagger-ui.html#!/**");
-
     }
 }
 
