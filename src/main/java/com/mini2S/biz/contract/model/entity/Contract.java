@@ -11,8 +11,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@RequiredArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
 @Builder
 @Entity
@@ -71,16 +71,20 @@ public class Contract extends BaseTimeEntity {
     @Column(columnDefinition = "varchar(5) comment '사용일, 구독계약 시 저장'")
     private String usageDay;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약 확정 일자(예치금 결제 시)'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약 확정 일자(예치금 결제 시)'"
+            ,insertable = false, updatable = false)
     private LocalDateTime contractDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용시작일자'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용시작일자'"
+            ,insertable = false, updatable = false)
     private LocalDateTime useStartDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용종료일자'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용종료일자'"
+            ,insertable = false, updatable = false)
     private LocalDateTime useEndDttm;
 
-    @Column(columnDefinition = "TIMESTAMP comment '대금 미납 시 물품 처분일자'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '대금 미납 시 물품 처분일자'"
+            ,insertable = false, updatable = false)
     private LocalDateTime disposalDttm;
 
 }
