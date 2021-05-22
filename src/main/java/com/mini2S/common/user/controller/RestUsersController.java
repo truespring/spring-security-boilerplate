@@ -9,11 +9,12 @@ import com.mini2S.common.user.model.dto.UsersSignupDto;
 import com.mini2S.model.response.SingleResult;
 import com.mini2S.service.ResponseService;
 import com.mini2S.common.user.service.UsersServiceImpl;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
+import io.swagger.models.Model;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.testng.xml.dom.Tag;
 
 @Api(tags = {"1. Users"})
 @RequestMapping("/v1")
@@ -34,6 +35,13 @@ public class RestUsersController {
      */
     @PostMapping("/user/signin")
     @ApiOperation(value = "로그인", notes = "이메일 회원 로그인")
+    @ApiImplicitParam(name = "dto",
+            value = "[필수 항목] \n\n " +
+                    "\n" +
+                    "  userEmail : 사용자 이메일 \n" +
+                    "  userPw : 사용자 암호",
+            required = true,
+            paramType = "body")
     public SingleResult<TokenDto> signin(@RequestBody UsersSigninDto dto) {
         return responseService.getSingleResult(usersServiceImpl.signIn(dto));
     }
