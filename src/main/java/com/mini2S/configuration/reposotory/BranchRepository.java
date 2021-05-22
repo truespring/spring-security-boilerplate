@@ -11,7 +11,8 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
 
     /**
      * 사용 중인 지점 정보
-     * @return
+     *
+     * @return 선택한 정보
      */
     @Query(value = " SELECT a.coordX, a.coordY, a.branch_name, a.address, a.address_detail, a.branch_seq " +
             " FROM branch a " +
@@ -21,15 +22,16 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
 
     /**
      * 지점 이미지 출력
+     *
      * @param branchSeq : branch PK
-     * @return
+     * @return 이미지 리스트
      */
     @Query(value = " SELECT a.branch_image " +
-                    " FROM branch_image a " +
-                    " INNER JOIN branch b " +
-                    " ON a.branch_seq = b.branch_seq " +
-                    " WHERE a.branch_seq = :branchSeq " +
-                    " ORDER BY a.branch_image_sort "
-                    , nativeQuery = true)
+            " FROM branch_image a " +
+            " INNER JOIN branch b " +
+            " ON a.branch_seq = b.branch_seq " +
+            " WHERE a.branch_seq = :branchSeq " +
+            " ORDER BY a.branch_image_sort "
+            , nativeQuery = true)
     List<String> findBranchImageList(@Param("branchSeq") Long branchSeq);
 }

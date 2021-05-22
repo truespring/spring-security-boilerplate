@@ -15,59 +15,64 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
 
     /**
      * roleName 으로 권한 조회
-     * @param roleName
-     * @return
+     *
+     * @param roleName 권한 이름
+     * @return 해당 권한 정보
      */
     public Roles findByRoleName(String roleName);
 
     /**
      * roleSeq 로 권한 조회
-     * @param roleSeq
-     * @return
+     *
+     * @param roleSeq 권한 seq
+     * @return 해당 권한 정보
      */
     public Roles findByRoleSeq(Long roleSeq);
 
     /**
      * 새로운 권한 추가
-     * @param UserSeq
-     * @param RoleSeq
+     *
+     * @param UserSeq 사용자 seq
+     * @param RoleSeq 권한 seq
      */
     @Transactional
     @Modifying
     @Query(value = " INSERT INTO user_role " +
-                            " ( " +
-                            "   user_seq, " +
-                            "   role_seq) " +
-                            " VALUES " +
-                            " (" +
-                            "   :UserSeq, " +
-                            "   :RoleSeq" +
-                            " ) "
-                            , nativeQuery = true)
+            " ( " +
+            "   user_seq, " +
+            "   role_seq) " +
+            " VALUES " +
+            " (" +
+            "   :UserSeq, " +
+            "   :RoleSeq" +
+            " ) "
+            , nativeQuery = true)
     void insertUserRole(
-                        @Param("UserSeq") Long UserSeq,
-                        @Param("RoleSeq") Long RoleSeq
+            @Param("UserSeq") Long UserSeq,
+            @Param("RoleSeq") Long RoleSeq
     );
 
     /**
      * 해당 사용자의 권한 조회
-     * @param userSeq
-     * @return
+     *
+     * @param userSeq 사용자 seq
+     * @return 권한 이름
      */
     @Query(value = " SELECT a.role_name " +
-                   " FROM roles a " +
-                   " INNER JOIN user_role b " +
-                   " ON a.role_seq = b.role_seq " +
-                   " WHERE b.user_seq = :userSeq "
-                    , nativeQuery = true)
-    public String findRoleNameByUserSeq(@Param("userSeq")Long userSeq);
+            " FROM roles a " +
+            " INNER JOIN user_role b " +
+            " ON a.role_seq = b.role_seq " +
+            " WHERE b.user_seq = :userSeq "
+            , nativeQuery = true)
+    public String findRoleNameByUserSeq(@Param("userSeq") Long userSeq);
 
     /**
      * 모든 권한 조회
-     * @return
+     *
+     * @return 권한 리스트
      */
     @Query(value = " SELECT r.roleName " +
-                    " FROM Roles r " )
+            " FROM Roles r ")
     public List<String> findAllRoleName();
 
 }

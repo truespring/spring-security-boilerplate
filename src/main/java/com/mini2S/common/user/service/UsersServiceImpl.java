@@ -32,6 +32,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 로그인시 jwt 토큰 발급
+     *
      * @param dto 로그인을 위한 dto
      * @return TokenDto
      */
@@ -67,6 +68,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 회원가입
+     *
      * @param dto 회원가입을 위한 dto
      * @return Users
      */
@@ -99,6 +101,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * 토큰 재발급
+     *
      * @param dto access 토큰
      * @return TokenDto
      */
