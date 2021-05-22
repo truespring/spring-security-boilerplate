@@ -21,8 +21,6 @@ public class WebController {
     @GetMapping("/login")
     public String login(InsertContractDto dto, Model model, HttpServletRequest request) throws IOException {
 
-        log.info("dto : [{}]", dto.toEntity());
-
         // 1. 다른 파일들
         final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
         Resource resource = defaultResourceLoader.getResource("classpath:static/image/오목교점_메인.png");

@@ -6,7 +6,6 @@ import com.mini2S.biz.unit.model.entity.Unit;
 import com.mini2S.common.user.model.entity.Users;
 import com.mini2S.common.util.time.TimeFormat;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
 public class InsertContractDto {
@@ -23,11 +22,12 @@ public class InsertContractDto {
     private Long priceDeposit;
     private Long priceTotal;
 
-    public Contract toEntity(){
+    public Contract toEntity(String qrImage){
         return Contract.builder()
                 .userSeq(Users.builder().userSeq(userSeq).build())
                 .branchSeq(Branch.builder().branchSeq(branchSeq).build())
                 .unitSeq(Unit.builder().unitSeq(unitSeq).build())
+                .contractQrImage(qrImage)
                 .contractStatus(contractStatus)
                 .usageMonth(usageMonth)
                 .useStartDttm(TimeFormat.ConvertDttm(useStartDttm, "1"))

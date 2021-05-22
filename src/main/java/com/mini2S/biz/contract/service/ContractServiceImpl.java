@@ -20,9 +20,9 @@ public class ContractServiceImpl implements ContractService{
 
     @Override
     public CommonResult insertContract(InsertContractDto dto, String featureDirectory) throws IOException {
-        String qrCodeImage = QrCode.createQRCodeImage(featureDirectory, String.valueOf(dto.getUserSeq())
-                                                , dto.getUserSeq() +"qrImage", "");
-        contractRepository.save(dto.toEntity());
+        String qrImage = QrCode.createQRCodeImage(featureDirectory, String.valueOf(dto.getUserSeq())
+                                                , dto.getUnitSeq() +"qrImage", "https://naver.com");
+        contractRepository.save(dto.toEntity(qrImage));
         return responseService.getSuccessResult();
     }
 }

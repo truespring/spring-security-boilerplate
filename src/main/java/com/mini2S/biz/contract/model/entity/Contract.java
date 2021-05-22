@@ -38,6 +38,9 @@ public class Contract extends BaseTimeEntity {
     @Column(columnDefinition = "varchar(5) not null comment '계약 상태'")
     private String contractStatus;
 
+    @Column(columnDefinition = "varchar(250) comment '결제 시 발급되는 QR 이미지'  ")
+    private String contractQrImage;
+
     @Column(columnDefinition = "bigint comment '구매할 유닛 금액'")
     private Long priceUnit;
 
@@ -75,12 +78,10 @@ public class Contract extends BaseTimeEntity {
             ,insertable = false, updatable = false)
     private LocalDateTime contractDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용시작일자'"
-            ,insertable = false, updatable = false)
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용시작일자'")
     private LocalDateTime useStartDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용종료일자'"
-            ,insertable = false, updatable = false)
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용종료일자'")
     private LocalDateTime useEndDttm;
 
     @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '대금 미납 시 물품 처분일자'"
