@@ -12,6 +12,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @RequiredArgsConstructor
 @Configuration
@@ -35,27 +38,25 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .httpBasic().disable()
-                .csrf().disable() // rest api이므로 csrf 보안이 필요없으므로 disable처리.
-                // 토큰 기반이므로 세션 사용 안함
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    .cors().configurationSource(corsConfigurationSource())
                 .and()
-                .authorizeRequests()
-                // 아래의 경로는 권한 허용
-                .antMatchers("/*/signin", "/*/signin/**", "/signup", "/signin", "/*/signup", "/*/signup/**", "/social/**", "/test", "/reissue", "/*/branch", "/*/branch/**", "/branch/**", "/*/user/**").permitAll()
-                .antMatchers("/css/**", "/js/**", "/image/**", "/image/contract/**", "/image/contract/**/**", "/login").permitAll()
-                .anyRequest().authenticated()
+                    .csrf().disable() // rest api이므로 csrf 보안이 필요없으므로 disable처리.
+                    // 토큰 기반이므로 세션 사용 안함
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .formLogin()
-                // 로그인 페이지도 권한 허용
-                .loginPage("/login")
-                .permitAll()
+                    .authorizeRequests()
+                    // 아래의 경로는 권한 허용
+                    .antMatchers( "/test", "/*/branch/list/nonsignin", "/*/user/**").permitAll()
+                    .antMatchers("/css/**", "/js/**", "/image/**", "/image/contract/**", "/image/contract/**/**", "/login").permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .logout()
-                .permitAll()
+                    .formLogin()
+                    // 로그인 페이지도 권한 허용
+                    .loginPage("/login").permitAll()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider)
-                        , UsernamePasswordAuthenticationFilter.class)
-        ;
+                    .logout().permitAll()
+                .and()
+                    .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
     }
 
     // Swagger 예외 처리
@@ -63,7 +64,23 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
                 "/swagger-ui.html", "/webjars/**", "/swagger/**", "/swagger-ui.html#!/**");
+    }
+    // CORS 허용 적용
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
 
+        // 허용할 URL
+        configuration.addAllowedOrigin("*");
+        // 허용할 Header
+        configuration.addAllowedHeader("*");
+        // 허용할 Method
+        configuration.addAllowedMethod("*");
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }
 
