@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Optional;
 
 @Api(tags = {"5. Contract"})
 @RequestMapping("/v1")
@@ -40,7 +41,7 @@ public class RestContractController {
     @PostMapping("/contract/insert")
     @ApiOperation(value = "지점에 해당하는 유닛 리스트 전달")
     public CommonResult insertContract(@RequestBody InsertContractDto dto, HttpServletRequest request) throws IOException {
-        log.info("path1 : [{}]", request.getRequestURI().split("/")[2]);
+        log.info("feature path : [{}]", request.getRequestURI().split("/")[2]);
         log.info("InsertContractDto : [{}]", dto);
         return contractService.insertContract(dto ,request.getRequestURI().split("/")[2]);
     }

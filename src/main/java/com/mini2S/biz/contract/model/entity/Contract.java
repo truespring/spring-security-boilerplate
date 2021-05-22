@@ -25,15 +25,15 @@ public class Contract extends BaseTimeEntity {
 
     @OneToOne
     @JoinColumn(name = "USER_SEQ", nullable = false)
-    private Users userSeq;
+    private Users users;
 
     @OneToOne
     @JoinColumn(name = "BRANCH_SEQ", nullable = false)
-    private Branch branchSeq;
+    private Branch branch;
 
     @OneToOne
     @JoinColumn(name = "UNIT_SEQ", nullable = false)
-    private Unit unitSeq;
+    private Unit unit;
 
     @Column(columnDefinition = "varchar(5) not null comment '계약 상태'")
     private String contractStatus;
