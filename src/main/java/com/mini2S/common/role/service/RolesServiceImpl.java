@@ -16,7 +16,7 @@ public class RolesServiceImpl implements RolesService {
 
     /**
      * 권한 추가
-     * @param roleName
+     * @param roleName 권한 이름
      * @return Roles
      */
     @Override

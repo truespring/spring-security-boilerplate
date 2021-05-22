@@ -6,7 +6,6 @@ import com.mini2S.common.util.DataHandleUtil;
 import com.mini2S.common.util.map.Direction5;
 import com.mini2S.configuration.reposotory.BranchRepository;
 import com.mini2S.configuration.reposotory.UsersRepository;
-import com.mini2S.configuration.security.JwtTokenProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +37,7 @@ public class BranchServiceImpl implements BranchService {
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
-            for(int i = 0; i < branchList.size(); i++) {
+            for (int i = 0; i < branchList.size(); i++) {
                 branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
             }
             returnList.add(BranchDto.builder()
@@ -72,7 +71,7 @@ public class BranchServiceImpl implements BranchService {
         List<BranchDto> returnList = new ArrayList<>();
         branchCoord.forEach(item -> {
             List<String> branchList = branchRepository.findBranchImageList(Long.parseLong(item[5].toString()));
-            for(int i = 0; i < branchList.size(); i++) {
+            for (int i = 0; i < branchList.size(); i++) {
                 branchList.set(i, "/image/branch/" + item[5].toString() + "/" + branchList.get(i));
             }
             returnList.add(BranchDto.builder()

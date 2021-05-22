@@ -18,7 +18,10 @@ public enum BranchEnum {
     52 : 종료완료 (결제후)
     */
     DEFAULT_X("37.49645524999698"),
-    DEFAULT_Y("127.03274326109371");
+    DEFAULT_Y("127.03274326109371"),
+    COORD_X("coordx"),
+    COORD_Y("coordy");
+
 
     private final String value;
 }

@@ -14,6 +14,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     /**
      * 사용자 email 로 사용자 조회
+     *
      * @param userEmail
      * @return
      */
@@ -21,12 +22,13 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     /**
      * 사용자 위치 조회
+     *
      * @param userEmail
      * @return
      */
     @Query(value = " SELECT a.coordx, a.coordy " +
-                    " FROM users a " +
-                    " WHERE a.user_email = :userEmail "
-                    , nativeQuery = true)
+            " FROM users a " +
+            " WHERE a.user_email = :userEmail "
+            , nativeQuery = true)
     Map<String, Object> findUserCoordinateByUserEmail(@Param("userEmail") String userEmail);
 }

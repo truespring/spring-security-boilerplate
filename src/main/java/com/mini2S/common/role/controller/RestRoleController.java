@@ -18,13 +18,14 @@ public class RestRoleController {
 
     /**
      * 새로운 권한을 추가한다
+     *
      * @param roleName 새로운 권한 이름
      * @return 새로운 권한 추가
      */
     @PostMapping("/roles/add")
     @ApiOperation(value = "권한 추가")
     public Roles addRoles(String roleName) {
-       return rolesServiceImpl.createNewRole(roleName);
+        return rolesServiceImpl.createNewRole(roleName);
     }
 
 }
