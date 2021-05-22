@@ -3,6 +3,7 @@ package com.mini2S.biz.contract.model.entity;
 import com.mini2S.biz.branch.model.entity.Branch;
 import com.mini2S.biz.unit.model.entity.Unit;
 import com.mini2S.common.user.model.entity.Users;
+import com.mini2S.model.entity.BaseTimeEntity;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -10,12 +11,12 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
 @Builder
 @Entity
-public class Contract {
+public class Contract extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,18 +25,21 @@ public class Contract {
 
     @OneToOne
     @JoinColumn(name = "USER_SEQ", nullable = false)
-    private Users userSeq;
+    private Users users;
 
     @OneToOne
     @JoinColumn(name = "BRANCH_SEQ", nullable = false)
-    private Branch branchSeq;
+    private Branch branch;
 
     @OneToOne
     @JoinColumn(name = "UNIT_SEQ", nullable = false)
-    private Unit unitSeq;
+    private Unit unit;
 
     @Column(columnDefinition = "varchar(5) not null comment '계약 상태'")
     private String contractStatus;
+
+    @Column(columnDefinition = "varchar(250) comment '결제 시 발급되는 QR 이미지'  ")
+    private String contractQrImage;
 
     @Column(columnDefinition = "bigint comment '구매할 유닛 금액'")
     private Long priceUnit;
@@ -49,8 +53,8 @@ public class Contract {
     @Column(columnDefinition = "bigint comment '물품 할인 금액'")
     private Long priceDiscountGoods;
 
-    @Column(columnDefinition = "bigint comment '기타 금액'")
-    private Long priceETC;
+    @Column(name = "price_etc", columnDefinition = "bigint comment '기타 금액'")
+    private Long priceEtc;
 
     @Column(columnDefinition = "bigint comment '예치금, 보증금과 같은 개념'")
     private Long priceDeposit;
@@ -70,15 +74,8 @@ public class Contract {
     @Column(columnDefinition = "varchar(5) comment '사용일, 구독계약 시 저장'")
     private String usageDay;
 
-    @CreatedDate
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약서 생성일'")
-    private LocalDateTime createdDttm;
-
-    @LastModifiedDate
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약서 상태 변경일'")
-    private LocalDateTime updateDttm;
-
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약 확정 일자(예치금 결제 시)'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '계약 확정 일자(예치금 결제 시)'"
+            ,insertable = false, updatable = false)
     private LocalDateTime contractDttm;
 
     @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용시작일자'")
@@ -87,6 +84,8 @@ public class Contract {
     @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '이용종료일자'")
     private LocalDateTime useEndDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '대금 미납 시 물품 처분일자'")
+    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '대금 미납 시 물품 처분일자'"
+            ,insertable = false, updatable = false)
     private LocalDateTime disposalDttm;
+
 }
