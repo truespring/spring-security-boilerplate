@@ -19,7 +19,7 @@ public interface RolesRepository extends JpaRepository<Roles, Long> {
      * @param roleName 권한 이름
      * @return 해당 권한 정보
      */
-    public Roles findByRoleName(String roleName);
+    public Roles findRolesByRoleName(String roleName);
 
     /**
      * roleSeq 로 권한 조회
