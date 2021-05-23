@@ -3,6 +3,8 @@ package com.mini2S.configuration.reposotory;
 import com.mini2S.biz.contract.model.entity.Contract;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ContractRepository extends JpaRepository<Contract, Long> {
+import java.util.List;
 
+public interface ContractRepository extends JpaRepository<Contract, Long> {
+    List<Contract> findAllByUsersUserSeqOrderByCreatedDate(Long users_userSeq);
 }

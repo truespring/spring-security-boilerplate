@@ -37,6 +37,9 @@ dependencies {
     implementation 'org.testng:testng:7.1.0'
     // -----------------------------------------------------------------------
 
+    // DTO <-> DTO
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
+
     // lombok : getter/setter 간소화
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

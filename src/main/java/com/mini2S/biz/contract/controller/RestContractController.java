@@ -9,12 +9,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -39,12 +39,29 @@ public class RestContractController {
             )
     })
     @PostMapping("/contract/insert")
-    @ApiOperation(value = "지점에 해당하는 유닛 리스트 전달")
+    @ApiOperation(value = "계약서 생성")
     public CommonResult insertContract(@RequestBody InsertContractDto dto, HttpServletRequest request) throws IOException {
         log.info("feature path : [{}]", request.getRequestURI().split("/")[2]);
         log.info("InsertContractDto : [{}]", dto);
         return contractService.insertContract(dto ,request.getRequestURI().split("/")[2]);
     }
+
+    @ApiImplicitParams({
+            @ApiImplicitParam(
+                    name = "X-AUTH-TOKEN",
+                    value = "로그인 성공 후 AccessToken",
+                    required = true,
+                    dataType = "String",
+                    paramType = "header"
+            )
+    })
+    @GetMapping("/contract/select")
+    @ApiOperation(value = "유저가 계약한 계약서 리스트 출력")
+    public CommonResult selectContractList() throws NotFoundException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return contractService.selectContractList(authentication.getName());
+    }
+
     /*
   {"branchSeq": 1,
   "contractStatus": "1",

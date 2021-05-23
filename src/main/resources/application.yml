@@ -18,7 +18,7 @@ spring:
 #      password:
 #      data : classpath:data-h2.sql
   datasource :
-    url : jdbc:mysql://ec2-3-36-178-40.ap-northeast-2.compute.amazonaws.com:33095/mini2S?characterEncoding=utf8
+    url : jdbc:mysql://ec2-3-36-178-40.ap-northeast-2.compute.amazonaws.com:33095/mini2S?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     driver-class-name : com.mysql.cj.jdbc.Driver
     username : david
     password : dalock2dev

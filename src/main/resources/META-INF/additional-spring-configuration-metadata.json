@@ -4,6 +4,11 @@
       "name": "spring.datasource.jpa.database",
       "type": "java.lang.String",
       "description": "Description for spring.datasource.jpa.database."
-  }
-]
+    },
+    {
+      "name": "naver.keyId",
+      "type": "java.lang.String",
+      "description": "Description for naver.keyId."
+    }
+  ]
 }
