@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class NaverApiInfo {
 
-    @Value("${naver.keyId}")
+    @Value("${spring.naver.keyId}")
     static String keyId;
 
-    @Value("${naver.keyId}")
+    @Value("${spring.naver.keyId}")
     private void setKeyId(String keyId) {
         NaverApiInfo.keyId = keyId;
     }
@@ -18,10 +18,10 @@ public class NaverApiInfo {
         return keyId;
     }
 
-    @Value("${naver.key}")
+    @Value("${spring.naver.key}")
     static String key;
 
-    @Value("${naver.key}")
+    @Value("${spring.naver.key}")
     private void setKey(String key) {
         NaverApiInfo.key = key;
     }
