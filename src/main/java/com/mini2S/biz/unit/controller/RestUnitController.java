@@ -21,6 +21,8 @@ public class RestUnitController {
 
     private final UnitRepository unitRepository;
 
+    @GetMapping("/unit/list")
+    @ApiOperation(value = "지점에 해당하는 유닛 리스트 전달")
     @ApiImplicitParams({
             @ApiImplicitParam(
                     name = "X-AUTH-TOKEN",
@@ -28,10 +30,15 @@ public class RestUnitController {
                     required = true,
                     dataType = "String",
                     paramType = "header"
+            ),
+            @ApiImplicitParam(
+                    name = "branchSeq",
+                    value = "지점 seq",
+                    required = true,
+                    dataType = "String",
+                    paramType = "query"
             )
     })
-    @GetMapping("/unit/list")
-    @ApiOperation(value = "지점에 해당하는 유닛 리스트 전달")
     public List<Unit> unitList(String branchSeq){
         return unitRepository.findByBranchSeq(Long.valueOf(branchSeq));
     }

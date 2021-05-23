@@ -1,7 +1,7 @@
 package com.mini2S.common.role.service;
 
-import com.mini2S.common.role.model.entity.Roles;
+import com.mini2S.model.response.CommonResult;
 
 public interface RolesService {
-    Roles createNewRole(String roleName);
+    CommonResult createNewRole(String roleName);
 }

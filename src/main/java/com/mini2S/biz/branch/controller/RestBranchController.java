@@ -7,7 +7,6 @@ import com.mini2S.model.response.ListResult;
 import com.mini2S.service.ResponseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -28,17 +27,15 @@ public class RestBranchController {
     /**
      * @return 사용자 기반으로 한 지점 목록 거리순으로 정렬하여 반환
      */
-    @ApiImplicitParams({
-            @ApiImplicitParam(
-                    name = "X-AUTH-TOKEN",
-                    value = "로그인 성공 후 AccessToken",
-                    required = true,
-                    dataType = "String",
-                    paramType = "header"
-            )
-    })
     @PostMapping("/branch/list/signin")
     @ApiOperation(value = "지점 목록(로그인)")
+    @ApiImplicitParam(
+            name = "X-AUTH-TOKEN",
+            value = "로그인 성공 후 AccessToken",
+            required = true,
+            dataType = "String",
+            paramType = "header"
+    )
     public ListResult<BranchDto> signInBranchList() throws CommonException {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

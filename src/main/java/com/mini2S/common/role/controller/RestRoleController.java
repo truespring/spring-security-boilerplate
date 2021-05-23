@@ -1,8 +1,10 @@
 package com.mini2S.common.role.controller;
 
-import com.mini2S.common.role.model.entity.Roles;
 import com.mini2S.common.role.service.RolesServiceImpl;
+import com.mini2S.model.response.CommonResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +26,23 @@ public class RestRoleController {
      */
     @PostMapping("/roles/add")
     @ApiOperation(value = "권한 추가")
-    public Roles addRoles(String roleName) {
+    @ApiImplicitParams({
+            @ApiImplicitParam(
+                    name = "roleName",
+                    value = "새로 추가할 권한",
+                    required = true,
+                    dataType = "String",
+                    paramType = "query"
+            ),
+            @ApiImplicitParam(
+                    name = "X-AUTH-TOKEN",
+                    value = "로그인 성공 후 AccessToken",
+                    required = true,
+                    dataType = "String",
+                    paramType = "header"
+            )
+    })
+    public CommonResult addRoles(String roleName) {
         return rolesServiceImpl.createNewRole(roleName);
     }
 
