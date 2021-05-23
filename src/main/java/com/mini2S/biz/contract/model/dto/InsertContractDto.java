@@ -44,9 +44,8 @@ public class InsertContractDto {
                 .priceTotal(priceTotal)
                 .build();
     }
-    public static CommonResult insertContractResponse(Contract contract){
-        return new ResponseService().getSingleResult(
-                InsertContractDto.builder()
+    public static InsertContractDto of(Contract contract){
+        return InsertContractDto.builder()
                     .userSeq(contract.getUsers().getUserSeq())
                     .branchSeq(contract.getBranch().getBranchSeq())
                     .unitSeq(contract.getUnit().getUnitSeq())
@@ -59,7 +58,6 @@ public class InsertContractDto {
                     .priceDiscountUnit(contract.getPriceDiscountUnit())
                     .priceDeposit(contract.getPriceDeposit())
                     .priceTotal(contract.getPriceTotal())
-                    .build()
-        );
+                    .build();
     }
 }
