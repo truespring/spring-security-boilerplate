@@ -50,6 +50,10 @@ spring:
     generate-ddl : true
     # WARN 23008 에러 제거
     open-in-view: false
+
+  naver:
+    keyId: vx9h5vmrlv
+    key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM
   # handlebars 기본 설정
 #  handlebars:
 #    view-names: handlebars/*
@@ -63,7 +67,3 @@ spring:
 #      ddl-auto : create-drop
 #    database-platform : org.hibernate.dialect.H2Dialect
 #    show-sql : true
-
-naver:
-  keyId: vx9h5vmrlv
-  key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM

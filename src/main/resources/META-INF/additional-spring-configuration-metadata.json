@@ -9,6 +9,16 @@
       "name": "naver.keyId",
       "type": "java.lang.String",
       "description": "Description for naver.keyId."
+    },
+    {
+      "name": "spring.naver.keyId",
+      "type": "java.lang.String",
+      "description": "Description for spring.naver.keyId."
+    },
+    {
+      "name": "spring.naver.key",
+      "type": "java.lang.String",
+      "description": "Description for spring.naver.key."
     }
   ]
 }
