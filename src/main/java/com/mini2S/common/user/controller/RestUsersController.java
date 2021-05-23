@@ -59,11 +59,11 @@ public class RestUsersController {
             value = "사용자 회원가입 \n\n" +
                     "[필수 항목] \n\n " +
                     "address : 사용자 주소 \n" +
-                    "addressDetail : 사용자 상세 주소 \n" +
-                    "userAccountType : 사용자 회원가입 경로(카카오, 네이버 등) \n" +
+                    "addressDetail : 사용자 상세 주소 \n\n" +
+                    "userAccountType : 사용자 회원가입 경로(카카오, 네이버 등) \n\n" +
                     "userEmail : 사용자 이메일 \n" +
                     "userName : 사용자 이름 \n" +
-                    "userPhoneNumber : 사용자 휴대번호 \n" +
+                    "userPhoneNumber : 사용자 휴대번호 \n\n" +
                     "userPw : 사용자 암호",
             required = true,
             paramType = "body",
