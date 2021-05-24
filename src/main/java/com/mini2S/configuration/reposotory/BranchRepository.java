@@ -1,5 +1,6 @@
 package com.mini2S.configuration.reposotory;
 
+import com.mini2S.biz.branch.model.dto.BranchListDto;
 import com.mini2S.biz.branch.model.entity.Branch;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,13 +13,13 @@ public interface BranchRepository extends JpaRepository<Branch, Long> {
     /**
      * 사용 중인 지점 정보
      *
-     * @return 선택한 정보
+     * @return BranchListDto
      */
-    @Query(value = " SELECT a.coordX, a.coordY, a.branch_name, a.address, a.address_detail, a.branch_seq " +
-            " FROM branch a " +
-            " WHERE a.use_yn = 'Y'"
-            , nativeQuery = true)
-    List<Object[]> findBranchInfoByUseYn();
+    @Query("SELECT new com.mini2S.biz.branch.model.dto.BranchListDto ( " +
+            " a.branchSeq, a.coordX, a.coordY, a.branchName, a.address, a.addressDetail )" +
+            " FROM Branch a " +
+            " WHERE a.useYn = 'Y' ")
+    List<BranchListDto> findBranchsInfoByUseYn();
 
     /**
      * 지점 이미지 출력
