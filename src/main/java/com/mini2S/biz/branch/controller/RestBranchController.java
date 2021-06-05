@@ -55,4 +55,19 @@ public class RestBranchController {
     public ListResult<BranchDto> signOutBranchList() {
         return responseService.getListResult(branchService.selectBranchInfoList());
     }
+
+//    @GetMapping("branch/list/nonsignin")
+//    @ApiOperation(value = "스웨거 테스트")
+//    public Map<String, Object> mapReturn() {
+//        List<BranchDto> listResult = branchService.selectBranchInfoList();
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("address", listResult.get(2).getAddress());
+//        map.put("addressDetail", listResult.get(2).getAddressDetail());
+//        map.put("branchImage", listResult.get(2).getBranchImage());
+//        map.put("branchName", listResult.get(2).getBranchName());
+//        map.put("coordX", listResult.get(2).getCoordX());
+//        map.put("coordY", listResult.get(2).getCoordY());
+//        map.put("diffDistance", listResult.get(2).getDiffDistance());
+//        return map;
+//    }
 }
