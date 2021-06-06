@@ -1,5 +1,7 @@
 package com.mini2S.biz.branch.controller;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.mini2S.biz.branch.model.dto.BranchDto;
 import com.mini2S.biz.branch.service.BranchServiceImpl;
 import com.mini2S.common.exception.CommonException;
@@ -14,6 +16,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.spring.web.json.Json;
+
+import java.util.List;
 
 @Api(tags = {"3. Branch"})
 @RequestMapping("/v1")
@@ -50,14 +55,45 @@ public class RestBranchController {
     /**
      * @return 기본 값을 기반으로 지점 목록 거리순으로 정렬하여 반환
      */
+//    @PostMapping("/branch/list/nonsignin")
+//    @ApiOperation(value = "지점 목록(비로그인)")
+//    public ListResult<BranchDto> signOutBranchList() {
+//        return responseService.getListResult(branchService.selectBranchInfoList());
+//    }
+
+    /**
+     * return 타입을 JsonArray 로 하였을 때
+     * 에러 발생
+     *
+     * @return JsonArray
+     */
     @PostMapping("/branch/list/nonsignin")
-    @ApiOperation(value = "지점 목록(비로그인)")
-    public ListResult<BranchDto> signOutBranchList() {
-        return responseService.getListResult(branchService.selectBranchInfoList());
+    @ApiOperation(value = "스웨거 테스트 Json")
+    public JsonArray jsonReturn() {
+        JsonArray jsonArray = new JsonArray();
+        List<BranchDto> listResult = branchService.selectBranchInfoList();
+        listResult.forEach(item -> {
+            JsonObject returnJson = new JsonObject();
+            returnJson.addProperty("address", item.getAddress());
+            returnJson.addProperty("addressDetail", item.getAddressDetail());
+//            returnJson.addProperty("branchImange", item.getBranchImage());
+            returnJson.addProperty("branchName", item.getBranchName());
+            returnJson.addProperty("coordX", item.getCoordX());
+            returnJson.addProperty("coordY", item.getCoordY());
+            jsonArray.add(returnJson);
+        });
+
+        return jsonArray;
     }
 
-//    @GetMapping("branch/list/nonsignin")
-//    @ApiOperation(value = "스웨거 테스트")
+    /**
+     * return 타입을 map 으로 하였을 때
+     * 결과는 list 와 다를것 없음
+     *
+     * @return Map
+     */
+//    @PostMapping("branch/list/nonsignin")
+//    @ApiOperation(value = "스웨거 테스트 map")
 //    public Map<String, Object> mapReturn() {
 //        List<BranchDto> listResult = branchService.selectBranchInfoList();
 //        Map<String, Object> map = new HashMap<>();
