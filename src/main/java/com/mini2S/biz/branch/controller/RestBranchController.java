@@ -55,11 +55,11 @@ public class RestBranchController {
     /**
      * @return 기본 값을 기반으로 지점 목록 거리순으로 정렬하여 반환
      */
-//    @PostMapping("/branch/list/nonsignin")
-//    @ApiOperation(value = "지점 목록(비로그인)")
-//    public ListResult<BranchDto> signOutBranchList() {
-//        return responseService.getListResult(branchService.selectBranchInfoList());
-//    }
+    @PostMapping("/branch/list/nonsignin")
+    @ApiOperation(value = "지점 목록(비로그인)")
+    public ListResult<BranchDto> signOutBranchList() {
+        return responseService.getListResult(branchService.selectBranchInfoList());
+    }
 
     /**
      * return 타입을 JsonArray 로 하였을 때
@@ -67,24 +67,45 @@ public class RestBranchController {
      *
      * @return JsonArray
      */
-    @PostMapping("/branch/list/nonsignin")
-    @ApiOperation(value = "스웨거 테스트 Json")
-    public JsonArray jsonReturn() {
-        JsonArray jsonArray = new JsonArray();
-        List<BranchDto> listResult = branchService.selectBranchInfoList();
-        listResult.forEach(item -> {
-            JsonObject returnJson = new JsonObject();
-            returnJson.addProperty("address", item.getAddress());
-            returnJson.addProperty("addressDetail", item.getAddressDetail());
-//            returnJson.addProperty("branchImange", item.getBranchImage());
-            returnJson.addProperty("branchName", item.getBranchName());
-            returnJson.addProperty("coordX", item.getCoordX());
-            returnJson.addProperty("coordY", item.getCoordY());
-            jsonArray.add(returnJson);
-        });
+//    @PostMapping("/branch/list/nonsignin")
+//    @ApiOperation(value = "스웨거 테스트 Json")
+//    public JsonArray jsonReturn() {
+//        JsonArray jsonArray = new JsonArray();
+//        List<BranchDto> listResult = branchService.selectBranchInfoList();
+//        listResult.forEach(item -> {
+//            JsonObject returnJson = new JsonObject();
+//            returnJson.addProperty("address", item.getAddress());
+//            returnJson.addProperty("addressDetail", item.getAddressDetail());
+////            returnJson.addProperty("branchImange", item.getBranchImage());
+//            returnJson.addProperty("branchName", item.getBranchName());
+//            returnJson.addProperty("coordX", item.getCoordX());
+//            returnJson.addProperty("coordY", item.getCoordY());
+//            jsonArray.add(returnJson);
+//        });
+//
+//        return jsonArray;
+//    }
 
-        return jsonArray;
-    }
+    /**
+     * return 타입을 JsonObject 로 하였을 때
+     * 에러 발생
+     *
+     * @return
+     */
+//    @PostMapping("/branch/list/nonsignin")
+//    @ApiOperation(value = "스웨거 테스트 Json")
+//    public JsonObject jsonReturn() {
+//        List<BranchDto> listResult = branchService.selectBranchInfoList();
+//        JsonObject returnJson = new JsonObject();
+//        returnJson.addProperty("address", listResult.get(2).getAddress());
+//        returnJson.addProperty("addressDetail", listResult.get(2).getAddressDetail());
+////            returnJson.addProperty("branchImange", listResult.get(2).getBranchImage());
+//        returnJson.addProperty("branchName", listResult.get(2).getBranchName());
+//        returnJson.addProperty("coordX", listResult.get(2).getCoordX());
+//        returnJson.addProperty("coordY", listResult.get(2).getCoordY());
+//
+//        return returnJson;
+//    }
 
     /**
      * return 타입을 map 으로 하였을 때
