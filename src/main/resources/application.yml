@@ -28,6 +28,14 @@ spring:
   naver:
     keyId: vx9h5vmrlv
     key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM
+  # 콘솔창 출력 시 색상 부여
+  output:
+    ansi:
+      enabled: always
+logging:
+  config: classpath:log4j2.yml
+
+
 ---
 spring:
   config:

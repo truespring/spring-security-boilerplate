@@ -1,0 +1,55 @@
+Configutation:
+  name: Default
+  status: warn
+
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+    property:
+      name: layoutPattern
+      value: "%style{%d{yyyy/MM/dd HH:mm:ss,SSS}}{cyan} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red, INFO=green, DEBUG=blue} [%C] %style{[%t]}{yellow}- %m%n"
+
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: ${layoutPattern}
+        # 콘솔 색상
+        disableAnsi: false
+    File:
+      name: File_Appender
+      fileName: ${log-path}/logfile.log
+      PatternLayout:
+        pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n"
+        disableAnsi: false
+    RollingFile:
+      - name: RollingFile_Appender
+        fileName: ${log-path}/rollingfile.log
+        filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        PatternLayout:
+          pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n"
+          disableAnsi: false
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 1 KB
+          TimeBasedTriggeringPolicy:
+            interval: 1
+        DefaultRollOverStrategy:
+          max: 30
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+        - ref: File_Appender
+        - ref: RollingFile_Appender
+    Logger:
+      - name: edu.project
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: Console_Appender
+          - ref: File_Appender
+          - ref: RollingFile_Appender

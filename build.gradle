@@ -19,7 +19,16 @@ apply plugin: 'org.springframework.boot'
 //Spring Boot Overriding
 ext['hibernate.version'] = '5.2.11.Final' //추가
 
+// 기존 로그 설정 제외
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
 dependencies {
+
+
     // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -43,6 +52,10 @@ dependencies {
     // lombok : getter/setter 간소화
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // 로그 설정
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.10.3'   // log4j2
 
     // JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
