@@ -63,7 +63,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
-                "/swagger-ui.html", "/webjars/**", "/swagger/**", "/swagger-ui.html#!/**");
+                "/swagger-ui.html", "/webjars/**", "/swagger/**", "/swagger-ui.html#!/**",
+                "/h2-console", "/h2-console/**");
     }
     // CORS 허용 적용
     @Bean

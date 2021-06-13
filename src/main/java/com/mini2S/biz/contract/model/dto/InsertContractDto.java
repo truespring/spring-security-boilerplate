@@ -7,12 +7,15 @@ import com.mini2S.common.user.model.entity.Users;
 import com.mini2S.common.util.time.TimeFormat;
 import com.mini2S.model.response.CommonResult;
 import com.mini2S.service.ResponseService;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class InsertContractDto {
     private Long userSeq;
     private Long branchSeq;

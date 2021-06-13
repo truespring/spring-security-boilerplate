@@ -19,16 +19,16 @@ import java.io.IOException;
 public class WebController {
 
     @GetMapping("/login")
-    public String login(InsertContractDto dto, Model model, HttpServletRequest request) throws IOException {
+    public String login(InsertContractDto dto, Model model, HttpServletRequest request){
 
         // 1. 다른 파일들
-        final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
-        Resource resource = defaultResourceLoader.getResource("classpath:static/image/오목교점_메인.png");
-        String path = resource.getFile().getAbsolutePath();
-        System.out.println(path);
-
-        String path1 = QrCode.createQRCodeImage("contract", "1", "qr코드1", "https://naver.com");
-        System.out.println(path1);
+//        final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
+//        Resource resource = defaultResourceLoader.getResource("classpath:static/image/오목교점_메인.png");
+//        String path = resource.getFile().getAbsolutePath();
+//        System.out.println(path);
+//
+//        String path1 = QrCode.createQRCodeImage("contract", "1", "qr코드1", "https://naver.com");
+//        System.out.println(path1);
         return "/login";
     }
 }
