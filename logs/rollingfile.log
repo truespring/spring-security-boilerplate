@@ -1,1 +1,7 @@
-2021-07-24 21:57:18.604 [INFO] [RMI TCP Connection(2)-192.168.0.13] DispatcherServlet - Completed initialization in 1 ms
+2021-07-24 22:08:01.870 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Roles cascade
+2021-07-24 22:08:01.881 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Unit cascade
+2021-07-24 22:08:01.890 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UnitProduct cascade
+2021-07-24 22:08:01.900 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UserRole cascade
+2021-07-24 22:08:01.915 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Users cascade
+2021-07-24 22:08:01.935 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-24 22:08:02.031 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.

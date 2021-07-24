@@ -3134,3 +3134,258 @@ java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.PgConnectio
 2021-07-24 21:57:18.601 [INFO] [RMI TCP Connection(2)-192.168.0.13] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-07-24 21:57:18.602 [INFO] [RMI TCP Connection(2)-192.168.0.13] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2021-07-24 21:57:18.604 [INFO] [RMI TCP Connection(2)-192.168.0.13] DispatcherServlet - Completed initialization in 1 ms
+2021-07-24 22:03:45.689 [INFO] [SpringContextShutdownHook] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-24 22:03:45.699 [INFO] [SpringContextShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-24 22:03:45.700 [INFO] [SpringContextShutdownHook] SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed drop of schema as part of SessionFactory shut-down'
+2021-07-24 22:03:45.702 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists branch_image drop constraint FK4u8sha96eiuuebq2ksloajpim
+2021-07-24 22:03:45.724 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FK6v8isrhumdsl33qyikw0l5et8
+2021-07-24 22:03:45.736 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FKpxyx5pql4b5texgqx93vpbrd
+2021-07-24 22:03:45.744 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FKiujxbs6myb0hlkeoocpnkpt6
+2021-07-24 22:03:45.752 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists PaymentInfo drop constraint FKai4ewnkesq6hviqtxgr08cexn
+2021-07-24 22:03:45.762 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists UserRole drop constraint FKiapq43kga97r6wm7hs83ff47h
+2021-07-24 22:03:45.770 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists UserRole drop constraint FKls59g1x6mtq1ua27rle8tc9dh
+2021-07-24 22:03:45.778 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists branch cascade
+2021-07-24 22:03:45.788 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists branch_image cascade
+2021-07-24 22:03:45.796 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Contract cascade
+2021-07-24 22:03:45.809 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Payment cascade
+2021-07-24 22:03:45.819 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists PaymentInfo cascade
+2021-07-24 22:03:45.828 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists RefreshToken cascade
+2021-07-24 22:03:45.835 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Roles cascade
+2021-07-24 22:03:45.846 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Unit cascade
+2021-07-24 22:03:45.855 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UnitProduct cascade
+2021-07-24 22:03:45.864 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UserRole cascade
+2021-07-24 22:03:45.872 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Users cascade
+2021-07-24 22:03:45.889 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-24 22:03:45.979 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-24 22:05:21.026 [INFO] [main] BoardApplication - Starting BoardApplication using Java 11.0.11 on seoggyuhwan-ui-MacBookAir.local with PID 72979 (/Users/seokgyuhwan/IdeaProjects/whole/build/classes/java/main started by seokgyuhwan in /Users/seokgyuhwan/IdeaProjects/whole)
+2021-07-24 22:05:21.042 [DEBUG] [main] BoardApplication - Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-07-24 22:05:21.043 [INFO] [main] BoardApplication - The following profiles are active: local
+2021-07-24 22:05:22.412 [INFO] [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-24 22:05:22.484 [INFO] [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2021-07-24 22:05:22.911 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration$$EnhancerBySpringCGLIB$$7bfd1e03] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:05:22.931 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebars.resolver-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:05:22.942 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebars-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:05:22.944 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration$$EnhancerBySpringCGLIB$$8ee448a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:05:22.993 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebarsViewResolver' of type [com.github.jknack.handlebars.springmvc.HandlebarsViewResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:05:23.166 [INFO] [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-07-24 22:05:23.174 [INFO] [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-24 22:05:23.175 [INFO] [main] StandardService - Starting service [Tomcat]
+2021-07-24 22:05:23.176 [INFO] [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-07-24 22:05:23.251 [INFO] [main] [/] - Initializing Spring embedded WebApplicationContext
+2021-07-24 22:05:23.252 [INFO] [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2145 ms
+2021-07-24 22:05:23.524 [INFO] [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-07-24 22:05:23.566 [INFO] [main] Version - HHH000412: Hibernate Core {5.2.11.Final}
+2021-07-24 22:05:23.569 [INFO] [main] Environment - HHH000206: hibernate.properties not found
+2021-07-24 22:05:23.591 [INFO] [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2021-07-24 22:05:23.673 [INFO] [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-07-24 22:05:23.682 [INFO] [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+2021-07-24 22:05:23.683 [INFO] [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@1e32037d
+2021-07-24 22:05:23.816 [WARN] [main] RootClass - HHH000038: Composite-id class does not override equals(): com.mini2S.model.entity.UserRole
+2021-07-24 22:05:23.816 [WARN] [main] RootClass - HHH000039: Composite-id class does not override hashCode(): com.mini2S.model.entity.UserRole
+2021-07-24 22:05:24.072 [INFO] [main] HikariDataSource - HikariPool-1 - Starting...
+2021-07-24 22:05:24.460 [INFO] [main] HikariDataSource - HikariPool-1 - Start completed.
+2021-07-24 22:05:24.933 [ERROR] [main] LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [branch]
+2021-07-24 22:05:24.935 [WARN] [main] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [branch]
+2021-07-24 22:05:24.935 [INFO] [main] HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-24 22:05:24.985 [INFO] [main] HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-24 22:05:24.990 [INFO] [main] StandardService - Stopping service [Tomcat]
+2021-07-24 22:05:25.020 [INFO] [main] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-24 22:05:25.032 [ERROR] [main] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [branch]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1153) ~[spring-context-5.3.4.jar:5.3.4]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-5.3.4.jar:5.3.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582) ~[spring-context-5.3.4.jar:5.3.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) [spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) [spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311) [spring-boot-2.4.3.jar:2.4.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.4.3.jar:2.4.3]
+	at com.mini2S.BoardApplication.main(BoardApplication.java:11) [main/:?]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [branch]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.4.jar:5.3.4]
+	... 17 more
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [branch]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:89) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:68) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:191) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:313) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:452) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:889) ~[hibernate-core-5.2.11.Final.jar:5.2.11.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.4.jar:5.3.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.4.jar:5.3.4]
+	... 17 more
+2021-07-24 22:06:29.572 [INFO] [main] BoardApplication - Starting BoardApplication using Java 11.0.11 on seoggyuhwan-ui-MacBookAir.local with PID 73048 (/Users/seokgyuhwan/IdeaProjects/whole/build/classes/java/main started by seokgyuhwan in /Users/seokgyuhwan/IdeaProjects/whole)
+2021-07-24 22:06:29.593 [DEBUG] [main] BoardApplication - Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-07-24 22:06:29.597 [INFO] [main] BoardApplication - The following profiles are active: local
+2021-07-24 22:06:30.974 [INFO] [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-24 22:06:31.052 [INFO] [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 6 JPA repository interfaces.
+2021-07-24 22:06:31.505 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration$$EnhancerBySpringCGLIB$$850147c3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:06:31.526 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebars.resolver-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:06:31.531 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebars-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:06:31.537 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration$$EnhancerBySpringCGLIB$$97e87261] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:06:31.587 [INFO] [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'handlebarsViewResolver' of type [com.github.jknack.handlebars.springmvc.HandlebarsViewResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-24 22:06:31.749 [INFO] [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-07-24 22:06:31.756 [INFO] [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-24 22:06:31.757 [INFO] [main] StandardService - Starting service [Tomcat]
+2021-07-24 22:06:31.758 [INFO] [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-07-24 22:06:31.845 [INFO] [main] [/] - Initializing Spring embedded WebApplicationContext
+2021-07-24 22:06:31.846 [INFO] [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2202 ms
+2021-07-24 22:06:32.084 [INFO] [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-07-24 22:06:32.127 [INFO] [main] Version - HHH000412: Hibernate Core {5.2.11.Final}
+2021-07-24 22:06:32.128 [INFO] [main] Environment - HHH000206: hibernate.properties not found
+2021-07-24 22:06:32.150 [INFO] [main] Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2021-07-24 22:06:32.252 [INFO] [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-07-24 22:06:32.264 [INFO] [main] LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+2021-07-24 22:06:32.265 [INFO] [main] BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5059d398
+2021-07-24 22:06:32.400 [WARN] [main] RootClass - HHH000038: Composite-id class does not override equals(): com.mini2S.model.entity.UserRole
+2021-07-24 22:06:32.400 [WARN] [main] RootClass - HHH000039: Composite-id class does not override hashCode(): com.mini2S.model.entity.UserRole
+2021-07-24 22:06:32.643 [DEBUG] [main] SQL - alter table if exists branch_image drop constraint FK4u8sha96eiuuebq2ksloajpim
+2021-07-24 22:06:32.645 [INFO] [main] HikariDataSource - HikariPool-1 - Starting...
+2021-07-24 22:06:33.018 [INFO] [main] HikariDataSource - HikariPool-1 - Start completed.
+2021-07-24 22:06:33.029 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.029 [WARN] [main] SqlExceptionHelper - relation "branch_image" does not exist, skipping
+2021-07-24 22:06:33.031 [DEBUG] [main] SQL - alter table if exists Contract drop constraint FK6v8isrhumdsl33qyikw0l5et8
+2021-07-24 22:06:33.045 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.046 [WARN] [main] SqlExceptionHelper - relation "contract" does not exist, skipping
+2021-07-24 22:06:33.047 [DEBUG] [main] SQL - alter table if exists Contract drop constraint FKpxyx5pql4b5texgqx93vpbrd
+2021-07-24 22:06:33.059 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.059 [WARN] [main] SqlExceptionHelper - relation "contract" does not exist, skipping
+2021-07-24 22:06:33.059 [DEBUG] [main] SQL - alter table if exists Contract drop constraint FKiujxbs6myb0hlkeoocpnkpt6
+2021-07-24 22:06:33.067 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.068 [WARN] [main] SqlExceptionHelper - relation "contract" does not exist, skipping
+2021-07-24 22:06:33.068 [DEBUG] [main] SQL - alter table if exists PaymentInfo drop constraint FKai4ewnkesq6hviqtxgr08cexn
+2021-07-24 22:06:33.079 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.080 [WARN] [main] SqlExceptionHelper - relation "paymentinfo" does not exist, skipping
+2021-07-24 22:06:33.080 [DEBUG] [main] SQL - alter table if exists UserRole drop constraint FKiapq43kga97r6wm7hs83ff47h
+2021-07-24 22:06:33.087 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.088 [WARN] [main] SqlExceptionHelper - relation "userrole" does not exist, skipping
+2021-07-24 22:06:33.089 [DEBUG] [main] SQL - alter table if exists UserRole drop constraint FKls59g1x6mtq1ua27rle8tc9dh
+2021-07-24 22:06:33.095 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.095 [WARN] [main] SqlExceptionHelper - relation "userrole" does not exist, skipping
+2021-07-24 22:06:33.095 [DEBUG] [main] SQL - drop table if exists branch cascade
+2021-07-24 22:06:33.101 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.102 [WARN] [main] SqlExceptionHelper - table "branch" does not exist, skipping
+2021-07-24 22:06:33.102 [DEBUG] [main] SQL - drop table if exists branch_image cascade
+2021-07-24 22:06:33.111 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.111 [WARN] [main] SqlExceptionHelper - table "branch_image" does not exist, skipping
+2021-07-24 22:06:33.111 [DEBUG] [main] SQL - drop table if exists Contract cascade
+2021-07-24 22:06:33.120 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.120 [WARN] [main] SqlExceptionHelper - table "contract" does not exist, skipping
+2021-07-24 22:06:33.120 [DEBUG] [main] SQL - drop table if exists Payment cascade
+2021-07-24 22:06:33.128 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.129 [WARN] [main] SqlExceptionHelper - table "payment" does not exist, skipping
+2021-07-24 22:06:33.130 [DEBUG] [main] SQL - drop table if exists PaymentInfo cascade
+2021-07-24 22:06:33.138 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.139 [WARN] [main] SqlExceptionHelper - table "paymentinfo" does not exist, skipping
+2021-07-24 22:06:33.139 [DEBUG] [main] SQL - drop table if exists RefreshToken cascade
+2021-07-24 22:06:33.147 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.148 [WARN] [main] SqlExceptionHelper - table "refreshtoken" does not exist, skipping
+2021-07-24 22:06:33.148 [DEBUG] [main] SQL - drop table if exists Roles cascade
+2021-07-24 22:06:33.155 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.155 [WARN] [main] SqlExceptionHelper - table "roles" does not exist, skipping
+2021-07-24 22:06:33.155 [DEBUG] [main] SQL - drop table if exists Unit cascade
+2021-07-24 22:06:33.161 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.162 [WARN] [main] SqlExceptionHelper - table "unit" does not exist, skipping
+2021-07-24 22:06:33.163 [DEBUG] [main] SQL - drop table if exists UnitProduct cascade
+2021-07-24 22:06:33.173 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.173 [WARN] [main] SqlExceptionHelper - table "unitproduct" does not exist, skipping
+2021-07-24 22:06:33.173 [DEBUG] [main] SQL - drop table if exists UserRole cascade
+2021-07-24 22:06:33.179 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.180 [WARN] [main] SqlExceptionHelper - table "userrole" does not exist, skipping
+2021-07-24 22:06:33.181 [DEBUG] [main] SQL - drop table if exists Users cascade
+2021-07-24 22:06:33.189 [WARN] [main] SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2021-07-24 22:06:33.190 [WARN] [main] SqlExceptionHelper - table "users" does not exist, skipping
+2021-07-24 22:06:33.221 [DEBUG] [main] SQL - create table branch (branch_seq  bigserial not null, address varchar(255), address_detail varchar(255), branch_name varchar(255), coord_x varchar(255), coord_y varchar(255), use_yn varchar(255), primary key (branch_seq))
+2021-07-24 22:06:33.237 [DEBUG] [main] SQL - create table branch_image (branchImageSeq  bigserial not null, branchImage varchar(255), branchImageSort int8, branch_seq int8, primary key (branchImageSeq))
+2021-07-24 22:06:33.251 [DEBUG] [main] SQL - create table Contract (contractSeq  bigserial not null, createdDate timestamp, modifiedDate timestamp, contract_dttm timestamp, contractQrImage varchar(255), contractStatus varchar(255), disposal_dttm timestamp, priceArrears int8, priceDeposit int8, priceDiscountGoods int8, priceDiscountUnit int8, priceEnd int8, priceEtc int8, priceGoods int8, priceTotal int8, priceUnit int8, usageDay varchar(255), usageMonth varchar(255), useEndDttm timestamp, useStartDttm timestamp, branch_seq int8 not null, unit_seq int8 not null, users_userSeq int8, primary key (contractSeq))
+2021-07-24 22:06:33.267 [DEBUG] [main] SQL - create table Payment (paymentSeq  bigserial not null, contractSeq int8, mId varchar(255), moId varchar(255), paymentAmount int8, paymentAttemptDttm timestamp, paymentCompleteDttm timestamp, paymentInfoSeq int8, paymentMethod varchar(255), paymentStatus varchar(255), paymentType varchar(255), resultCode varchar(255), resultMsg varchar(255), tid varchar(255), primary key (paymentSeq))
+2021-07-24 22:06:33.280 [DEBUG] [main] SQL - create table PaymentInfo (paymentInfoSeq  bigserial not null, billKey varchar(255), cardCode varchar(255), cardExpire int8, cardName varchar(255), cardNum varchar(255), cardPwd varchar(255), idNum varchar(255), mId varchar(255), paymentType varchar(255), resultLog varchar(255), status char(1), user_seq int8, primary key (paymentInfoSeq))
+2021-07-24 22:06:33.296 [DEBUG] [main] SQL - create table RefreshToken (userEmail varchar(255) not null, refreshToken varchar(255), primary key (userEmail))
+2021-07-24 22:06:33.316 [DEBUG] [main] SQL - create table Roles (roleSeq  bigserial not null, roleName varchar(255), primary key (roleSeq))
+2021-07-24 22:06:33.328 [DEBUG] [main] SQL - create table Unit (unitSeq  bigserial not null, branchSeq int8, browserButtonHeight varchar(255), browserButtonWidth varchar(255), browserCoordX varchar(255), browserCoordY varchar(255), unitName varchar(255), unitProductSeq int8, unitRealDepth varchar(255), unitRealHeight varchar(255), unitRealWidth varchar(255), unitStatus varchar(255), primary key (unitSeq))
+2021-07-24 22:06:33.346 [DEBUG] [main] SQL - create table UnitProduct (unitProductSeq  bigserial not null, unitProductPrice varchar(255), unitProductType varchar(255), primary key (unitProductSeq))
+2021-07-24 22:06:33.362 [DEBUG] [main] SQL - create table UserRole (USER_SEQ int8 not null, ROLE_SEQ int8, primary key (USER_SEQ))
+2021-07-24 22:06:33.373 [DEBUG] [main] SQL - create table Users (userSeq  bigserial not null, createdDate timestamp, modifiedDate timestamp, coordX varchar(255), coordY varchar(255), userAccountType varchar(255), userAddress varchar(255), userDetailAddress varchar(255), userEmail varchar(255), userName varchar(255), userPhoneNumber varchar(255), userPw varchar(255), primary key (userSeq))
+2021-07-24 22:06:33.386 [DEBUG] [main] SQL - alter table if exists branch_image add constraint FK4u8sha96eiuuebq2ksloajpim foreign key (branch_seq) references branch
+2021-07-24 22:06:33.395 [DEBUG] [main] SQL - alter table if exists Contract add constraint FK6v8isrhumdsl33qyikw0l5et8 foreign key (branch_seq) references branch
+2021-07-24 22:06:33.405 [DEBUG] [main] SQL - alter table if exists Contract add constraint FKpxyx5pql4b5texgqx93vpbrd foreign key (unit_seq) references Unit
+2021-07-24 22:06:33.414 [DEBUG] [main] SQL - alter table if exists Contract add constraint FKiujxbs6myb0hlkeoocpnkpt6 foreign key (users_userSeq) references Users
+2021-07-24 22:06:33.421 [DEBUG] [main] SQL - alter table if exists PaymentInfo add constraint FKai4ewnkesq6hviqtxgr08cexn foreign key (user_seq) references Users
+2021-07-24 22:06:33.432 [DEBUG] [main] SQL - alter table if exists UserRole add constraint FKiapq43kga97r6wm7hs83ff47h foreign key (USER_SEQ) references Users
+2021-07-24 22:06:33.441 [DEBUG] [main] SQL - alter table if exists UserRole add constraint FKls59g1x6mtq1ua27rle8tc9dh foreign key (ROLE_SEQ) references Roles
+2021-07-24 22:06:33.452 [INFO] [main] SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3f22ce2a'
+2021-07-24 22:06:33.458 [INFO] [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-24 22:06:33.999 [INFO] [main] QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2021-07-24 22:06:34.222 [INFO] [main] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: static java.lang.String com.mini2S.common.NaverApiInfo.keyId
+2021-07-24 22:06:34.222 [INFO] [main] AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: static java.lang.String com.mini2S.common.NaverApiInfo.key
+2021-07-24 22:06:34.727 [INFO] [main] EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-07-24 22:06:34.796 [INFO] [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-24 22:06:34.867 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/v2/api-docs'] with []
+2021-07-24 22:06:34.868 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/swagger-resources/**'] with []
+2021-07-24 22:06:34.868 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/swagger-ui.html'] with []
+2021-07-24 22:06:34.869 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/webjars/**'] with []
+2021-07-24 22:06:34.869 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/swagger/**'] with []
+2021-07-24 22:06:34.870 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/swagger-ui.html#!/**'] with []
+2021-07-24 22:06:34.870 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/h2-console'] with []
+2021-07-24 22:06:34.870 [INFO] [main] DefaultSecurityFilterChain - Will secure Ant [pattern='/h2-console/**'] with []
+2021-07-24 22:06:34.888 [INFO] [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@154fcedd, org.springframework.security.web.context.SecurityContextPersistenceFilter@674b9b85, org.springframework.security.web.header.HeaderWriterFilter@caee26e, org.springframework.web.filter.CorsFilter@34a06981, org.springframework.security.web.authentication.logout.LogoutFilter@5fdebe73, com.mini2S.configuration.security.JwtAuthenticationFilter@458500d1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@35129b9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d160056, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7510824, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59cbeaee, org.springframework.security.web.session.SessionManagementFilter@7df994ec, org.springframework.security.web.access.ExceptionTranslationFilter@10ecf244, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7712c315]
+2021-07-24 22:06:34.985 [INFO] [main] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-24 22:06:35.252 [INFO] [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-07-24 22:06:35.277 [INFO] [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-24 22:06:35.278 [INFO] [main] DocumentationPluginsBootstrapper - Context refreshed
+2021-07-24 22:06:35.287 [INFO] [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-24 22:06:35.304 [INFO] [main] ApiListingReferenceScanner - Scanning for api listing references
+2021-07-24 22:06:35.515 [INFO] [main] BoardApplication - Started BoardApplication in 6.35 seconds (JVM running for 12.783)
+2021-07-24 22:06:36.075 [INFO] [RMI TCP Connection(4)-192.168.0.13] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-24 22:06:36.077 [INFO] [RMI TCP Connection(4)-192.168.0.13] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-24 22:06:36.078 [INFO] [RMI TCP Connection(4)-192.168.0.13] DispatcherServlet - Completed initialization in 1 ms
+2021-07-24 22:08:01.714 [INFO] [SpringContextShutdownHook] ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-24 22:08:01.727 [INFO] [SpringContextShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-24 22:08:01.729 [INFO] [SpringContextShutdownHook] SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed drop of schema as part of SessionFactory shut-down'
+2021-07-24 22:08:01.731 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists branch_image drop constraint FK4u8sha96eiuuebq2ksloajpim
+2021-07-24 22:08:01.764 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FK6v8isrhumdsl33qyikw0l5et8
+2021-07-24 22:08:01.772 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FKpxyx5pql4b5texgqx93vpbrd
+2021-07-24 22:08:01.781 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists Contract drop constraint FKiujxbs6myb0hlkeoocpnkpt6
+2021-07-24 22:08:01.788 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists PaymentInfo drop constraint FKai4ewnkesq6hviqtxgr08cexn
+2021-07-24 22:08:01.797 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists UserRole drop constraint FKiapq43kga97r6wm7hs83ff47h
+2021-07-24 22:08:01.806 [DEBUG] [SpringContextShutdownHook] SQL - alter table if exists UserRole drop constraint FKls59g1x6mtq1ua27rle8tc9dh
+2021-07-24 22:08:01.814 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists branch cascade
+2021-07-24 22:08:01.824 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists branch_image cascade
+2021-07-24 22:08:01.832 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Contract cascade
+2021-07-24 22:08:01.842 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Payment cascade
+2021-07-24 22:08:01.851 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists PaymentInfo cascade
+2021-07-24 22:08:01.861 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists RefreshToken cascade
+2021-07-24 22:08:01.870 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Roles cascade
+2021-07-24 22:08:01.881 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Unit cascade
+2021-07-24 22:08:01.890 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UnitProduct cascade
+2021-07-24 22:08:01.900 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists UserRole cascade
+2021-07-24 22:08:01.915 [DEBUG] [SpringContextShutdownHook] SQL - drop table if exists Users cascade
+2021-07-24 22:08:01.935 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-24 22:08:02.031 [INFO] [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
