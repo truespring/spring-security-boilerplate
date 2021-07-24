@@ -1,30 +1,36 @@
-# http://localhost:8080/h2-console
 spring:
   config:
     activate:
       on-profile: local
-  h2:
-    console:
-      enabled: true
   datasource:
-      url: jdbc:h2:mem:testdb
-      driver-class-name: org.h2.Driver
-      username: sa
-      password:
-#      data : classpath:data-h2.sql
-  jpa :
-    database-platform : org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: create-drop
-    properties.hibernate :
-      # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
-      hbm2ddl.auto : update
-      # 보여지는 SQL을 예쁘게 보여줌
-      format_sql : true
-    showSql : true
-    generate-ddl : true
-    # WARN 23008 에러 제거
+    url: jdbc:postgresql://3.37.244.96:5432/kotlindb
+    username: master_user_01
+    password: master
+    driverClassName: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: true
     open-in-view: false
+    hibernate:
+      # 운영 시
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #실행 시 warning 제거
+    properties:
+      hibernate:
+        # 최신 pgJDBC Drivre 사용하기 위한 설정
+        temp:
+          use_jdbc_metadata_defaults: false
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual: true
   naver:
     keyId: vx9h5vmrlv
     key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM
