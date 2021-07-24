@@ -42,43 +42,31 @@ card : 카드결제
 */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PAYMENT_INFO_SEQ")
     private Long paymentInfoSeq;
 
     @ManyToOne
-    @JoinColumn(name = "USER_SEQ")
+    @JoinColumn(name = "user_seq")
     private Users users;
 
-    @Column(columnDefinition = "varchar(100) comment '결제타입'")
     private String paymentType;
 
-    @Column(columnDefinition = "varchar(100) comment '가맹점 ID'")
     private String mId;
 
-    @Column(columnDefinition = "varchar(100) comment '빌키'")
     private String billKey;
 
-    @Column(columnDefinition = "varchar(16) comment '카드번호'")
     private String cardNum;
 
-    @Column(columnDefinition = "bigint(4) comment '카드유효기간'")
     private Long cardExpire;
 
-    @Column(columnDefinition = "varchar(2) comment '카드비밀번호(앞2자리)'")
     private String cardPwd;
 
-    @Column(columnDefinition = "varchar(10) comment '고유값'")
     private String idNum;
 
-    @Column(columnDefinition = "char(1) comment '상태'")
     private Character status;
 
-    @Column(columnDefinition = "varchar(100) comment '카드사코드'")
     private String cardCode;
 
-    @Column(columnDefinition = "varchar(100) comment '카드사명'")
     private String cardName;
 
-    @Column(columnDefinition = "varchar(400) comment '결과로그'")
     private String resultLog;
 }

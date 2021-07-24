@@ -36,45 +36,31 @@ public class Payment {
     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PAYMENT_SEQ")
     private Long paymentSeq;
 
-    @Column(columnDefinition = "bigint comment '결제정보'")
     private Long paymentInfoSeq;
 
-    @Column(columnDefinition = "bigint comment '계약번호 외래키'")
     private Long contractSeq;
 
-    @Column(columnDefinition = "varchar(100) comment '결제타입'")
     private String paymentType;
 
-    @Column(columnDefinition = "varchar(100) comment '가맹점에서 생성한 주문번호'")
     private String moId;
 
-    @Column(columnDefinition = "varchar(20) comment '결제상태'")
     private String paymentStatus;
 
-    @Column(columnDefinition = "bigint comment '결제금액'")
     private Long paymentAmount;
 
-    @Column(columnDefinition = "varchar(100) comment 'TID'")
     private String tid;
 
-    @Column(columnDefinition = "varchar(100) comment '결제수단'")
     private String paymentMethod;
 
-    @Column(columnDefinition = "varchar(100) comment '결과코드'")
     private String resultCode;
 
-    @Column(columnDefinition = "varchar(100) comment '결과메세지'")
     private String resultMsg;
 
-    @Column(columnDefinition = "varchar(100) comment '상점'")
     private String mId;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제시도일시'")
     private LocalDateTime paymentAttemptDttm;
 
-    @Column(columnDefinition = "TIMESTAMP default '0000-00-00 00:00:00' comment '결제완료일시'")
     private LocalDateTime paymentCompleteDttm;
 }

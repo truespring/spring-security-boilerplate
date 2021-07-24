@@ -17,12 +17,8 @@ public class RefreshToken implements Serializable {
 //    private Long tokenSeq;
 
     @Id
-    @Column(name = "USER_EMAIL",
-            columnDefinition = "varchar(50) not null comment '리프레시 토큰'")
     private String userEmail;
     
-    @Column(name = "REFRESH_TOKEN",
-            columnDefinition = "varchar(500) not null comment '리프레시 토큰'")
     private String refreshToken;
 
 }

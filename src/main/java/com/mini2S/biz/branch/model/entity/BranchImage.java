@@ -13,16 +13,13 @@ import javax.persistence.*;
 public class BranchImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BRANCH_IMAGE_SEQ")
     private Long branchImageSeq;
 
     @ManyToOne
-    @JoinColumn(name = "BRANCH_SEQ")
+    @JoinColumn(name = "branch_seq")
     private Branch branch;
 
-    @Column(columnDefinition = "varchar(400) comment '지점 사진'")
     private String branchImage;
 
-    @Column(columnDefinition = "bigint comment '지점 사진 순서'")
     private Long branchImageSort;
 }

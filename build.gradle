@@ -71,6 +71,7 @@ dependencies {
     // Database
     runtime('com.h2database:h2')
     compile 'mysql:mysql-connector-java'
+    runtimeOnly("org.postgresql:postgresql")
 
     // aws 서버 compile 에러 관련
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
