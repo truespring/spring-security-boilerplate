@@ -1,15 +1,10 @@
 # Whole
 
-> AWS EC2를 활용함으로써 Swagger로 Front-End와 협업
-
-> Whole Storage
-
-> 레퍼지토리 정리 거의 완료
-
-> 아키텍처 설계 및 코어, api설계 필요
-
-> 금주 프론트 회원가입 설계 및 API 연동 예정
-
-> 금주 Contract 마무리
-
--- test
+## 목적
+1. 백엔드 웹 기술 사용하고 익히기
+    - 외부 api 연동
+    - 통신
+    
+2. 프레임워크 파고들기
+    - spring boot에 대해 더 이해하기
+    
