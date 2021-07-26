@@ -5,7 +5,7 @@ Configutation:
   Properties:
     Property:
       name: log-path
-      value: "logs"
+      value: "../logs"
     property:
       name: layoutPattern
       value: "%style{%d{yyyy/MM/dd HH:mm:ss,SSS}}{cyan} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red, INFO=green, DEBUG=blue} [%C] %style{[%t]}{yellow}- %m%n"

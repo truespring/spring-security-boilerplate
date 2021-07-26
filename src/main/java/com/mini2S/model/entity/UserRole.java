@@ -11,14 +11,15 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
+@Table (name = "user_role")
 public class UserRole implements Serializable {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "USER_SEQ")
+    @JoinColumn(name = "user_seq")
     private Users users;
 
     @ManyToOne
-    @JoinColumn(name = "ROLE_SEQ")
+    @JoinColumn(name = "role_seq")
     private Roles roles;
 }

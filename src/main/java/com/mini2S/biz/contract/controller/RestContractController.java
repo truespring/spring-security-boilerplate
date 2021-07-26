@@ -14,6 +14,8 @@ import io.swagger.annotations.ApiOperation;
 import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -63,13 +65,13 @@ public class RestContractController {
     })
     @GetMapping("/contract/select")
     @ApiOperation(value = "유저가 계약한 계약서 리스트 출력")
-    public CommonResult selectContractList() throws NotFoundException {
+    public ResponseEntity<CommonResult> selectContractList() throws NotFoundException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         List<SelectContractDto> selectList = contractService.selectContractList(authentication.getName())
                                             .stream()
                                             .map(SelectContractDto::of)
                                             .collect(Collectors.toList());
-        return responseService.getListResult(selectList);
+        return new ResponseEntity<>(responseService.getListResult(selectList), HttpStatus.OK);
     }
 
     /*

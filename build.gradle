@@ -1,15 +1,17 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.3'
+    id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
 group = 'com.mini2s'
-version = '0.0.2'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
 }
 
 apply plugin: 'java'
@@ -69,9 +71,9 @@ dependencies {
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
     // Database
-    runtime('com.h2database:h2')
-    compile 'mysql:mysql-connector-java'
-    runtimeOnly("org.postgresql:postgresql")
+//    runtime('com.h2database:h2')
+//    compile 'mysql:mysql-connector-java'
+    runtimeOnly "org.postgresql:postgresql"
 
     // aws 서버 compile 에러 관련
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
@@ -101,6 +103,9 @@ dependencies {
 
     // JDK 호환 불가 보조
     implementation group: 'org.javassist', name: 'javassist', version: '3.27.0-GA'
+
+    // google api
+    compile 'com.google.api-client:google-api-client:1.31.5'
 
 }
 

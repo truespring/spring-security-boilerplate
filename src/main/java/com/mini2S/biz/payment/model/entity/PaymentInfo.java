@@ -48,25 +48,36 @@ card : 카드결제
     @JoinColumn(name = "user_seq")
     private Users users;
 
+    @Column(name = "payment_type")
     private String paymentType;
 
+    @Column(name = "m_id")
     private String mId;
 
+    @Column(name = "bill_key")
     private String billKey;
 
+    @Column(name = "card_num")
     private String cardNum;
 
+    @Column(name = "card_expire")
     private Long cardExpire;
 
+    @Column(name = "card_pwd")
     private String cardPwd;
 
+    @Column(name = "id_num")
     private String idNum;
 
+    @Column(name = "status")
     private Character status;
 
+    @Column(name = "card_code")
     private String cardCode;
 
+    @Column(name = "card_name")
     private String cardName;
 
+    @Column(name = "result_log")
     private String resultLog;
 }

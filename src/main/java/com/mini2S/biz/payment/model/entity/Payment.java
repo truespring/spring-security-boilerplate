@@ -36,31 +36,45 @@ public class Payment {
     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_seq")
     private Long paymentSeq;
 
+    @Column(name = "payment_info_seq")
     private Long paymentInfoSeq;
 
+    @Column(name = "contract_seq")
     private Long contractSeq;
 
+    @Column(name = "payment_type")
     private String paymentType;
 
+    @Column(name = "mo_id")
     private String moId;
 
+    @Column(name = "payment_status")
     private String paymentStatus;
 
+    @Column(name = "payment_amount")
     private Long paymentAmount;
 
+    @Column(name = "t_id")
     private String tid;
 
+    @Column(name = "payment_method")
     private String paymentMethod;
 
+    @Column(name = "result_code")
     private String resultCode;
 
+    @Column(name = "result_msg")
     private String resultMsg;
 
+    @Column(name = "m_id")
     private String mId;
 
+    @Column(name = "payment_attempt_dttm")
     private LocalDateTime paymentAttemptDttm;
 
+    @Column(name = "payment_complete_dttm")
     private LocalDateTime paymentCompleteDttm;
 }
