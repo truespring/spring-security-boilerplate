@@ -33,32 +33,3 @@ spring:
     key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM
 logging:
   config: classpath:log4j2.yml
-
-
----
-#spring:
-#  config:
-#    activate:
-#      on-profile: prod
-#
-#  datasource:
-#    url: jdbc:mysql://ec2-3-36-178-40.ap-northeast-2.compute.amazonaws.com:33095/mini2S?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    username: david
-#    password: dalock2dev
-#
-#  jpa :
-#    database-platform : org.hibernate.dialect.MySQL5InnoDBDialect
-#    properties.hibernate :
-#      # Schema 자동 업데이트, Entity와 비교해서, 길이 변경은 제외
-#      hbm2ddl.auto : update
-#      # 보여지는 SQL을 예쁘게 보여줌
-#      format_sql : true
-#    showSql : true
-#    generate-ddl : true
-#    # WARN 23008 에러 제거
-#    open-in-view: false
-#
-#  naver:
-#    keyId: vx9h5vmrlv
-#    key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM

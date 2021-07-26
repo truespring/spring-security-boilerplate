@@ -1,0 +1,35 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/kotlindb
+    username: master_user_01
+    password: master
+    #Connection Pool
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      # 운영 시
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #실행 시 warning 제거
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual: true
+  naver:
+    keyId: vx9h5vmrlv
+    key: i98LkMbKgEUC5oQ8TFaVVqA5b7ua9374shnlFtFM
+logging:
+  config: classpath:log4j2.yml
