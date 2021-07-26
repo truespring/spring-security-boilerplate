@@ -14,10 +14,13 @@ public class UnitProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "unit_product_seq")
     private Long unitProductSeq;
 
+    @Column(name = "unit_product_type")
     private String unitProductType;
 
+    @Column(name = "unit_product_price")
     private String unitProductPrice;
 
 }

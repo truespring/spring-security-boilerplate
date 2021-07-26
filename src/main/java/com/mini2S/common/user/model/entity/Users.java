@@ -19,24 +19,34 @@ public class Users extends BaseTimeEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_seq")
     private Long userSeq;
 
+    @Column(name = "user_email")
     private String userEmail;
 
+    @Column(name = "user_pw")
     private String userPw;
 
+    @Column(name = "user_account_type")
     private String userAccountType;
 
+    @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "user_phone_number")
     private String userPhoneNumber;
 
+    @Column(name = "uesr_address")
     private String userAddress;
 
+    @Column(name = "user_detail_address")
     private String userDetailAddress;
 
+    @Column(name = "coord_x")
     private String coordX;
 
+    @Column(name = "coord_y")
     private String coordY;
 
     @Override

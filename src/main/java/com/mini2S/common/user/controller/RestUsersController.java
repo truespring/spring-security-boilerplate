@@ -11,6 +11,7 @@ import com.mini2S.service.ResponseService;
 import com.mini2S.common.user.service.UsersServiceImpl;
 import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,8 +43,8 @@ public class RestUsersController {
             required = true,
             paramType = "body",
             dataType = "UsersSigninDto")
-    public SingleResult<TokenDto> signin(@RequestBody UsersSigninDto usersSigninDto) {
-        return responseService.getSingleResult(usersServiceImpl.signIn(usersSigninDto));
+    public ResponseEntity<TokenDto> signin(@RequestBody UsersSigninDto usersSigninDto) {
+        return new ResponseEntity<>(usersServiceImpl.signIn(usersSigninDto), HttpStatus.OK);
     }
 
     /**
@@ -68,8 +69,8 @@ public class RestUsersController {
             required = true,
             paramType = "body",
             dataType = "UsersSignupDto")
-    public SingleResult<Users> signup(@RequestBody UsersSignupDto usersSignupDto) {
-        return responseService.getSingleResult(usersServiceImpl.signUpUser(usersSignupDto));
+    public ResponseEntity<Users> signup(@RequestBody UsersSignupDto usersSignupDto) {
+        return new ResponseEntity<>(usersServiceImpl.signUpUser(usersSignupDto), HttpStatus.OK);
     }
 
     /**
